@@ -1,0 +1,70 @@
+@import "variables";
+@import "mixins";
+@import "fonts.scss";
+
+h1 {
+  font-family: Wix Madefor Display;
+  font-size: 160px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 200px;
+  letter-spacing: -4px;
+  text-transform: uppercase;
+  color: $colorRed;
+}
+
+header {
+  position: sticky;
+  @include flex-row();
+  justify-content: space-between;
+  font-family: Inter, serif;
+  padding: 24px;
+
+  ul {
+    display: flex;
+    gap: 64px;
+    li {
+      font-size: 20px;
+
+
+      a {
+        color: $colorBlack;
+      }
+    }
+  }
+
+  .header-links {
+    @include flex-row();
+    gap: 120.5px;
+  }
+
+  .links {
+    @include flex-row();
+    gap: 38px;
+    font-size: 16px;
+
+    a {
+      color: $colorRed;
+    }
+  }
+
+}
+
+.offers {
+  padding: 24px 24px 24px 24px;
+
+ &__title {
+   background:url('../images/Background-text.svg');
+   background-repeat:repeat-x;
+   background-position:0 0;
+   color:transparent;
+   -webkit-font-smoothing:antialiased;
+   -webkit-background-clip:text;
+   -moz-background-clip:text;
+   background-clip:text;
+   -webkit-text-fill-color:transparent;
+   margin:0;
+ }
+}
+
+
