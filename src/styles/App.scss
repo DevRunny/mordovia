@@ -6,25 +6,55 @@ h1 {
   font-family: Wix Madefor Display;
   font-size: 160px;
   font-style: normal;
-  font-weight: bold;
-  line-height: 200px;
+  font-weight: 800;
+  line-height: 200px; /* 125% */
   letter-spacing: -4px;
   text-transform: uppercase;
   color: $colorRed;
 }
+h2 {
+  font-family: Inter, serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  color: #2B2B2B;
+}
+
+h3 {
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  text-transform: uppercase;
+  color: #0E0E0E;
+}
+
+p {
+  font-family: Inter, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
 
 header {
+  position: -webkit-sticky;
   position: sticky;
+  top: 0;
   @include flex-row();
   justify-content: space-between;
   font-family: Inter, serif;
   padding: 24px;
+  z-index: 2;
 
   ul {
     display: flex;
     gap: 64px;
     li {
       font-size: 20px;
+      font-weight: 500;
 
 
       a {
@@ -51,20 +81,58 @@ header {
 }
 
 .offers {
-  padding: 24px 24px 24px 24px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 120px;
+  @include flex-row;
+  gap: 49px;
+  padding: 0 24px 0 24px;
+  margin-bottom: 24px;
+  z-index: 2;
 
  &__title {
-   background:url('../images/Background-text.svg');
-   background-repeat:repeat-x;
-   background-position:0 0;
-   color:transparent;
+   background:url('../images/Background-text.png');
+   background-repeat:no-repeat;
+   background-size: 1214px;
+   background-position: -32px 3px;
+   color:#ff000066;
    -webkit-font-smoothing:antialiased;
    -webkit-background-clip:text;
    -moz-background-clip:text;
    background-clip:text;
-   -webkit-text-fill-color:transparent;
+   -webkit-text-fill-color:#ff000066;
    margin:0;
  }
 }
 
+.introducing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-top: 40px;
 
+
+  &__card {
+    position: relative;
+    flex: 33%;
+
+    img {
+      width: 100%;
+    }
+
+  }
+
+  &__description {
+    position: absolute;
+    bottom: 0;
+    padding: 24px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    color: $colorBlack;
+
+
+    p {
+      word-wrap: normal;
+    }
+  }
+}
