@@ -3,7 +3,7 @@ import card1 from "../images/cards/card1.png";
 import card2 from "../images/cards/card2.png";
 import card3 from "../images/cards/card3.png";
 
-export const Cards = () => {
+export const KeyEventsSection = () => {
   return (
     <div className={"introducing-cards"}>
       <div className={"introducing-cards__card"}>

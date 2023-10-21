@@ -1,14 +1,18 @@
 import './styles/App.scss';
 import { NavBar } from "./components/NavBar";
-import { Offers } from "./components/Offers";
-import { Cards } from "./components/Cards";
+import { OffersSection } from "./components/OffersSection";
+import { OfferCards } from "./components/OfferCards";
+import { KeyEventsSection } from "./components/KeyEventsSection";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <>
       <NavBar/>
-      <Offers />
-      <Cards />
+      {/*<OffersSection />*/}
+      <OfferCards />
+      <KeyEventsSection />
+      <Footer />
     </>
 
   );

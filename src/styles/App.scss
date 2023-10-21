@@ -2,6 +2,10 @@
 @import "mixins";
 @import "fonts.scss";
 
+html {
+  font-family: Inter, serif;
+}
+
 h1 {
   font-family: Wix Madefor Display;
   font-size: 160px;
@@ -20,7 +24,6 @@ h2 {
   line-height: 44px;
   color: #2B2B2B;
 }
-
 h3 {
   font-family: Inter, serif;
   font-size: 20px;
@@ -30,7 +33,6 @@ h3 {
   text-transform: uppercase;
   color: #0E0E0E;
 }
-
 p {
   font-family: Inter, serif;
   font-size: 18px;
@@ -40,12 +42,14 @@ p {
 }
 
 header {
-  position: -webkit-sticky;
-  position: sticky;
+  @include sticky-block;
   top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(30px);
   @include flex-row();
   justify-content: space-between;
-  font-family: Inter, serif;
   padding: 24px;
   z-index: 2;
 
@@ -55,7 +59,6 @@ header {
     li {
       font-size: 20px;
       font-weight: 500;
-
 
       a {
         color: $colorBlack;
@@ -83,9 +86,9 @@ header {
 .offers {
   position: -webkit-sticky;
   position: sticky;
+  @include flex-row();
+  gap: 39px;
   top: 120px;
-  @include flex-row;
-  gap: 49px;
   padding: 0 24px 0 24px;
   margin-bottom: 24px;
   z-index: 2;
@@ -105,6 +108,14 @@ header {
  }
 }
 
+.introducing-title {
+  @include sticky-block();
+  top: 120px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 520px;
+}
+
 .introducing-cards {
   display: flex;
   flex-wrap: wrap;
@@ -120,19 +131,85 @@ header {
       width: 100%;
     }
 
+
+    &:hover {
+      p {
+        display: block;
+      }
+    }
+
   }
+
 
   &__description {
     position: absolute;
     bottom: 0;
     padding: 24px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(15px);
     color: $colorBlack;
 
-
     p {
-      word-wrap: normal;
+      display: none;
+    }
+  }
+}
+
+
+footer {
+  @include flex-column;
+  @include sticky-block;
+  top: 120px;
+  gap: 60px;
+}
+
+.gift-shop {
+  img {
+    width: 100%;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 80px 93px 180px 17px;
+  background-color: $backgroundColorLightGrey;
+
+  &__logos {
+    @include flex-column;
+    gap: 29px;
+
+  }
+
+
+  &__sponsors {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    padding-left: 179px;
+
+    :last-child {
+      width: 221px;
+      height: 33px;
+    }
+  }
+
+  &__navigation {
+    ul {
+      @include flex-column;
+      padding-top: 30px;
+      gap: 30px;
+
+      li {
+        font-size: 20px;
+        font-weight: 400;
+
+        a {
+          color: $colorBlack;
+        }
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Offers = () => {
+export const OffersSection = () => {
   return (
     <div className={"offers"}>
       <h1 className={"offers__title"}>Вас ждут</h1>
