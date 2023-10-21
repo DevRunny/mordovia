@@ -33,6 +33,30 @@ export const Footer = () => {
         </div>
         <div className={"social-network"}>
           <h2>Соц. сети</h2>
+            <div>
+              <span>Республика Мордовия</span>
+              <div>
+                <a href={'/'}>VK</a>
+                <a href={'/'}>TG</a>
+                <a href={'/'}>RUTUBE</a>
+                <a href={'/'}>OK</a>
+                <a href={'/'}>ДЗЕН</a>
+              </div>
+            </div>
+            <div>
+              <span>Экспозиция Республики Мордовия</span>
+              <div>
+                <a href={'/'}>VK</a>
+                <a href={'/'}>TG</a>
+              </div>
+            </div>
+            <div>
+              <span>Инвестиционный портал Республики Мордовия</span>
+              <div>
+                <a href={'/'}>VK</a>
+                <a href={'/'}>TG</a>
+              </div>
+            </div>
         </div>
       </div>
 

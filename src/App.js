@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      {/*<OffersSection />*/}
+      <OffersSection />
       <OfferCards />
       <KeyEventsSection />
       <Footer />
