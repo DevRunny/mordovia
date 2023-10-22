@@ -5,6 +5,9 @@ export const CardComponent = ({ card, h3Text, pText, cardHover }) => {
   const [isHovered, setHovered] = useState(false)
   return (
     <motion.div
+      whileHover={{
+        cursor: "pointer",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={"introducing-cards__card"}>

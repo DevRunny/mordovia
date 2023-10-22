@@ -8,12 +8,16 @@ const HowToGetThereSection = () => {
     <div id={"#how-to-get-there"}>
       <Titles h1={"Как добраться"} h2={""}/>
       <div className={"how-to-get-there"}>
-        <a href={'/'}>
-          <img src={pavilion} alt={'pavilion'} />
-        </a>
-        <a href={'/'}>
-          <img src={exposition} alt={'exposition'} />
-        </a>
+        <div className={"how-to-get-there__link"}>
+          <a href={'/'}>
+            <img src={pavilion} alt={'pavilion'} />
+          </a>
+        </div>
+        <div className={"how-to-get-there__link"}>
+          <a href={'/'}>
+            <img src={exposition} alt={'exposition'} />
+          </a>
+        </div>
       </div>
     </div>
   );

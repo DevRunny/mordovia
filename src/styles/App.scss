@@ -199,6 +199,10 @@ header {
 .how-to-get-there {
   @include flex-row;
 
+  &__link {
+    flex: 50%
+  }
+
   img {
     width: 100%;
   }

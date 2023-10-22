@@ -12,6 +12,7 @@ const CalendarCardComponent = () => {
     <motion.div
       whileHover={{
         backgroundImage: `url(${backgroundImage})`,
+        cursor: "pointer",
         transition: {duration: duration}
       }}
       onMouseEnter={() => setHovered(true)}
