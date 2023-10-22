@@ -5,7 +5,7 @@ import card3 from "../images/cards/card3.png";
 
 export const KeyEventsSection = () => {
   return (
-    <div id={"test"} className={"introducing-cards"}>
+    <div className={"introducing-cards"}>
       <div className={"introducing-cards__card"}>
         <img src={card1} alt={"card1"} />
         <div className={"introducing-cards__description"} >

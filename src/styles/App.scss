@@ -131,11 +131,11 @@ header {
     }
 
 
-    &:hover {
-      p {
-        display: block;
-      }
-    }
+    //&:hover {
+    //  p {
+    //    display: block;
+    //  }
+    //}
 
   }
 
@@ -149,9 +149,9 @@ header {
     backdrop-filter: blur(15px);
     color: $colorBlack;
 
-    p {
-      display: none;
-    }
+    //p {
+    //  display: none;
+    //}
   }
 }
 
