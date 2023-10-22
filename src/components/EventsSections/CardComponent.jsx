@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const IntroducingCard = ({ card, h3Text, pText }) => {
+export const CardComponent = ({ card, h3Text, pText, cardHover }) => {
   const [isHovered, setHovered] = useState(false)
   return (
     <motion.div
@@ -29,4 +29,4 @@ const IntroducingCard = ({ card, h3Text, pText }) => {
   );
 }
 
-export default IntroducingCard
+export default CardComponent

@@ -1,17 +1,23 @@
 import './styles/App.scss';
-import { NavBar } from "./components/NavBar";
-import { OffersSection } from "./components/OffersSection";
-import { OfferCards } from "./components/OfferCards";
-import { KeyEventsSection } from "./components/KeyEventsSection";
-import { Footer } from "./components/Footer";
+import { NavBar } from "./components/NavBar/NavBar";
+import { AboutPeopleOfMordoviaSection } from "./components/EventsSections/AboutPeopleOfMordoviaSection";
+import { KeyEventsSection } from "./components/EventsSections/KeyEventsSection";
+import { Footer } from "./components/Footer/Footer";
+import FAQ from "./components/FAQ/FAQ";
+import HowToGetThereSection from "./components/HowToGetThereSection/HowToGetThereSection";
+import InteractiveZonesSection from "./components/EventsSections/InteractiveZonesSection";
+import CalendarSection from "./components/CalendarSection/CalendarSection";
 
 function App() {
   return (
     <>
       <NavBar/>
-      <OffersSection />
-      <OfferCards />
+      <AboutPeopleOfMordoviaSection />
       <KeyEventsSection />
+      <CalendarSection />
+      <InteractiveZonesSection />
+      <HowToGetThereSection />
+      <FAQ />
       <Footer />
     </>
 

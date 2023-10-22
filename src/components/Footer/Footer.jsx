@@ -1,8 +1,9 @@
 import * as React from "react";
-import giftShop from "../images/Gift-shop.png"
-import logoFooter from "../images/Logo-footer.svg"
-import international from "../images/International.svg"
-import investments from "../images/Investments.png"
+import giftShop from "../../images/Gift-shop.png"
+import logoFooter from "../../images/Logo-footer.svg"
+import international from "../../images/International.svg"
+import investments from "../../images/Investments.png"
+import iconSite from "../../images/Icon-site.png"
 
 export const Footer = () => {
   return (
@@ -31,11 +32,14 @@ export const Footer = () => {
             <li><a href={"#news"}>Новости</a></li>
           </ul>
         </div>
-        <div className={"social-network"}>
+        <div className={"footer__social-network"}>
           <h2>Соц. сети</h2>
-            <div>
+            <div className={"footer__links-wrapper"}>
               <span>Республика Мордовия</span>
-              <div>
+              <div className={"footer__links"}>
+                <a href={'/'}>
+                  <img src={iconSite} alt={'site'} />
+                </a>
                 <a href={'/'}>VK</a>
                 <a href={'/'}>TG</a>
                 <a href={'/'}>RUTUBE</a>
@@ -43,18 +47,19 @@ export const Footer = () => {
                 <a href={'/'}>ДЗЕН</a>
               </div>
             </div>
-            <div>
+            <div className={"footer__links-wrapper"}>
               <span>Экспозиция Республики Мордовия</span>
-              <div>
-                <a href={'/'}>VK</a>
-                <a href={'/'}>TG</a>
-              </div>
+                <div className={"footer__links"}>
+                  <a href={'/'}>VK</a>
+                  <a href={'/'}>TG</a>
+                </div>
             </div>
-            <div>
+            <div className={"footer__links-wrapper"}>
               <span>Инвестиционный портал Республики Мордовия</span>
-              <div>
-                <a href={'/'}>VK</a>
-                <a href={'/'}>TG</a>
+              <div className={"footer__links"}>
+                <a href={'/'}>
+                  <img src={iconSite} alt={'site'} />
+                </a>
               </div>
             </div>
         </div>

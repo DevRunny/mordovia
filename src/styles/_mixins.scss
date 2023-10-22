@@ -17,13 +17,3 @@
   position: -webkit-sticky;
   position: sticky;
 }
-
-@mixin a-style {
-  a {
-    color: #D20000;
-
-    &:visited {
-      color: #D20000;
-    }
-  }
-}
