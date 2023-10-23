@@ -1,24 +1,22 @@
 import './styles/App.scss';
 import { NavBar } from "./components/NavBar/NavBar";
-import { AboutPeopleOfMordoviaSection } from "./components/EventsSections/AboutPeopleOfMordoviaSection";
-import { KeyEventsSection } from "./components/EventsSections/KeyEventsSection";
 import { Footer } from "./components/Footer/Footer";
-import FAQ from "./components/FAQ/FAQ";
+import FAQSection from "./components/FAQSection/FAQSection";
 import HowToGetThereSection from "./components/HowToGetThereSection/HowToGetThereSection";
-import InteractiveZonesSection from "./components/EventsSections/InteractiveZonesSection";
-import CalendarSection from "./components/CalendarSection/CalendarSection";
+import EventsSections from "./components/EventsSections/EventsSections";
+import MainSection from "./components/MainSection/MainSection";
 
 function App() {
   return (
     <>
       <NavBar/>
-      <AboutPeopleOfMordoviaSection />
-      <KeyEventsSection />
-      <CalendarSection />
-      <InteractiveZonesSection />
-      <HowToGetThereSection />
-      <FAQ />
-      <Footer />
+      <MainSection />
+      <div style={{background: "white", width: "100%", height: "100%"}}>
+        <EventsSections />
+        <HowToGetThereSection />
+        <FAQSection />
+        <Footer />
+      </div>
     </>
 
   );

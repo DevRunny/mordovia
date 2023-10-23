@@ -1,7 +1,7 @@
 import React from "react";
 import AccordionComponent from "./AccordionComponent";
 
-const FAQ = () => {
+const FAQSection = () => {
   return (
     <div className={'FAQ'}>
     <AccordionComponent
@@ -50,4 +50,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQSection;
