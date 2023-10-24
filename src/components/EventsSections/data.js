@@ -1,6 +1,7 @@
 import card1 from "../../images/cards/card1.png";
 import card2 from "../../images/cards/card2.png";
 import card3 from "../../images/cards/card3.png";
+import cardHover from "../../images/cards/card-interact-zone1-1.png";
 
 export const cardsAboutPeople = [
   {
@@ -30,8 +31,9 @@ export const cardsKeyEvents = [
   {
     id: 1,
     image: card2,
-    title: "",
-    description: ""
+    title: "Павильон Республика Мордовия",
+    description: "Приходите и откройте для себя  множество удивительных фактов о Мордовии, ее народе и его" +
+      " творческом наследии."
   },
   {
     id: 2,
@@ -39,11 +41,28 @@ export const cardsKeyEvents = [
     title: "Павильон Республика Мордовия",
     description: "Приходите и откройте для себя  множество удивительных фактов о Мордовии, ее народе и его" +
       " творческом наследии."
+  }
+]
+
+export const cardsInteractiveZones = [
+  {
+    id: 1,
+    image: cardHover,
+    title: "Зона «ТОНАВТКУДО»",
+    description: "Приходите и откройте для себя  множество удивительных фактов о Мордовии, ее народе и его" +
+      " творческом наследии."
+  },
+  {
+    id: 2,
+    image: cardHover,
+    title: "Павильон Республика Мордовия",
+    description: "Приходите и откройте для себя  множество удивительных фактов о Мордовии, ее народе и его" +
+      " творческом наследии."
   },
   {
     id: 3,
-    image: card2,
-    title: "Павильон Республика Мордовия",
+    image: cardHover,
+    title: "Зона «ТОНАВТКУДО»",
     description: "Приходите и откройте для себя  множество удивительных фактов о Мордовии, ее народе и его" +
       " творческом наследии."
   }

@@ -195,7 +195,6 @@ main {
 }
 
 .introducing-title {
-  @include sticky-block();
   top: 120px;
   display: flex;
   justify-content: flex-end;
@@ -207,6 +206,10 @@ main {
   flex-wrap: wrap;
   align-items: flex-end;
 
+  &__card-region-day {
+    background: url("../images/Card-region-day.svg");
+    flex: 33%;
+  }
 
   &__card {
     position: relative;
@@ -215,8 +218,16 @@ main {
     img {
       width: 100%;
     }
-  }
 
+    .card_image-first {
+      position: absolute;
+      background: #FFFFFF;
+      background-size: contain;
+      mix-blend-mode: screen;
+      max-height: 540px;
+      padding-bottom: 76px;
+    }
+  }
 
   &__description {
     position: absolute;
