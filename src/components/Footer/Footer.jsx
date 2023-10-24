@@ -1,9 +1,9 @@
 import * as React from "react";
-import giftShop from "../../images/Gift-shop.png"
-import logoFooter from "../../images/Logo-footer.svg"
-import international from "../../images/International.svg"
-import investments from "../../images/Investments.png"
-import iconSite from "../../images/Icon-site.png"
+import giftShop from "../../images/Gift-shop.png";
+import logoFooter from "../../images/Logo-footer.svg";
+import international from "../../images/International.svg";
+import investments from "../../images/Investments.png";
+import iconSite from "../../images/Icon-site.png";
 
 export const Footer = () => {
   return (

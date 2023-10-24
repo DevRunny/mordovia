@@ -1,9 +1,9 @@
 import React from "react";
 import CalendarCardComponent from "./CalendarCardComponent";
-import showMoreButton from '../../../images/Button-show-more.svg'
-import { days } from './days'
-import prev from "../../../images/Arrow-prev.svg"
-import next from "../../../images/Arrow-next.svg"
+import showMoreButton from "../../../images/Button-show-more.svg";
+import { days } from "./days";
+import prev from "../../../images/Arrow-prev.svg";
+import next from "../../../images/Arrow-next.svg";
 
 const CalendarSection = () => {
   return (

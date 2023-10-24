@@ -1,6 +1,6 @@
-import React, { useState }from "react";
-import {motion} from "framer-motion";
-import backgroundImage from "../../../images/Calendar-card-background.svg"
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import backgroundImage from "../../../images/Calendar-card-background.svg";
 
 const CalendarCardComponent = () => {
   const [isHovered, setHovered] = useState(false)

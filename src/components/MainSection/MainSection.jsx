@@ -1,6 +1,5 @@
 import React from "react";
-import bgVideo from "../../video/Mordovia-background.mp4"
-import cursor from "../../images/Cursor.svg"
+import cursor from "../../images/Cursor.svg";
 
 const MainSection = () => {
   return (
@@ -10,8 +9,8 @@ const MainSection = () => {
         <span>Международная выставка – форум Россия</span>
         <span>12 апреля 2024</span>
       </div>
-      <video className={ "bg-video" } autoPlay loop>
-        <source src={ bgVideo } type="video/mp4" />
+      <video className={ "bg-video" } autoPlay muted loop>
+        <source src={"http://test.srcdev.ru/mordoviya2.mp4"} type="video/mp4" />
       </video>
       <div className={"main-content"}>
         <div className={"main-content__title"}>

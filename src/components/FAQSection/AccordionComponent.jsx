@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import plus from "../../images/Plus.svg"
-import minus from "../../images/Minus.svg"
+import plus from "../../images/Plus.svg";
+import minus from "../../images/Minus.svg";
 
 const AccordionComponent = ({id, question, answer}) => {
   const [isOpen, setIsOpen] = useState(false);

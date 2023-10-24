@@ -1,7 +1,7 @@
 import React from "react";
 import { Titles } from "../Titles/Titles";
-import pavilion from "../../images/Map-pavilion.svg"
-import exposition from "../../images/Map-exposition.svg"
+import pavilion from "../../images/Map-pavilion.svg";
+import exposition from "../../images/Map-exposition.svg";
 
 const HowToGetThereSection = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-export const CardComponent = ({ card, h3Text, pText, cardHover }) => {
+export const CardComponent = ({ image, title, description }) => {
   const [isHovered, setHovered] = useState(false)
   return (
     <motion.div
@@ -11,11 +11,11 @@ export const CardComponent = ({ card, h3Text, pText, cardHover }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={"introducing-cards__card"}>
-      <img src={card} alt={"card1"} />
+      <img src={image} alt={"cardImage"} />
       <div
         className={"introducing-cards__description"}
       >
-        <h3>{ h3Text }</h3>
+        <h3>{ title }</h3>
         <motion.p
           initial={{height: 0}}
           style={{opacity: 0}}
@@ -25,7 +25,7 @@ export const CardComponent = ({ card, h3Text, pText, cardHover }) => {
             transition: {duration: 0.5}
           }}
         >
-          {pText}
+          {description}
         </motion.p>
       </div>
     </motion.div>

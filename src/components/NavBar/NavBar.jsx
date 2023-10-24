@@ -1,6 +1,6 @@
 import * as React from "react";
-import logo from "../../images/Logo.svg"
-import sound from "../../images/Sound.svg"
+import logo from "../../images/Logo.svg";
+import sound from "../../images/Sound.svg";
 
 export const NavBar = () => {
   return (
