@@ -3,8 +3,18 @@ import { motion } from "framer-motion";
 import DescriptionIntroducingCard from "./DescriptionIntroducingCard";
 
 
-export const CardComponent = ({ image, title, description, additionalImage }) => {
+export const CardComponent = ({ image, title, description, additionalImage, regionDay }) => {
   const [ isHovered, setHovered ] = useState(false)
+
+  const showDescription = {
+    initial: {height: 0},
+    style: { opacity: 0},
+    animate: {
+    opacity: isHovered ? 1 : 0,
+      height: isHovered ? "auto" : 0,
+      transition: { duration: 0.5 }
+    },
+  }
 
   const AdditionalImage = () => {
       if (additionalImage) {
@@ -38,22 +48,32 @@ export const CardComponent = ({ image, title, description, additionalImage }) =>
 
       <AdditionalImage />
 
-      <img src={ image } alt={ "cardImage" } />
+      {!regionDay
+        ?
+        <img src={ image } alt={ "cardImage" } />
+        :
+        <motion.img
+          // whileHover={{
+          //   flex:
+          // }} TODO: НА СТАДИИ РЕШЕНИЯ, СТОИТ ЛИ ДЕЛАТЬ ОСОБЕННЫЙ БЛОК
+          src={ image }
+          alt={ "cardImage" } />}
 
-      <DescriptionIntroducingCard>
-        <h3>{ title }</h3>
-        <motion.p
-          initial={ { height: 0 } }
-          style={ { opacity: 0 } }
-          animate={ {
-            opacity: isHovered ? 1 : 0,
-            height: isHovered ? "auto" : 0,
-            transition: { duration: 0.5 }
-          } }
-        >
-          { description }
-        </motion.p>
-      </DescriptionIntroducingCard>
+      {!regionDay
+        ?
+        <DescriptionIntroducingCard>
+          <h3>{ title }</h3>
+          <motion.p
+            initial={showDescription.initial}
+            style={showDescription.style}
+            animate={showDescription.animate}
+          >
+            { description }
+          </motion.p>
+        </DescriptionIntroducingCard>
+        :
+        <></>
+      }
 
     </motion.div>
   )

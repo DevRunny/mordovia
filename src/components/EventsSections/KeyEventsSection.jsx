@@ -15,13 +15,14 @@ export const KeyEventsSection = () => {
         }}
         className={"introducing-cards"}
       >
-        <div className={"introducing-cards__card-region-day"}>
-          <h1>День региона</h1>
-          <span>30 ноября в 19:00</span>
-        </div>
+        {/*<div className={"introducing-cards__card-region-day"}>*/}
+        {/*  /!*<h1>День региона</h1>*!/*/}
+        {/*  /!*<span>30 ноября в 19:00</span>*!/*/}
+        {/*  <img src={regionDay} alt={'region-day'} />*/}
+        {/*</div>*/}
         {cardsKeyEvents.map((card)=>{
           return (
-            <CardComponent key={card.id} image={card.image} title={card.title} description={card.description} />
+            <CardComponent key={card.id} image={card.image} title={card.title} description={card.description} regionDay={card.regionDay} />
           )
         })}
       </motion.div>
