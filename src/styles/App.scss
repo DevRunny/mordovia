@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
-@import "fonts.scss";
+@import "responsive";
+@import "fonts";
 
 html {
   font-family: Inter, serif;
@@ -68,9 +69,16 @@ header {
   padding: 24px;
   z-index: 2;
 
+  .header-logo {
+    img {
+      width: 350px;
+      height: 72px;
+    }
+  }
+
   ul {
     display: flex;
-    gap: 64px;
+    gap: 3vw;
 
     li {
       font-size: 20px;
@@ -84,12 +92,12 @@ header {
 
   .header-links {
     @include flex-row();
-    gap: 120.5px;
+    gap: 6.3vw;
   }
 
   .social-links {
     @include flex-row();
-    gap: 38px;
+    gap: 2vw;
     font-size: 16px;
 
     a {
@@ -180,8 +188,8 @@ main {
 
 
 .titles {
-  position: -webkit-sticky;
-  position: sticky;
+  //position: -webkit-sticky;
+  //position: sticky;
   top: 120px;
   @include flex-row();
   padding: 0 24px 0 24px;
@@ -194,49 +202,74 @@ main {
   }
 }
 
-.introducing-title {
-  top: 120px;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 520px;
-}
-
 .introducing-cards {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-
-  &__card-region-day {
-    //background: url("../images/card-region-day.png"); //TODO РЕШИТЬ ЧТО С ЭТИМ ДЕЛАТЬ
-    flex: 33%;
-  }
-
-  &__card {
+  justify-content: space-between;
+  position: relative;
+  .introducing-cards__card {
+    width: 33.334%;
+    height: 32.2vw;
+    overflow: hidden;
     position: relative;
-    flex: 33%;
+    transition: 0.5s;
 
     img {
-      width: 100%;
-    }
-
-    .card_image-first {
+      width: 50vw;
       position: absolute;
-      background: #FFFFFF;
-      background-size: contain;
-      mix-blend-mode: screen;
-      max-height: 540px;
-      padding-bottom: 76px;
+      top: 0;
+      z-index: 1;
+    }
+    &:nth-child(1) {
+      img {
+        left: 0;
+      }
+    }
+    &:nth-child(2) {
+      img {
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+    &:nth-child(3) {
+      img {
+        right: 0;
+      }
+    }
+    .introducing-cards__description {
+      z-index: 2;
+      position: absolute;
+      bottom: 0;
+      height: auto;
+      background: rgba(255, 255, 255, 0.60);
+      backdrop-filter: blur(15px);
+      color: $colorBlack;
+      padding: 2vh 2vw;
+      width: 100%;
+
+      p {
+        transition: 0.4s;
+        opacity: 0;
+        height: 0px;
+      }
     }
   }
+  .introducing-cards__card.active {
+    .introducing-cards__description {
+      p {
+        height: 2vw;
+        opacity: 1;
+      }
+    }
+  }
+}
 
-  &__description {
-    position: absolute;
-    bottom: 0;
-    padding: 24px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.60);
-    backdrop-filter: blur(15px);
-    color: $colorBlack;
+.introducing-cards.active {
+  .introducing-cards__card {
+    width: 25%;
+  }
+  .introducing-cards__card.active {
+    width: 50%;
   }
 }
 
