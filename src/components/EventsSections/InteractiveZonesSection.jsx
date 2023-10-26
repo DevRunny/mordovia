@@ -3,13 +3,13 @@ import { CardComponent } from "./CardComponent";
 import { cardsInteractiveZones } from "./data";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
-import sign1 from "../../images/Sign-one.svg";
-import sign2 from "../../images/Sign-two.svg";
 import { useHoverCard } from "../../hooks/useHoverCard";
+import { useZones } from "../../hooks/useZones";
 
 function InteractiveZonesSection() {
   const opacity = useOpacity()
   const hover = useHoverCard()
+  const zones = useZones()
 
   return (
     <>
@@ -23,18 +23,22 @@ function InteractiveZonesSection() {
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards ${hover.isHovered ? "active" : ""}`}
       >
-        {cardsInteractiveZones.map((item, index) => {
-          return (
-            <CardComponent
-              type={"InteractiveZones"}
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              additionalImage={index === 1 ? sign2 : sign1}
-              description={item.description}
-            />
-          )
-        })}
+        { zones.isLoaded
+          ?
+          zones.items.map((card) => {
+            return (
+              <CardComponent
+                key={ card.id }
+                img={ card.img }
+                title={ card.title }
+                preview={card.preview }
+                subtitle={ card.description }
+              />
+            )
+          })
+          :
+          <></>
+        }
       </motion.div>
     </>
   );

@@ -2,11 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const CardComponent = ({ image, title, description, additionalImage, onlyImage, topic, topicName }) => {
+export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
   const hover = useHoverCard()
 
-  const AdditionalImage = () => {
-      if (additionalImage) {
+  const Preview = () => {
+      if (preview) {
         return (
           <motion.div
             whileHover={ {
@@ -18,7 +18,7 @@ export const CardComponent = ({ image, title, description, additionalImage, only
           >
             <motion.img
               className={ "card_image-first" }
-              src={ additionalImage }
+              src={ preview }
               alt={ "cardBg" }
             />
           </motion.div>
@@ -36,9 +36,10 @@ export const CardComponent = ({ image, title, description, additionalImage, only
       onMouseLeave={ () => hover.setHovered(false)}
       className={ `introducing-cards__card  ${hover.isHovered ? "active" : ""}` }
     >
-      <AdditionalImage />
+      <Preview />
 
-      <img src={ image } alt={ "cardImage" } />
+      <a href={url} rel="noreferrer" target={"_blank"}>
+        <img src={ img } alt={ "cardImage" } />
 
       {!onlyImage
         ?
@@ -58,13 +59,13 @@ export const CardComponent = ({ image, title, description, additionalImage, only
           }
           <h3>{ title }</h3>
           <p>
-            { description }
+            { subtitle }
           </p>
         </div>
         :
         <></>
       }
-
+      </a>
     </div>
   )
 }

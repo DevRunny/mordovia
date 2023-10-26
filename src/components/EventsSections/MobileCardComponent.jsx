@@ -1,7 +1,7 @@
 import React from "react";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const MobileCardComponent = ({ image, title, description, additionalImage, onlyImage, topic, topicName }) => {
+export const MobileCardComponent = ({ img, url, title, subtitle, additionalImage, onlyImage, topic, topicName }) => {
   const hover = useHoverCard()
   return (
     <div
@@ -10,7 +10,8 @@ export const MobileCardComponent = ({ image, title, description, additionalImage
       onMouseLeave={ () => hover.setHovered(false)}
       className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
     >
-      <img src={ image } alt={ "cardImage" } />
+      <a href={url} rel="noreferrer" target={"_blank"}>
+      <img src={ img } alt={ "cardImage" } />
 
       {!onlyImage
         ?
@@ -30,13 +31,13 @@ export const MobileCardComponent = ({ image, title, description, additionalImage
           }
           <h3>{ title }</h3>
           <p>
-            { description }
+            { subtitle }
           </p>
         </div>
         :
         <></>
       }
-
+      </a>
     </div>
   )
 }
