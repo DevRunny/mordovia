@@ -1,5 +1,5 @@
 import "../styles/App.scss";
-import "../styles/responsive.scss"
+import "../styles/responsive.scss";
 import { NavBar } from "./NavBar/NavBar";
 import { Footer } from "./Footer/Footer";
 import FAQSection from "./FAQSection/FAQSection";
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      {/*<MainSection />*/}
+      <MainSection />
       <div style={{background: "white", width: "100%", height: "100%"}}>
         <EventsSections />
         <HowToGetThereSection />

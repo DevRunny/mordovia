@@ -11,9 +11,11 @@ const AccordionComponent = ({id, question, answer}) => {
         onClick={() => setIsOpen((prev) => !prev)}
         className={'accordion'}
       >
-        <div className={"accordion__question"}>
+        <motion.div
+          style={ isOpen ? {borderBottom: 0} : {} }
+          className={"accordion__question"}>
         { <h4>{question}</h4> } {isOpen ? <img src={minus} alt={"-"} /> : <img src={plus} alt={"+"} />}
-        </div>
+        </motion.div>
       </motion.div>
       <AnimatePresence>
         {isOpen ? (

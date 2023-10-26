@@ -1,6 +1,5 @@
 import React from "react";
 import CalendarCardComponent from "./CalendarCardComponent";
-import showMoreButton from "../../../images/Button-show-more.svg";
 import { days } from "./days";
 import prev from "../../../images/Arrow-prev.svg";
 import next from "../../../images/Arrow-next.svg";
@@ -59,7 +58,7 @@ const CalendarSection = () => {
       <CalendarCardComponent />
       <CalendarCardComponent />
     </div>
-      <button className={'calendar-section__show-more'}><img src={showMoreButton} alt={"Показать еще"} /></button>
+      <button className={'calendar-section__show-more'}>Показать еще</button>
     </section>
   );
 }

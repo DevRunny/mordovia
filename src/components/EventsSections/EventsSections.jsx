@@ -10,25 +10,22 @@ const EventsSections = () => {
   return (
     <>
       <Titles
-        h1={<img src={headline} alt="Вас ждут" />}
+        img={headline}
         h2={<>Удивительные открытия о народе республики Мордовия</>}
       />
       <AboutPeopleOfMordoviaSection />
       <Titles
-        h1={<img src={headline} alt="Вас ждут" />}
+        img={headline}
         h2={<>Увлекательные события, выставки и ярмарки народного промысла</>}
       />
       <KeyEventsSection />
       <Titles
-        h1={<img src={headline} alt="Вас ждут" />}
+        img={headline}
         h2={<>Увлекательные события, выставки и ярмарки народного промысла</>}
       />
-      {/*<CalendarSection />*/}
+      <CalendarSection />
       <Titles
-        h1={<img
-          // style={ { opacity: 0 }}
-          src={headline}
-          alt="Вас ждут" />}
+        img={headline}
         h2={<>Интерактивные выставки с уникальными возможностями погружения в культуру и историю Мордовии.</>}
       />
       <InteractiveZonesSection />

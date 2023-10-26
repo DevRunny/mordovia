@@ -1,6 +1,5 @@
 import React from "react";
 import { CardComponent } from "./CardComponent";
-import { cardsInteractiveZones } from "./data";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
@@ -32,7 +31,7 @@ function InteractiveZonesSection() {
                 img={ card.img }
                 title={ card.title }
                 preview={card.preview }
-                subtitle={ card.description }
+                subtitle={ card.subtitle }
               />
             )
           })

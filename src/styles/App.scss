@@ -8,52 +8,52 @@ html {
 
 h1 {
   font-family: Wix Madefor Display;
-  font-size: 160px;
+  font-size: 8vw;
   font-style: normal;
   font-weight: 800;
-  line-height: 200px; /* 125% */
-  letter-spacing: -4px;
+  line-height: 20.876826722338205vw; /* 125% */
+  letter-spacing: -0.4175365344467641vw;
   text-transform: uppercase;
   color: $colorRed;
 }
 h2 {
-  font-size: 36px;
+  font-size: 1.875vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 44px;
+  line-height: 4.592901878914405vw;
   color: #2B2B2B;
 }
 h3 {
-  font-size: 20px;
+  font-size: 1.0416666666666667vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px; /* 140% */
+  line-height: 2.922755741127349vw; /* 140% */
   text-transform: uppercase;
   color: #0E0E0E;
 }
 
 h4 {
   font-family: Wix Madefor Display;
-  font-size: 40px;
+  font-size: 2.0833333333333335vw;
   font-style: normal;
   font-weight: 800;
-  line-height: 52px; /* 130% */
+  line-height: 5.427974947807933vw; /* 130% */
   text-transform: uppercase;
   color: #0E0E0E;
 }
 
 span {
-  font-size: 20px;
+  font-size: 1.0416666666666667vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 140% */
+  line-height: 1.4583333333333333vw; /* 140% */
 }
 
 p {
-  font-size: 18px;
+  font-size: 0.9375vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.5052192066805845vw;
 }
 
 header {
@@ -65,13 +65,12 @@ header {
   backdrop-filter: blur(30px);
   @include flex-row();
   justify-content: space-between;
-  padding: 24px;
+  padding: 1.25vw;
   z-index: 2;
 
   .header-logo {
     img {
-      width: 350px;
-      height: 72px;
+      width: 18.229166666666668vw;
     }
   }
 
@@ -80,7 +79,7 @@ header {
     gap: 3vw;
 
     li {
-      font-size: 20px;
+      font-size: 1.0416666666666667vw;
       font-weight: 500;
 
       a {
@@ -97,7 +96,11 @@ header {
   .social-links {
     @include flex-row();
     gap: 2vw;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
+
+    img {
+      width: 2.5vw;
+    }
 
     a {
       color: #D20000;
@@ -113,7 +116,7 @@ header {
 main {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 38.541666666666664vw;
   margin-bottom: 100vh;
 
   .about {
@@ -121,28 +124,38 @@ main {
     @include flex-row;
     justify-content: space-between;
     width: 100%;
-    top: 220px;
-    padding: 0 168px 0 168px;
+    top: 11.458333333333334vw;
+    padding: 0 8.75vw 0 8.75vw;
     z-index: 1;
   }
 
   .present {
     position: absolute;
-    bottom: 60px;
+    bottom: 0;
     @include flex-row;
     justify-content: center;
-    gap: 112px;
+    gap: 5.833333333333333vw;
     width: 100%;
 
+    img {
+      width: 6.666666666666667vw;
+    }
     a {
-      padding-left: 220px;
+      padding-left: 11.458333333333334vw;
     }
   }
 
   .bg-video {
     position: fixed;
-    //width: 100%;
+    width: 100%;
     z-index: -1;
+  }
+
+  @supports (overflow:clip) {
+    .bg-video {
+      -webkit-mask-image: none;
+      overflow: clip;
+    }
   }
 }
 
@@ -150,10 +163,10 @@ main {
   @include flex-column;
   justify-content: center;
   gap: 36px;
-  height: 100%;
+  height: 100vh;
   background: url("../images/Map-bg.png");
   background-size: cover;
-  background-position-y: -130px;
+  background-position-y: -6.770833333333333vw;
   mix-blend-mode: screen;
   user-select: none;
 
@@ -164,20 +177,20 @@ main {
 
     h1 {
       font-family: Wix Madefor Display;
-      font-size: calc(1rem + 16vw);
+      font-size: 16.666666666666668vw;
       font-style: normal;
       font-weight: 800;
-      line-height: 300px; /* 93.75% */
-      letter-spacing: -24px;
+      line-height: 15.625vw;
+      letter-spacing: -1.25vw;
       color: $colorBlack;
     }
     h4 {
       font-family: Wix Madefor Display;
-      font-size: calc(1rem + 1vw);;
+      font-size: 2.0833333333333335vw;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      letter-spacing: 15.2px;
+      letter-spacing: 0.7916666666666666vw;
       text-transform: uppercase;
       color: $colorBlack;
     }
@@ -191,13 +204,27 @@ main {
   //position: sticky;
   //top: 120px;
   @include flex-row();
-  padding: 0 24px 0 24px;
-  margin-bottom: 40px;
+  padding: 0 1vw 0 1vw;
+  margin-bottom: 2.0833333333333335vw;
   z-index: 2;
 
+  img {
+    width: 46.197916666666664vw;
+  }
+
+  h1 {
+    line-height: 10.416666666666666vw; /* 125% */
+    letter-spacing: -0.20833333333333334vw;
+  }
+
   h2 {
-    padding-left: 39px;
+    padding-left: 2.03125vw;
     word-wrap: normal;
+    font-size: 1.875vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.2916666666666665vw;
+    width: 46.2708333333vw;
   }
 }
 
@@ -246,10 +273,15 @@ main {
       padding: 2vh 2vw;
       width: 100%;
 
+      h3 {
+        line-height: 1.4583333333333333vw;
+      }
+
       p {
         transition: 0.4s;
         opacity: 0;
         height: 0;
+        line-height: 1.25vw;
       }
     }
   }
@@ -278,8 +310,8 @@ main {
     padding: 0;
 
     .splide__arrow {
-
-      padding: 16px;
+      width: 40px;
+      height: 40px;
       border-radius: 100px; //TODO: МЫ ЕЩЕ НЕ ЗАКОНЧИЛИ!
     }
 
@@ -287,8 +319,6 @@ main {
       background: url("../images/Cursor-mobile.svg");
       background-size: contain;
       border-radius: 100px;
-      width: 40px;
-      height: 40px;
       svg {
         opacity: 0;
       }
@@ -314,7 +344,7 @@ main {
     .splide__pagination__page {
       width: 32vw;
       margin: 0;
-      height: 2px;
+      height: 0.21528525296017223vh;
 
       &:hover {
         background-color: #ccc;
@@ -357,25 +387,32 @@ main {
 
 .calendar-section {
   @include flex-column;
-  gap: 40px;
+  gap: 2.0833333333333335vw;
 
   &__show-more {
     margin: auto;
-    border-radius: 50%;
+    border-radius: 2.6041666666666665vw;
+    width: 25.416666666666668vw;
+    height: 4.791666666666667vw;
+    padding: 1.4583333333333333vw 6.927083333333333vw;
+    font-size: 1.1979166666666667vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.875vw;
   }
 }
 
 .calendar-months {
   font-family: Wix Madefor Display;
-  font-size: 3rem;
+  font-size: 2.5vw;
   font-style: normal;
   font-weight: 800;
-  line-height: 52px; /* 108.333% */
+  line-height: 2.7083333333333335vw;
   text-transform: uppercase;
   @include flex-row;
   justify-content: flex-start;
-  gap: 24px;
-  padding: 10px 0 10px 27px;
+  gap: 1.25vw;
+  padding: 0.5208333333333334vw 0 0.5208333333333334vw 1.40625vw;
 
   &__month {
     color: $colorLightGrey;
@@ -387,8 +424,8 @@ main {
 
 .calendar-days-wrapper {
   @include flex-column;
-  gap: 16px;
-  padding: 0 24px 0 24px;
+  gap: 0.8333333333333334vw;
+  padding: 0 1.25vw 0 1.25vw;
 }
 
 .calendar-days {
@@ -439,14 +476,14 @@ main {
 
 .calendar-filters {
   @include flex-row;
-  gap: 10px;
+  gap: 0.5208333333333334vw;
 
   &__filter {
     @include flex-row;
     justify-content: space-between;
-    gap: 8px;
-    padding: 14px 20px;
-    border-radius: 34px;
+    gap: 0.4166666666666667vw;
+    padding: 0.7291666666666666vw 1.0416666666666667vw;
+    border-radius: 1.7708333333333333vw;
     background: $colorLightGrey;
   }
 
@@ -462,38 +499,43 @@ main {
   .filter_count {
     @include flex-row;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
+    width: 1.25vw;
+    height: 1.25vw;
+    border-radius: 0.625vw;
     background: $colorWhite;
-    font-size: 1.1rem;
+    font-size: 0.8333333333333334vw;
   }
 }
 
 .calendar-cards {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 24.479166666666668vw 24.479166666666668vw 24.479166666666668vw 24.479166666666668vw;
 }
 
 .calendar-card {
   @include flex-column;
-  gap: 26px;
-  padding: 24px 24px 24px 24px;
-  min-height: 336px;
+  gap: 1.3541666666666667vw;
+  padding: 1.25vw 1.25vw 1.25vw 1.25vw;
+  min-height: 17.5vw;
   background: #FFF;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(0.78125vw);
 
 
   &__topic {
     @include flex-row;
     justify-content: space-between;
 
+    svg {
+      width: 1.25vw;
+      height: 1.25vw;
+    }
+
     span {
-      font-size: 16px;
+      font-size: 0.8333333333333334vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 20px; /* 125% */
-      letter-spacing: 3.84px;
+      line-height: 1.0416666666666667vw; /* 125% */
+      letter-spacing: 0.2vw;
       text-transform: uppercase;
     }
   }
@@ -501,14 +543,32 @@ main {
   &__description {
     @include flex-column;
     gap: 12px;
+
+    h3 {
+      font-size: 1.0416666666666667vw;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.4583333333333333vw;
+    }
+
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25vw;
+    }
   }
 
   &__date {
     @include flex-row;
-    gap: 8px;
+    gap: 0.4166666666666667vw;
 
     p {
-      font-size: 1.2rem;
+      line-height: 1.25vw;
+    }
+
+    svg {
+      width: 1.25vw;
+      height: 1.25vw;
     }
   }
 }
@@ -526,27 +586,32 @@ main {
 }
 
 .FAQ {
-  margin-bottom: 20%;
+  margin-bottom: 16.666666666666668vw;
+
+  h4 {
+    line-height: 2.7083333333333335vw;
+  }
 }
 .accordion {
-  padding: 24px 24px 24px 17px;
-
+  margin: 0 1.25vw 0 0.8854166666666666vw;
   &__question {
     @include flex-row;
     justify-content: space-between;
+    border-bottom: 0.026041666666666668vw solid $colorBlack;
+    padding: 1.25vw 0 1.25vw 0;
   }
 
   &__answer {
     padding-left: 50%;
-    padding-right: 24px;
+    margin: 0 1.25vw 0 1.25vw;
+    padding-bottom: 1.25vw;
+    border-bottom: 0.5px solid $colorBlack;
   }
 }
 
 footer {
   @include flex-column;
-  @include sticky-block;
-  top: 120px;
-  gap: 60px;
+  gap: 4.166666666666667vw;
 }
 
 .gift-shop {
@@ -558,63 +623,41 @@ footer {
 .footer {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  padding: 80px 93px 180px 17px;
+  justify-content: flex-start;
+  gap: 31.71875vw;
+  padding: 4.166666666666667vw 4.84375vw 4.166666666666667vw 5.729166666666667vw;
   background-color: $backgroundColorLightGrey;
 
-  &__logos {
-    @include flex-column;
-    gap: 29px;
-
-  }
-
-
   &__sponsors {
-    display: flex;
-    align-items: flex-end;
-    gap: 40px;
-    padding-left: 179px;
+    @include flex-column;
+    gap: 2.0833333333333335vw;
 
+    :first-child {
+      width: 12.552083333333334vw;
+    }
     :last-child {
-      width: 221px;
-      height: 33px;
+      width: 11.510416666666666vw;
     }
   }
 
-  &__navigation {
-    ul {
-      @include flex-column;
-      padding-top: 30px;
-      gap: 30px;
-
-      li {
-        font-size: 20px;
-        font-weight: 400;
-
-        a {
-          color: $colorBlack;
-        }
-      }
-    }
-  }
 
   &__social-network {
     @include flex-column;
-    gap: 30px;
+    gap: 2.0833333333333335vw;
   }
 
   &__links-wrapper {
     @include flex-column;
-    gap: 18px;
+    gap: 0.9375vw;
   }
 
   &__links {
     @include flex-row;
-    gap: 18px;
+    gap: 0.9375vw;
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 1.25vw;
+      height: 1.25vw;
     }
     a {
       color: #D20000;

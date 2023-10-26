@@ -12,6 +12,7 @@ const CalendarCardComponent = () => {
     <motion.div
       whileHover={{
         backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "25vw",
         cursor: "pointer",
         transition: {duration: duration}
       }}
