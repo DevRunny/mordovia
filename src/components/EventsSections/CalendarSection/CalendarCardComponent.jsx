@@ -6,7 +6,7 @@ const CalendarCardComponent = () => {
   const [isHovered, setHovered] = useState(false)
   const colorBlack = "#2B2B2B"
   const colorWhite = "#FFFFFF"
-  const duration = 1;
+  const duration = 0.5;
 
   return (
     <motion.div
