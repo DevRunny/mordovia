@@ -8,10 +8,10 @@ html {
 
 h1 {
   font-family: Wix Madefor Display;
-  font-size: 8vw;
+  font-size: 8.333333333333334vw;
   font-style: normal;
   font-weight: 800;
-  line-height: 20.876826722338205vw; /* 125% */
+  line-height: 4.736275565123789vh; /* 125% */
   letter-spacing: -0.4175365344467641vw;
   text-transform: uppercase;
   color: $colorRed;
@@ -20,14 +20,14 @@ h2 {
   font-size: 1.875vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 4.592901878914405vw;
+  line-height: 4.736275565123789vh;
   color: #2B2B2B;
 }
 h3 {
   font-size: 1.0416666666666667vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 2.922755741127349vw; /* 140% */
+  line-height: 6.947890818858561vh; /* 140% */
   text-transform: uppercase;
   color: #0E0E0E;
 }
@@ -37,7 +37,7 @@ h4 {
   font-size: 2.0833333333333335vw;
   font-style: normal;
   font-weight: 800;
-  line-height: 5.427974947807933vw; /* 130% */
+  line-height: 12.903225806451612vh; /* 130% */
   text-transform: uppercase;
   color: #0E0E0E;
 }
@@ -46,14 +46,21 @@ span {
   font-size: 1.0416666666666667vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.4583333333333333vw; /* 140% */
+  line-height: 3.013993541442411vh; /* 140% */
 }
 
 p {
   font-size: 0.9375vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 2.5052192066805845vw;
+  line-height: 5.166846071044134vh;
+}
+
+a {
+  font-size: 1.0416666666666667vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 header {
@@ -88,10 +95,6 @@ header {
     }
   }
 
-  .header-links {
-    @include flex-row();
-    gap: 6.3vw;
-  }
 
   .social-links {
     @include flex-row();
@@ -116,57 +119,52 @@ header {
 main {
   position: relative;
   width: 100%;
-  height: 38.541666666666664vw;
+  height: 92.57265877287406vh;
   margin-bottom: 100vh;
+
+  .bg-video {
+    position: fixed;
+    top: 6.35vw;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
 
   .about {
     position: absolute;
     @include flex-row;
     justify-content: space-between;
     width: 100%;
-    top: 11.458333333333334vw;
+    top: 23.3389666308vh;
     padding: 0 8.75vw 0 8.75vw;
     z-index: 1;
   }
 
   .present {
     position: absolute;
-    bottom: 0;
+    margin-left: 37.5vw;
+    top: 71.4692142088vh;
     @include flex-row;
     justify-content: center;
     gap: 5.833333333333333vw;
-    width: 100%;
+    z-index: 1;
 
     img {
       width: 6.666666666666667vw;
     }
-    a {
-      padding-left: 11.458333333333334vw;
-    }
   }
 
-  .bg-video {
-    position: fixed;
-    width: 100%;
-    z-index: -1;
-  }
-
-  @supports (overflow:clip) {
-    .bg-video {
-      -webkit-mask-image: none;
-      overflow: clip;
-    }
-  }
 }
 
 .main-content {
   @include flex-column;
   justify-content: center;
-  gap: 36px;
-  height: 100vh;
-  background: url("../images/Map-bg.png");
+  height: 92.57265877287406vh;
+  position: relative;
+  background: url("../images/Map-bg.png") no-repeat;
   background-size: cover;
-  background-position-y: -6.770833333333333vw;
+  background-position-y: -13.993541442411194vh;
   mix-blend-mode: screen;
   user-select: none;
 
@@ -180,7 +178,7 @@ main {
       font-size: 16.666666666666668vw;
       font-style: normal;
       font-weight: 800;
-      line-height: 15.625vw;
+      line-height: 32.29278794402583vh;
       letter-spacing: -1.25vw;
       color: $colorBlack;
     }
@@ -205,7 +203,7 @@ main {
   //top: 120px;
   @include flex-row();
   padding: 0 1vw 0 1vw;
-  margin-bottom: 2.0833333333333335vw;
+  margin-bottom: 4.3057050592034445vh;
   z-index: 2;
 
   img {
@@ -270,7 +268,7 @@ main {
       background: rgba(255, 255, 255, 0.60);
       backdrop-filter: blur(15px);
       color: $colorBlack;
-      padding: 2vh 2vw;
+      padding: 2.583423035522067vh 1.25vw;
       width: 100%;
 
       h3 {
@@ -599,13 +597,18 @@ main {
     justify-content: space-between;
     border-bottom: 0.026041666666666668vw solid $colorBlack;
     padding: 1.25vw 0 1.25vw 0;
+
+    img {
+      width: 2.5vw;
+      height: 2.5vw;
+    }
   }
 
   &__answer {
     padding-left: 50%;
     margin: 0 1.25vw 0 1.25vw;
     padding-bottom: 1.25vw;
-    border-bottom: 0.5px solid $colorBlack;
+    border-bottom: 0.026041666666666668vw solid $colorBlack;
   }
 }
 
@@ -660,6 +663,7 @@ footer {
       height: 1.25vw;
     }
     a {
+
       color: #D20000;
 
       &:visited {
