@@ -16,6 +16,15 @@
       .social-links {
         display: none;
       }
+
+      .burger-menu-wrapper {
+        display: block;
+
+        .burger-menu {
+          border: none;
+          background: transparent;
+        }
+      }
     }
 
     main {
@@ -230,6 +239,135 @@
       p {
         height: 8vh;
         opacity: 1;
+      }
+    }
+  }
+
+  .calendar-cards {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .calendar-card {
+    padding: 1.2917115177610334vh 1.2917115177610334vh 1.2917115177610334vh 1.2917115177610334vh;
+    min-height: 25.618945102260493vh;
+    justify-content: space-between;
+
+    &__topic {
+      svg {
+        width: 2.1528525296017222vh;
+        height: 2.1528525296017222vh;
+      }
+
+      span {
+        font-size: 1.2917115177610334vh;
+        line-height: 2.1528525296017222vh; /* 125% */
+        letter-spacing: 0.310010764262648vh;
+      }
+    }
+
+    &__description {
+      gap: 2.1528525296017222vh;
+      h3 {
+        font-size: 1.7222820236813778vh;
+        line-height: 2.3681377825618943vh;
+      }
+
+      p {
+        font-size: 1.5069967707212055vh;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 2.1528525296017222vh;
+      }
+    }
+
+    &__date {
+      gap: 0.8611410118406889vh;
+
+      p {
+        font-size: 1.2917115177610334vh;
+        line-height: normal;
+      }
+
+      svg {
+        width: 2.1528525296017222vh;
+        height: 2.1528525296017222vh;
+      }
+    }
+  }
+
+  .how-to-get-there {
+    flex-direction: column;
+  }
+
+  .FAQ {
+
+    h4 {
+      font-size: 2.583423035522067vh;
+      line-height: 3.013993541442411vh;
+    }
+
+    .accordion {
+      margin: 0 1.2917115177610334vh 0 1.2917115177610334vh;
+
+      &__question {
+        align-items: flex-start;
+        border-bottom: 0.05382131324004306vh;
+
+        img {
+          width: 4.3057050592034445vh;
+          height: 4.3057050592034445vh;
+        }
+      }
+
+      &__answer {
+        padding: 2.583423035522067vh 1.2917115177610334vh 1.7222820236813778vh 1.2917115177610334vh;
+
+        span {
+          font-size: 1.5069967707212055vh;
+          line-height: 2.1528525296017222vh;
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex-direction: column-reverse;
+    gap: 3.4445640473627557vh;
+    padding: 4.3057050592034445vh 1.2917115177610334vh 4.3057050592034445vh 1.2917115177610334vh;
+
+
+    &__sponsors {
+      :first-child {
+        width: 18.945102260495155vh;
+      }
+      :last-child {
+        width: 18.945102260495155vh;
+      }
+    }
+
+    &__social-network {
+      gap: 1.7222820236813778vh;
+
+    }
+
+    &__links-wrapper {
+      span {
+        font-size: 1.7222820236813778vh;
+        line-height: 2.1528525296017222vh;
+      }
+    }
+
+    &__links {
+      gap: 1.9375672766415502vh;
+
+      a {
+        font-size: 1.5069967707212055vh;
+      }
+
+      img {
+        width: 2.1528525296017222vh;
+        height: 2.1528525296017222vh;
       }
     }
   }

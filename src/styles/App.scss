@@ -114,6 +114,10 @@ header {
     }
   }
 
+  .burger-menu-wrapper {
+    display: none;
+  }
+
 }
 
 main {
@@ -537,7 +541,7 @@ main {
 
   &__description {
     @include flex-column;
-    gap: 12px;
+    gap: 0.625vw;
 
     h3 {
       font-size: 1.0416666666666667vw;
@@ -660,7 +664,6 @@ footer {
       height: 1.25vw;
     }
     a {
-
       color: #D20000;
 
       &:visited {

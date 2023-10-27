@@ -1,6 +1,7 @@
 import * as React from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
+import burgerMenu from "../../images/Burger.svg"
 
 export const NavBar = () => {
   return (
@@ -27,6 +28,11 @@ export const NavBar = () => {
             <a href={'/'}>TG</a>
           </div>
         </div>
+      <div className={"burger-menu-wrapper"}>
+        <button className={"burger-menu"}>
+          <img src={burgerMenu} alt={'menu'}/>
+        </button>
+      </div>
     </header>
   );
 };
