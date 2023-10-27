@@ -1,16 +1,57 @@
 import React from "react";
-import { CardComponent } from "./CardComponent";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
-import { useQuery } from "react-query";
-import { MORDOVIA_ENDPOINTS } from "../../API/endpoints";
-import { getZones } from "../../services/zones";
+import { useWindowSize } from "usehooks-ts";
+import { useZones } from "../../queries/useZones";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { MobileCardComponent } from "./MobileCardComponent";
+import { CardComponent } from "./CardComponent";
 
 function InteractiveZonesSection() {
   const opacity = useOpacity()
   const hover = useHoverCard()
-  const { data, isFetched } = useQuery(MORDOVIA_ENDPOINTS.zones, getZones)
+  const { width } = useWindowSize()
+  const { zones, isFetched } = useZones()
+
+  if (width < 767) {
+    return (
+      <motion.div
+        ref={opacity.ref}
+        style={{
+          // opacity: opacity.scrollYProgress,
+          // opacity: 1
+        }}
+        onMouseEnter={ () => hover.setHovered(true) }
+        onMouseLeave={ () => hover.setHovered(false) }
+        className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
+      >
+
+        <Splide>
+          {zones && isFetched
+            ?
+            zones.map((card)=> {
+              return (
+                <>
+                  <SplideSlide>
+                    <MobileCardComponent
+                      key={ card.id }
+                      img={ card.img }
+                      title={ card.title }
+                      preview={ card.preview }
+                      subtitle={ card.subtitle }
+                    />
+                  </SplideSlide>
+                </>
+              )
+            })
+            :
+            <></>
+          }
+        </Splide>
+      </motion.div>
+    )
+  }
 
   return (
     <>
@@ -22,11 +63,11 @@ function InteractiveZonesSection() {
         }}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
-        className={`introducing-cards ${hover.isHovered ? "active" : ""}`}
+        className={`introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
       >
-        { data && isFetched
+        { zones && isFetched
           ?
-          data.map((card) => {
+          zones.map((card) => {
             return (
               <CardComponent
                 key={ card.id }

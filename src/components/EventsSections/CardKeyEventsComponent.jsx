@@ -1,16 +1,19 @@
 import React from "react";
-import { useHoverCard } from "../../hooks/useHoverCard";
 import { motion } from "framer-motion";
+import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
+export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
   const hover = useHoverCard()
+
+
   return (
     <div
       style={{cursor: "pointer"}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
+      className={ `introducing-cards__card  ${hover.isHovered ? "active" : ""}` }
     >
+
       <a href={url} rel="noreferrer" target={"_blank"}>
 
         {preview
@@ -21,17 +24,20 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
               transition: {duration: 0.5}
             }}
             style={{
-              position: "absolute"
+              position: "absolute",
+              zIndex: 4,
             } }
-            src={preview} alt={"preview"} />
+            src={preview}
+            alt={"preview"}
+          />
           :
           <></>
         }
-      <img src={ img } alt={ "cardImage" } />
+        <img src={ img } alt={ "cardImage" } />
 
       {!onlyImage
         ?
-        <div className={ "introducing-cards-mobile__description" }>
+        <div className={ "introducing-cards__description" }>
           {topic
             ?
             <div style={{marginBottom: 18}} className={"calendar-card__topic"}>

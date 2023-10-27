@@ -230,7 +230,60 @@ main {
     font-style: normal;
     font-weight: 500;
     line-height: 2.2916666666666665vw;
-    width: 46.2708333333vw;
+  }
+}
+
+
+.introducing-classic-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  .introducing-classic-cards__card {
+    width: 33.334%;
+    height: 32.2vw;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s linear;
+
+    img {
+      width: 50vw;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
+
+    .introducing-classic-cards__description {
+      z-index: 2;
+      position: absolute;
+      bottom: 0;
+      height: auto;
+      background: rgba(255, 255, 255, 0.60);
+      backdrop-filter: blur(15px);
+      color: $colorBlack;
+      padding: 2.583423035522067vh 1.25vw;
+      width: 100%;
+
+      h3 {
+        line-height: 1.4583333333333333vw;
+      }
+
+      p {
+        transition: 0.4s;
+        opacity: 0;
+        height: 0;
+        line-height: 1.25vw;
+      }
+    }
+  }
+}
+
+.introducing-classic-cards__card.active {
+  .introducing-classic-cards__description {
+    p {
+      height: 2vw;
+      opacity: 1;
+    }
   }
 }
 
@@ -310,86 +363,6 @@ main {
   }
 }
 
-.introducing-cards-mobile {
-  margin-bottom: 40px;
-  .splide {
-    padding: 0;
-
-    .splide__arrow {
-      width: 40px;
-      height: 40px;
-      border-radius: 100px; //TODO: МЫ ЕЩЕ НЕ ЗАКОНЧИЛИ!
-    }
-
-    .splide__arrow--next {
-      background: url("../images/Cursor-mobile.svg");
-      background-size: contain;
-      border-radius: 100px;
-      svg {
-        opacity: 0;
-      }
-    }
-
-    .splide__arrow--prev {
-      opacity: 0;
-    }
-
-    .splide__arrow:disabled {
-      opacity: 0;
-    }
-    .splide__pagination {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      justify-content: center;
-      bottom: -32px
-    }
-
-    .splide__pagination__page.is-active {
-      background: $colorRed;
-    }
-    .splide__pagination__page {
-      width: 32vw;
-      margin: 0;
-      height: 0.21528525296017223vh;
-
-      &:hover {
-        background-color: #ccc;
-      }
-    }
-  }
-  .introducing-cards-mobile__card {
-    img {
-      width: 100%;
-    }
-
-    .introducing-cards-mobile__description {
-      z-index: 2;
-      position: absolute;
-      bottom: 0;
-      height: auto;
-      background: rgba(255, 255, 255, 0.60);
-      backdrop-filter: blur(15px);
-      color: $colorBlack;
-      padding: 2vh 2vw;
-      width: 100%;
-
-      p {
-        transition: 0.4s;
-        opacity: 0;
-        height: 0;
-      }
-    }
-  }
-}
-
-.introducing-cards-mobile__card.active {
-  .introducing-cards-mobile__description {
-    p {
-      height: 8vh;
-      opacity: 1;
-    }
-  }
-}
 
 .calendar-section {
   @include flex-column;
