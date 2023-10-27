@@ -4,19 +4,19 @@ import { getAnnounces } from "../services/announces";
 
 export const useAnnounces = (
   {
-    // refetchOnWindowFocus = true,
-    // enabled = true,
+    refetchOnWindowFocus = true,
+    enabled = true
   }
 ) => {
   const { data, ...rest } = useQuery({
     queryKey: MORDOVIA_ENDPOINTS.announces,
     queryFn: getAnnounces,
-    // refetchOnWindowFocus,
-    // enabled
+    refetchOnWindowFocus,
+    enabled
   })
 
   return {
-    announces: data?.data,
+    announces: data,
     ...rest
   }
 }

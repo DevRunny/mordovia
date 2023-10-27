@@ -1,153 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CalendarCardComponent from "./CalendarCardComponent";
-import { days } from "./days";
 import prev from "../../../images/Arrow-prev.svg";
 import next from "../../../images/Arrow-next.svg";
+import { useFilters } from "../../../queries/useFilters";
+import { useEvents } from "../../../queries/useEvents";
 
 const CalendarSection = () => {
+  const { filters, isFetched } = useFilters();
+  const { events, isFetchedEvents } = useEvents();
+  const [activeMonth, setActiveMonth] = useState('');
+  const [topicId, setTopicId] = useState()
+  // const currentMonth = new Date().getMonth() + 1;
+
+  const handleChangeMonth = (month) => {
+    setActiveMonth(month)
+  }
+
+  const handleChangeFilter = (filterId) => {
+    setTopicId(filterId)
+  }
+
+  // useEffect(() => {
+  //   if (filters) {
+  //     const month = filters.months.find(
+  //       (month) => {console.log(Number(month.m) === currentMonth)}
+  //     );
+  //     if (month) setActiveMonth(month.title);
+  //   }
+  // }, [filters])
+
   return (
     <section className={"calendar-section"}>
       <div className={'calendar-months'}>
-        <div className={"calendar-months__month month_active"}>Октябрь</div>
-        <div className={"calendar-months__month"}>Ноябрь</div>
-        <div className={"calendar-months__month"}>Декабрь</div>
-        <div className={"calendar-months__month"}>Январь</div>
-        <div className={"calendar-months__month"}>Февраль</div>
-        <div className={"calendar-months__month"}>Март</div>
-        <div className={"calendar-months__month"}>Апрель</div>
+        {filters && isFetched
+        ?
+          filters.months.map((month) => {
+            return(
+              <div
+                onClick={() => {handleChangeMonth(month.title)}}
+                key={month.id}
+                className={`calendar-months__month ${activeMonth === month.title ? "month_active" : ""}`}>
+                  { month.title }
+              </div>
+            )
+          })
+          :
+          <></>
+        }
       </div>
+
       <div className={"calendar-days__days-and-filters"}>
         <div className="calendar-days">
-
           <div className="days-range"></div>
-
-
           <div className="calendar-days-wrapper">
             <button><img src={prev} alt={"prev"} /></button>
-            <div className="calendar-days__day">
-              <span className="day">1</span>
-              <span className="day_of_week weekend">сб</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">2</span>
-              <span className="day_of_week weekend">вс</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">3</span>
-              <span className="day_of_week">пн</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">4</span>
-              <span className="day_of_week">вт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">5</span>
-              <span className="day_of_week">ср</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">6</span>
-              <span className="day_of_week">чт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">7</span>
-              <span className="day_of_week">пт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">8</span>
-              <span className="day_of_week weekend">сб</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">9</span>
-              <span className="day_of_week weekend">вс</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">10</span>
-              <span className="day_of_week">пн</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">11</span>
-              <span className="day_of_week">вт</span>
-            </div>
-            <div className="calendar-days__day day_active">
-              <span className="day">12</span>
-              <span className="day_of_week">ср</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">13</span>
-              <span className="day_of_week">чт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">14</span>
-              <span className="day_of_week">пт</span>
-            </div>
-            <div className="calendar-days__day day_active">
-              <span className="day">15</span>
-              <span className="day_of_week weekend">сб</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">16</span>
-              <span className="day_of_week weekend">вс</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">17</span>
-              <span className="day_of_week">пн</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">18</span>
-              <span className="day_of_week">вт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">19</span>
-              <span className="day_of_week">ср</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">20</span>
-              <span className="day_of_week">чт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">21</span>
-              <span className="day_of_week">пт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">22</span>
-              <span className="day_of_week weekend">сб</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">23</span>
-              <span className="day_of_week weekend">вс</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">24</span>
-              <span className="day_of_week">пн</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">25</span>
-              <span className="day_of_week">вт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">26</span>
-              <span className="day_of_week">ср</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">27</span>
-              <span className="day_of_week">чт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">28</span>
-              <span className="day_of_week">пт</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">29</span>
-              <span className="day_of_week weekend">сб</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">30</span>
-              <span className="day_of_week weekend">вс</span>
-            </div>
-            <div className="calendar-days__day">
-              <span className="day">31</span>
-              <span className="day_of_week">пн</span>
-            </div>
+            {filters && isFetched
+              ?
+              filters.months[0].days.map((day) => {
+                return (
+                  <div key={day.id} className="calendar-days__day">
+                    <span className="day">{day.title}</span>
+                    <span className={ `day_of_week ${day.isWeekEnd ? "weekend" : ""}` }>{day.weekDay}</span>
+                  </div>
+                )
+              })
+              :
+              <></>
+            }
             <button><img src={next} alt={"next"} /></button>
           </div>
 
@@ -165,33 +84,35 @@ const CalendarSection = () => {
         {/*</div>*/}
       </div>
       <div className={"calendar-filters"}>
-        <div className={"calendar-filters__filter"}>
-          <span>Завтра</span>
-          <span className={"filter_count"}>12</span>
-        </div>
-        <div className={"calendar-filters__filter filter_active"}>
-          <span>Выходные </span>
-          <span className={"filter_count"}>11</span>
-        </div>
-        <div className={"calendar-filters__filter"}>
-          <span>Категория </span>
-          <span className={"filter_count"}>4</span>
-        </div>
-        <div className={"calendar-filters__filter"}>
-          <span>Категория </span>
-          <span className={"filter_count"}>9</span>
-        </div>
+        {filters && isFetched
+          ?
+          filters.topics.map((topic) => {
+            return (
+              <div key={ topic.id }
+                   onClick={() => {handleChangeFilter(topic.id)}}
+                   className={`calendar-filters__filter ${topicId === topic.id ? "filter_active" : ""}`}>
+                <span>{ topic.title }</span>
+                <span className={"filter_count"}>{ topic.cnt }</span>
+              </div>
+            )
+          })
+          :
+          <></>
+        }
       </div>
       </div>
     <div className={'calendar-cards'}>
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
-      <CalendarCardComponent />
+      {events && isFetchedEvents
+        ?
+        events.map((event) => {
+          return (
+            <CalendarCardComponent props={ event } />
+          )
+        })
+        :
+        <></>
+      }
+
     </div>
       <button className={'calendar-section__show-more'}>Показать еще</button>
     </section>

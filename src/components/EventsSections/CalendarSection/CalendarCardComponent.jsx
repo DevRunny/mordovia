@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import backgroundImage from "../../../images/Calendar-card-background.svg";
 
-const CalendarCardComponent = () => {
+const CalendarCardComponent = ({props}) => {
   const [isHovered, setHovered] = useState(false)
   const colorBlack = "#2B2B2B"
   const colorWhite = "#FFFFFF"
   const duration = 0.5;
 
+
   return (
     <motion.div
       whileHover={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "25vw",
+        backgroundImage: `url(${props.img})`,
+        backgroundSize: "cover",
         cursor: "pointer",
         transition: {duration: duration}
       }}
@@ -28,7 +28,7 @@ const CalendarCardComponent = () => {
             transition: {duration: duration}
           }}
         >
-          Культура
+          { props.topic }
         </motion.span>
         <svg className={'calendar-card__arrow-link'} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <motion.path
@@ -48,9 +48,7 @@ const CalendarCardComponent = () => {
           transition: {duration: duration}
         }}
         >
-          Розыгрыш туристических путевок,
-          приуроченный к Международному
-          дню экскурсовода
+          { props.title }
         </motion.h3>
         <motion.p
           initial={{height: 0, color: colorBlack}}
@@ -62,7 +60,7 @@ const CalendarCardComponent = () => {
             transition: {duration: duration}
           }}
         >
-          Приходите и откройте для себя множество удивительных фактов о Мордовии, ее народе и его творческом наследии.
+          { props.subtitle }
         </motion.p>
       </div>
       <div className={"calendar-card__date"}>
@@ -82,7 +80,7 @@ const CalendarCardComponent = () => {
             transition: {duration: duration}
           }}
         >
-          24 ноября 19:00
+          { props.date + " " + props.t }
         </motion.p>
       </div>
     </motion.div>

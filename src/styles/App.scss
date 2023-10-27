@@ -73,7 +73,7 @@ header {
   @include flex-row();
   justify-content: space-between;
   padding: 1.25vw;
-  z-index: 2;
+  z-index: 10;
 
   .header-logo {
     img {
