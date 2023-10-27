@@ -21,7 +21,6 @@ export const KeyEventsSection = () => {
         ref={opacity.ref}
         style={{
           // opacity: opacity.scrollYProgress,
-          // opacity: 1
         }}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }

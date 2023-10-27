@@ -1,7 +1,7 @@
 @import "variables";
 
 @media (max-width: 767px) {
-    header {
+  header {
       padding: 1.2917115177610334vh;
       .header-logo {
         img {
@@ -27,7 +27,7 @@
       }
     }
 
-    main {
+  main {
       .bg-video {
         top: 7vh;
       }
@@ -76,7 +76,7 @@
       }
     }
 
-    .main-content {
+  .main-content {
       background: url("../images/Map-bg-mobile.png") no-repeat;
       background-position-y: -2.9935414424000015vh;
       background-size: 100vw 80vh;
@@ -105,6 +105,10 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1.7222820236813778vh 1.2917115177610334vh 0 1.2917115177610334vh;
+
+    .subtitle-desktop {
+      display: none;
+    }
 
     h1 {
       font-size: 4.3057050592034445vh;
@@ -163,8 +167,7 @@
 
       .splide__arrow--next {
         background: url("../images/Cursor-mobile.svg");
-        background-size: contain;
-        border-radius: 10.76426264800861vh;
+        background-size: cover;
         svg {
           opacity: 0;
         }
@@ -240,6 +243,18 @@
         height: 8vh;
         opacity: 1;
       }
+    }
+  }
+
+  .calendar-section {
+    &__show-more {
+      margin-top: 3.4445640473627557vh;
+      margin-bottom: 3.4445640473627557vh;
+      font-size: 1.7222820236813778vh;
+      line-height: 3.8751345532831003vh;
+      height: 6.458557588805167vh;
+      border-radius: 3.2292787944025836vh;
+      width: 37.78256189451022vh;
     }
   }
 
