@@ -5,19 +5,23 @@ const MainSection = () => {
   return (
     <main>
       <video className={ "bg-video" }
-             autoPlay muted loop
+             autoPlay muted loop playsInline
       >
         <source src={"http://test.srcdev.ru/mordoviya2.mp4"} type="video/mp4" />
       </video>
       <div className={"about"}>
         <span>4 ноября 2023</span>
-        <span>Международная выставка – форум Россия</span>
+        <span>Международная <br className={"about-mobile"} /> выставка – форум Россия</span>
         <span>12 апреля 2024</span>
       </div>
       <div className={"present"}>
         <a href={'/'}><img src={cursor} alt={"↓"} /></a>
         <span>
-          Приходите и откройте для себя множество <br /> удивительных фактов о Мордовии, ее народе <br /> и его творческом наследии.
+          Приходите и откройте для себя множество
+          <br className={"present-desktop"}  />
+          удивительных фактов
+          <br className={"present-mobile"} />о Мордовии, ее народе
+          <br className={"present-desktop"}  /> и его творческом наследии.
         </span>
       </div>
       <div className={"main-content"}>

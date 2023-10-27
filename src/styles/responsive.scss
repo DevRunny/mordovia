@@ -1,84 +1,122 @@
 @import "variables";
 
 @media (max-width: 767px) {
-  //  header {
-  //    padding: 1.2917115177610334vh;
-  //    .header-logo {
-  //      img {
-  //        width: 187px;
-  //        height: 40px;
-  //      }
-  //    }
-  //
-  //    nav {
-  //      display: none;
-  //    }
-  //
-  //    .social-links {
-  //      display: none;
-  //    }
-  //  }
-  //
-  //  main {
-  //    padding-top: 30vh;
-  //    height: 100vh;
-  //
-  //    .bg-video {
-  //      position: fixed;
-  //
-  //      //height: 100vh;
-  //    }
-  //  }
-  //
-  //  .main-content {
-  //    background: url("../images/Map-bg-mobile.png") no-repeat;
-  //    background-size: contain;
-  //    justify-content: flex-start;
-  //    padding-top: 9vh;
-  //
-  //    h1 {
-  //      font-size: 6.673842841765339vh;
-  //      font-style: normal;
-  //      font-weight: 800;
-  //      line-height: 44px; /* 70.968% */
-  //      letter-spacing: -4.65px;
-  //    }
-  //
-  //    h4 {
-  //      font-size: 1.4vh;
-  //      font-style: normal;
-  //      font-weight: 500;
-  //      line-height: normal;
-  //      letter-spacing: 4.94px;
-  //    }
-  //  }
-  //
-  //.titles {
-  //  display: flex;
-  //  flex-direction: column;
-  //  align-items: flex-start;
-  //  padding: 16px 12px 0 12px;
-  //
-  //  h1 {
-  //    font-size: 40px;
-  //    font-style: normal;
-  //    font-weight: 800;
-  //    line-height: 38px; /* 95% */
-  //    letter-spacing: -1px;
-  //  }
-  //
-  //  h2 {
-  //    padding-left: 0;
-  //    font-size: 16px;
-  //    font-style: normal;
-  //    font-weight: 500;
-  //    line-height: 20px;
-  //  }
-  //
-  //  img {
-  //    width: 60%;
-  //  }
-  //}
+    header {
+      padding: 1.2917115177610334vh;
+      .header-logo {
+        img {
+          width: 19.590958019375673vh;
+        }
+      }
+
+      nav {
+        display: none;
+      }
+
+      .social-links {
+        display: none;
+      }
+    }
+
+    main {
+      .bg-video {
+        top: 7vh;
+      }
+
+      .about {
+        top: 20.548977395vh;
+        padding: 0 1.2917115177610334vh 0 1.2917115177610334vh;
+
+        span {
+          position: relative;
+          font-size: 1.5069967707212055vh;
+          line-height: 2.1528525296017222vh;
+          text-align: center;
+          white-space: nowrap;
+          &:nth-child(2) {
+            position: absolute;
+            top: -13vh;
+            left: 10.656620021528525vh;
+            right: 10.656620021528525vh;
+            white-space: pre-wrap;
+          }
+          .about-mobile {
+            display: block;
+          }
+        }
+      }
+      .present {
+        flex-direction: column-reverse;
+        top: 50vh;
+        text-align: center;
+        margin: 0;
+        padding: 0 3.8751345532831003vh 0 3.8751345532831003vh;
+        gap: 7.642626480086114vh;
+
+        .present-desktop {
+          display: none;
+        }
+
+        span {
+          font-size: 16px;
+        }
+
+        img {
+          width: 5.597416576964478vh;
+        }
+      }
+    }
+
+    .main-content {
+      background: url("../images/Map-bg-mobile.png") no-repeat;
+      background-position-y: -2.9935414424000015vh;
+      background-size: 100vw 80vh;
+      display: block;
+      padding-top: 31.431646932185146vh;
+
+      h1 {
+        font-size: 7.7vh;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 6.7vh; /* 70.968% */
+        letter-spacing: -0.5005382131324005vh;
+      }
+
+      h4 {
+        font-size: 1.8vh;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.5317545748116255vh;
+      }
+    }
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px 0 12px;
+
+    h1 {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 38px; /* 95% */
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      padding-left: 0;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+
+    img {
+      width: 60%;
+    }
+  }
 
   .introducing-cards {
     .introducing-cards__card {

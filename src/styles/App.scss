@@ -139,16 +139,24 @@ main {
     top: 23.3389666308vh;
     padding: 0 8.75vw 0 8.75vw;
     z-index: 1;
+
+    .about-mobile {
+      display: none;
+    }
   }
 
   .present {
     position: absolute;
-    margin-left: 37.5vw;
+    padding-left: 37.5vw;
     top: 71.4692142088vh;
     @include flex-row;
     justify-content: center;
     gap: 5.833333333333333vw;
     z-index: 1;
+
+    .present-mobile {
+      display: none;
+    }
 
     img {
       width: 6.666666666666667vw;
