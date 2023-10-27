@@ -4,12 +4,15 @@ import { CardComponent } from "./CardComponent";
 import { useOpacity } from "../../hooks/useOpacity";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import "@splidejs/react-splide/css/sea-green";
-import { useAnnounces } from "../../hooks/useAnnounces";
+import { useAnnounces } from "../../queries/useAnnounces";
+import { useQuery } from "react-query";
+import { MORDOVIA_ENDPOINTS } from "../../API/endpoints";
+import { getAnnounces } from "../../services/announces";
 
 export const AboutPeopleOfMordoviaSection = () => {
   const opacity = useOpacity()
   const hover = useHoverCard()
-  const announces = useAnnounces()
+  const { data, isFetched } = useQuery(MORDOVIA_ENDPOINTS.announces, getAnnounces)
 
   return (
     <>
@@ -57,9 +60,9 @@ export const AboutPeopleOfMordoviaSection = () => {
         onMouseLeave={ () => hover.setHovered(false) }
         className={ `introducing-cards ${hover.isHovered ? "active" : "" }`}
       >
-          {announces.isLoaded && !announces.error
+          {data && isFetched
             ?
-            announces.items.screen1.map((card)=> {
+            data.screen1.map((card)=> {
                 return (
                   <CardComponent
                     key={card.id}

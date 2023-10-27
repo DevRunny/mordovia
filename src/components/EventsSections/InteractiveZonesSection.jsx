@@ -3,12 +3,14 @@ import { CardComponent } from "./CardComponent";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
-import { useZones } from "../../hooks/useZones";
+import { useQuery } from "react-query";
+import { MORDOVIA_ENDPOINTS } from "../../API/endpoints";
+import { getZones } from "../../services/zones";
 
 function InteractiveZonesSection() {
   const opacity = useOpacity()
   const hover = useHoverCard()
-  const zones = useZones()
+  const { data, isFetched } = useQuery(MORDOVIA_ENDPOINTS.zones, getZones)
 
   return (
     <>
@@ -22,9 +24,9 @@ function InteractiveZonesSection() {
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards ${hover.isHovered ? "active" : ""}`}
       >
-        { zones.isLoaded
+        { data && isFetched
           ?
-          zones.items.map((card) => {
+          data.map((card) => {
             return (
               <CardComponent
                 key={ card.id }

@@ -3,12 +3,14 @@ import { CardComponent } from "./CardComponent";
 import { motion } from "framer-motion";
 import { useOpacity } from "../../hooks/useOpacity";
 import { useHoverCard } from "../../hooks/useHoverCard";
-import { useAnnounces } from "../../hooks/useAnnounces";
+import { useQuery } from "react-query";
+import { MORDOVIA_ENDPOINTS } from "../../API/endpoints";
+import { getAnnounces } from "../../services/announces";
 
 export const KeyEventsSection = () => {
   const opacity = useOpacity()
   const hover = useHoverCard()
-  const announces = useAnnounces()
+  const { data, isFetched } = useQuery(MORDOVIA_ENDPOINTS.announces, getAnnounces)
 
   return (
     <>
@@ -22,9 +24,9 @@ export const KeyEventsSection = () => {
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards ${hover.isHovered ? "active" : ""}`}
       >
-        {announces.isLoaded
+        {data && isFetched
         ?
-          announces.items.screen2.map((card)=>{
+          data.screen2.map((card)=>{
               return (
                 <CardComponent
                   key={card.id}

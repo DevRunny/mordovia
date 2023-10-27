@@ -388,6 +388,7 @@ main {
   gap: 2.0833333333333335vw;
 
   &__show-more {
+    color: $colorBlack;
     margin: auto;
     border-radius: 2.6041666666666665vw;
     width: 25.416666666666668vw;
@@ -420,57 +421,72 @@ main {
   }
 }
 
-.calendar-days-wrapper {
+.calendar-days__days-and-filters {
   @include flex-column;
   gap: 0.8333333333333334vw;
   padding: 0 1.25vw 0 1.25vw;
 }
 
 .calendar-days {
-  @include flex-row;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-
+  .calendar-days-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .days-range {
+    position: absolute;
+    background: $colorLightGrey;
+    z-index: -1;
+    display: none;
+  }
   button {
+    @include flex-row;
     border-radius: 50%;
     background: transparent;
+    img {
+      width: 2.5vw;
+    }
   }
-
   span {
     line-height: normal;
-
     &:last-child {
-      font-size: 16px;
+      font-size: 0.8333333333333334vw;
       font-weight: 400;
     }
   }
-
-
-  &__day {
-    @include flex-column;
-    align-items: center;
-    padding: 17px 11.836px 16px 11.164px;
-    overflow-x: hidden;
-    overflow-y: visible;
-
-    .weekend {
-      color: $colorRed;
-    }
-  }
-
   .day_active {
     background: $colorRed;
     color: $colorWhite;
-    border-radius: 24px;
-
+    border-radius: 1.25vw;
     .weekend {
-      color: $colorWhite
+      color: $colorWhite;
     }
   }
-
   .day_range {
     background: $colorLightGrey;
   }
 }
+.calendar-days.is-range {
+  .days-range {
+    display: block;
+  }
+}
+.calendar-days__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 0.8854166666666666vw 0.7987500000000001vw 0.8333333333333334vw 0.7637499999999999vw;
+  border-radius: 1.25vw;
+  .weekend {
+    color: $colorRed;
+  }
+}
+
 
 .calendar-filters {
   @include flex-row;
