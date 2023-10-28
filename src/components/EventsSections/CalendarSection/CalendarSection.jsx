@@ -7,10 +7,14 @@ import { useEvents } from "../../../queries/useEvents";
 
 const CalendarSection = () => {
   const { filters, isFetched } = useFilters();
-  const { events, isFetchedEvents } = useEvents();
   const [activeMonth, setActiveMonth] = useState('');
-  const [topicId, setTopicId] = useState()
-  // const currentMonth = new Date().getMonth() + 1;
+  const [topicId, setTopicId] = useState();
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(8);
+  const [queryParams, setQueryParams] = useState(`page=1`);
+  const { events, isFetchedEvents, refetch } = useEvents({queryParams, page});
+  const [allEvents, setAllEvents] = useState([]);
+  const [isFirstLoad, setFirstLoad] = useState(false);
 
   const handleChangeMonth = (month) => {
     setActiveMonth(month)
@@ -21,13 +25,23 @@ const CalendarSection = () => {
   }
 
   // useEffect(() => {
-  //   if (filters) {
-  //     const month = filters.months.find(
-  //       (month) => {console.log(Number(month.m) === currentMonth)}
-  //     );
-  //     if (month) setActiveMonth(month.title);
+  //   if (events) {
+  //     setAllEvents((prev) => [...prev, events])
   //   }
-  // }, [filters])
+  // }, [events])
+  //
+  // console.log(events)
+  //
+  // console.log(queryParams)
+  //
+  // useEffect(() => {
+  //   refetch();
+  // }, [queryParams, refetch])
+  //
+  // useEffect(() => {
+  //   setQueryParams(`page=${page}`)
+  // }, [page])
+
 
   return (
     <section className={"calendar-section"}>
@@ -114,7 +128,12 @@ const CalendarSection = () => {
       }
 
     </div>
-      <button className={'calendar-section__show-more'}>Показать еще</button>
+      <button
+        onClick={ () => { setPage((prev) => prev + 1) }}
+        className={'calendar-section__show-more'}
+      >
+        Показать еще
+      </button>
     </section>
   );
 }
