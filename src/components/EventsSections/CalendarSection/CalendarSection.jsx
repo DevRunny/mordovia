@@ -1,47 +1,136 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CalendarCardComponent from "./CalendarCardComponent";
 import prev from "../../../images/Arrow-prev.svg";
 import next from "../../../images/Arrow-next.svg";
+import closeFilter from "../../../images/Close-filter.svg"
 import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
+import CalendarDayComponent from "./CalendarDayComponent";
 
 const CalendarSection = () => {
-  const { filters, isFetched } = useFilters();
   const [activeMonth, setActiveMonth] = useState('');
   const [topicId, setTopicId] = useState();
-  const [page, setPage] = useState(1)
-  const [limit, setLimit] = useState(8);
-  const [queryParams, setQueryParams] = useState(`page=1`);
-  const { events, isFetchedEvents, refetch } = useEvents({queryParams, page});
+  const [queryParams, setQueryParams] = useState();
   const [allEvents, setAllEvents] = useState([]);
-  const [isFirstLoad, setFirstLoad] = useState(false);
+  const [isLastPage, setIsLastPage] = useState(false);
+  const [allMonths, setAllMonths] = useState([]);
+  const [monthId, setMonthId] = useState();
+  const [rangeBetween, setRangeBetween] = useState();
+
+  const [firstDay, setFirstDay] = useState(null);
+  const [secondDay, setSecondDay] = useState(null);
+
+  const { filters, isFetched } = useFilters();
+  const { isFetchedEvents, fetchNextPage, data, refetch} = useEvents({queryParams});
+
+  const countingRangeBetween = () => {
+    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days.map((day) => day.title) : [];
+    if (allDays && allDays.length > 0) {
+      const indexFirstDay = allDays.indexOf(firstDay);
+      const indexSecondDay = allDays.indexOf(secondDay);
+      let range = [];
+      if (indexFirstDay < indexSecondDay) {
+        range = allDays.slice(indexFirstDay + 1, indexSecondDay)
+      }
+      if (indexFirstDay > indexSecondDay) {
+        range = allDays.slice(indexSecondDay + 1, indexFirstDay)
+      }
+      setRangeBetween(range);
+    }
+  }
+
+  const handleChangeRange = useCallback((day) => {
+      if (!firstDay) {
+        setFirstDay(day);
+        return;
+      }
+      if (!secondDay) {
+        setSecondDay(day);
+        return;
+      }
+      setFirstDay(day);
+      setSecondDay(null);
+      setRangeBetween([]);
+  }, [firstDay, secondDay])
 
   const handleChangeMonth = (month) => {
-    setActiveMonth(month)
+    setActiveMonth(month);
   }
 
   const handleChangeFilter = (filterId) => {
-    setTopicId(filterId)
+    setTopicId(filterId);
+    setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}`);
   }
 
-  // useEffect(() => {
-  //   if (events) {
-  //     setAllEvents((prev) => [...prev, events])
-  //   }
-  // }, [events])
-  //
-  // console.log(events)
-  //
-  // console.log(queryParams)
-  //
-  // useEffect(() => {
-  //   refetch();
-  // }, [queryParams, refetch])
-  //
-  // useEffect(() => {
-  //   setQueryParams(`page=${page}`)
-  // }, [page])
+  const handleChangePrevMonth = () => {
+    const activeMonthIndex = allMonths.indexOf(activeMonth);
+    const prevMonth = allMonths[activeMonthIndex - 1];
+    const lastMonth = allMonths[allMonths.length - 1];
+    if (prevMonth) {
+      setActiveMonth(prevMonth)
+    } else {
+      setActiveMonth(lastMonth);
+    }
+  }
 
+  const handleChangeNextMonth = () => {
+    const activeMonthIndex = allMonths.indexOf(activeMonth);
+    const nextMonth = allMonths[activeMonthIndex + 1];
+    const firstMonth = allMonths[0];
+    if (nextMonth) {
+      setActiveMonth(nextMonth)
+    } else {
+      if (firstMonth) {
+        setActiveMonth(firstMonth);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (!queryParams) return;
+    setIsLastPage(false);
+    refetch()
+  }, [queryParams])
+
+  useEffect(() => {
+    if (filters) {
+      const allMonths = filters.months.map((month) => month.title);
+      const activeMonth = filters.months.find((month) => month.active);
+      setAllMonths(allMonths);
+      setActiveMonth(activeMonth.title);
+    }
+  }, [filters])
+
+  useEffect(() => {
+    if (!filters) return;
+    const monthId = filters.months.find((month) => month.title === activeMonth)?.id;
+    setMonthId(monthId);
+    setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
+  }, [activeMonth])
+
+  useEffect(() => {
+    setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
+  }, [topicId])
+
+  useEffect(() => {
+    if (data) {
+      const isLastPage = data.pages[data.pages.length - 1].isFinished;
+      if (isLastPage) {
+        setIsLastPage(true);
+      }
+
+      const allEvents = data.pages.map(
+        (page) => page.events
+      ).reduce((prev, current) =>{
+        return [...prev, ...current];
+      }, []);
+      setAllEvents(allEvents);
+    }
+  }, [data, topicId])
+
+  useEffect(() => {
+    if (firstDay && secondDay) countingRangeBetween();
+  }, [firstDay, secondDay, activeMonth])
 
   return (
     <section className={"calendar-section"}>
@@ -65,37 +154,29 @@ const CalendarSection = () => {
 
       <div className={"calendar-days__days-and-filters"}>
         <div className="calendar-days">
-          <div className="days-range"></div>
           <div className="calendar-days-wrapper">
-            <button><img src={prev} alt={"prev"} /></button>
-            {filters && isFetched
+            <button onClick={() => {handleChangePrevMonth()}}><img src={prev} alt={"prev"} /></button>
+            {filters && filters.months && isFetched
               ?
-              filters.months[0].days.map((day) => {
+              filters.months.find((month) => month.id === monthId)?.days.map((day) => {
                 return (
-                  <div key={day.id} className="calendar-days__day">
-                    <span className="day">{day.title}</span>
-                    <span className={ `day_of_week ${day.isWeekEnd ? "weekend" : ""}` }>{day.weekDay}</span>
-                  </div>
+                  <CalendarDayComponent
+                    key={day.id}
+                    day={day}
+                    handleChangeRange={handleChangeRange}
+                    firstDay={firstDay}
+                    secondDay={secondDay}
+                    rangeBetween={rangeBetween}
+                  />
                 )
               })
               :
               <></>
             }
-            <button><img src={next} alt={"next"} /></button>
+            <button
+            onClick={() => {handleChangeNextMonth()}}
+            ><img src={next} alt={"next"} /></button>
           </div>
-
-        {/*<div className={"calendar-days"}>*/}
-        {/*  <button><img src={prev} alt={"prev"} /></button>*/}
-        {/*  {days.map((day)=> {*/}
-        {/*    return (*/}
-        {/*      <div id={day.id} className={`calendar-days__day ${day.classRange} ${day.classActive}`}>*/}
-        {/*        <span className={"day"}>{day.day}</span>*/}
-        {/*        <span className={`day_of_week ${day.class}`}>{day.dayOfWeek}</span>*/}
-        {/*      </div>*/}
-        {/*    )*/}
-        {/*  })}*/}
-        {/*  <button><img src={next} alt={"next"} /></button>*/}
-        {/*</div>*/}
       </div>
       <div className={"calendar-filters"}>
         {filters && isFetched
@@ -107,6 +188,17 @@ const CalendarSection = () => {
                    className={`calendar-filters__filter ${topicId === topic.id ? "filter_active" : ""}`}>
                 <span>{ topic.title }</span>
                 <span className={"filter_count"}>{ topic.cnt }</span>
+                {topicId === topic.id
+                  ?
+                  <button onClick={(e) => {
+                    e.stopPropagation()
+                    setTopicId(null)
+                  }}>
+                    <img className={"filter_closeBtn"} src={closeFilter} alt={"X"} />
+                  </button>
+                  :
+                  <></>
+                }
               </div>
             )
           })
@@ -116,11 +208,11 @@ const CalendarSection = () => {
       </div>
       </div>
     <div className={'calendar-cards'}>
-      {events && isFetchedEvents
+      {allEvents && isFetchedEvents
         ?
-        events.map((event) => {
+        allEvents.map((event) => {
           return (
-            <CalendarCardComponent props={ event } />
+            <CalendarCardComponent key={event.id} props={ event } />
           )
         })
         :
@@ -128,12 +220,15 @@ const CalendarSection = () => {
       }
 
     </div>
-      <button
-        onClick={ () => { setPage((prev) => prev + 1) }}
-        className={'calendar-section__show-more'}
-      >
-        Показать еще
-      </button>
+      {!isLastPage ?
+        <button
+          onClick={ () => fetchNextPage() }
+          className={'calendar-section__show-more'}
+        >
+          Показать еще
+        </button> :
+        <></>
+      }
     </section>
   );
 }

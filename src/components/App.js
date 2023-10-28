@@ -10,13 +10,13 @@ import MainSection from "./MainSection/MainSection";
 function App() {
   return (
     <>
-      <NavBar/>
-      <MainSection />
+      {/*<NavBar/>*/}
+      {/*<MainSection />*/}
       <div style={{background: "white", width: "100%", height: "100%"}}>
         <EventsSections />
-        <HowToGetThereSection />
-        <FAQSection />
-        <Footer />
+        {/*<HowToGetThereSection />*/}
+        {/*<FAQSection />*/}
+        {/*<Footer />*/}
       </div>
     </>
 

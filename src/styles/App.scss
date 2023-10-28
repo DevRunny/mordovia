@@ -375,6 +375,7 @@ main {
 .calendar-section {
   @include flex-column;
   gap: 2.0833333333333335vw;
+  padding-bottom: 2.0833333333vw;
 
   &__show-more {
     color: $colorBlack;
@@ -423,14 +424,8 @@ main {
   .calendar-days-wrapper {
     width: 100vw;
     display: flex;
-    justify-content: space-between;
   }
-  .days-range {
-    position: absolute;
-    background: $colorLightGrey;
-    z-index: -1;
-    display: none;
-  }
+
   button {
     @include flex-row;
     border-radius: 50%;
@@ -447,12 +442,39 @@ main {
     }
   }
   .day_active {
+    position: absolute;
     background: $colorRed;
     color: $colorWhite;
-    border-radius: 1.25vw;
+    border-radius: 24px;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+
+
+
     .weekend {
       color: $colorWhite;
     }
+  }
+
+
+  .day_range_first {
+    position: absolute;
+    background: $colorLightGrey;
+    border-radius: 24px 0 0 24px;
+    z-index: 1;
+    height: 76px;
+    width: 100%;
+    left: 5px;
+  }
+  .day_range_second {
+    position: absolute;
+    background: $colorLightGrey;
+    border-radius: 0 24px 24px 0;
+    z-index: 1;
+    height: 76px;
+    width: 100%;
+    right: 5px;
   }
   .day_range {
     background: $colorLightGrey;
@@ -464,13 +486,24 @@ main {
   }
 }
 .calendar-days__day {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow-x: hidden;
   overflow-y: visible;
-  padding: 0.8854166666666666vw 0.7987500000000001vw 0.8333333333333334vw 0.7637499999999999vw;
-  border-radius: 1.25vw;
+  //padding: 0.8854166666666666vw 0.7987500000000001vw 0.8333333333333334vw 0.7637499999999999vw;
+  width: 2.5vw;
+  flex-grow: 1;
+
+  .day_initial {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    height: 76px;
+    width: 46px;
+  }
+
   .weekend {
     color: $colorRed;
   }
@@ -485,14 +518,18 @@ main {
     @include flex-row;
     justify-content: space-between;
     gap: 0.4166666666666667vw;
-    padding: 0.7291666666666666vw 1.0416666666666667vw;
+    padding: 0.7291666666666666vw 1.0416666666666667vw 0.7291666666666666vw 1.0416666666666667vw;
     border-radius: 1.7708333333333333vw;
+    transition: 0.5s;
     background: $colorLightGrey;
   }
 
   .filter_active {
     background: $colorRed;
     color: $colorWhite;
+    transition: 0.5s;
+    align-items: center;
+    padding: 0.7291666666666666vw 0.625vw 0.7291666666666666vw 1.0416666666666667vw;
 
     .filter_count {
       color: $colorBlack;
@@ -507,6 +544,15 @@ main {
     border-radius: 0.625vw;
     background: $colorWhite;
     font-size: 0.8333333333333334vw;
+  }
+
+  button {
+    background: transparent;
+  }
+
+  .filter_closeBtn {
+    width: 1.25vw;
+    height: 1.25vw;
   }
 }
 

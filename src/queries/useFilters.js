@@ -3,7 +3,7 @@ import { MORDOVIA_ENDPOINTS } from "../API/endpoints";
 import { getFilters } from "../services/filters";
 
 export const useFilters = () => {
-  const { data, ...rest } = useQuery({
+  const { data, ...rest  } = useQuery({
     queryKey: MORDOVIA_ENDPOINTS.filters,
     queryFn: getFilters,
     refetchOnWindowFocus: true,
