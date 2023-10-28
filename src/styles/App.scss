@@ -391,6 +391,18 @@ main {
   }
 }
 
+.calendar-wrapper {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 30px;
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
 .calendar-months {
   font-family: Wix Madefor Display;
   font-size: 2.5vw;
@@ -407,7 +419,8 @@ main {
     color: $colorLightGrey;
   }
   .month_active {
-    color: $colorRed
+    color: $colorRed;
+    transition: 0.5s;
   }
 }
 
@@ -446,6 +459,7 @@ main {
     background: $colorRed;
     color: $colorWhite;
     border-radius: 24px;
+    transition: 0.5s;
     z-index: 2;
     height: 100%;
     width: 100%;

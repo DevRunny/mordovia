@@ -16,6 +16,10 @@ const CalendarCardComponent = ({props}) => {
         cursor: "pointer",
         transition: {duration: duration}
       }}
+      whileTap={{
+        backgroundImage: `url(${props.img})`,
+        backgroundSize: "cover",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={"calendar-card"}

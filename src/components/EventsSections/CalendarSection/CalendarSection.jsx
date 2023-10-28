@@ -39,7 +39,40 @@ const CalendarSection = () => {
     }
   }
 
+  const formatDate = (needRangeDate) => {
+    const formatedDate = {};
+    if (filters) {
+      const month = filters.months.find((month) => month.title === activeMonth)
+      if (month) {
+        const firstDate = month.days.find((day) => day.title === firstDay).date;
+        const arrayFirstDate = firstDate.split('.').reverse().join('-');
+        formatedDate.arrayFirstDate = arrayFirstDate;
+        if (needRangeDate && secondDay) {
+          const secondDate = month.days.find((day) => day.title === secondDay).date;
+          const arraySecondDate = secondDate.split('.').reverse().join('-');
+          if (new Date(arraySecondDate) < new Date(arrayFirstDate)) {
+            formatedDate.arrayFirstDate = arraySecondDate;
+            formatedDate.arraySecondDate = arrayFirstDate;
+          } else {
+            formatedDate.arraySecondDate = arraySecondDate;
+          }
+        }
+      }
+    }
+
+    return formatedDate;
+  }
   const handleChangeRange = useCallback((day) => {
+      if (firstDay === day) {
+        setFirstDay(null);
+        setRangeBetween([]);
+        return;
+      }
+      if (secondDay === day) {
+        setSecondDay(null);
+        setRangeBetween([]);
+        return;
+      }
       if (!firstDay) {
         setFirstDay(day);
         return;
@@ -59,6 +92,16 @@ const CalendarSection = () => {
 
   const handleChangeFilter = (filterId) => {
     setTopicId(filterId);
+    if (firstDay && secondDay) {
+      const range = formatDate(true)
+      setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}&date=${range.arrayFirstDate}&dateEnd=${range.arraySecondDate}`);
+      return;
+    }
+    if (firstDay) {
+      const date = formatDate(false);
+      setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}&date=${date.arrayFirstDate}`);
+      return;
+    }
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}`);
   }
 
@@ -106,6 +149,8 @@ const CalendarSection = () => {
     const monthId = filters.months.find((month) => month.title === activeMonth)?.id;
     setMonthId(monthId);
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
+    setFirstDay(null);
+    setSecondDay(null);
   }, [activeMonth])
 
   useEffect(() => {
@@ -126,15 +171,32 @@ const CalendarSection = () => {
       }, []);
       setAllEvents(allEvents);
     }
-  }, [data, topicId])
+  }, [data, topicId, firstDay, secondDay])
 
   useEffect(() => {
     if (firstDay && secondDay) countingRangeBetween();
+    if (!firstDay && !secondDay) countingRangeBetween();
   }, [firstDay, secondDay, activeMonth])
+
+  useEffect(() => {
+    if (firstDay && secondDay) {
+      const range = formatDate(true)
+      setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}&date=${range.arrayFirstDate}&dateEnd=${range.arraySecondDate}`);
+      return;
+    }
+    if (firstDay) {
+      const date = formatDate(false);
+      setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}&date=${date.arrayFirstDate}`);
+    }
+    if (!firstDay && !secondDay) {
+      setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
+    }
+  }, [firstDay, secondDay])
 
   return (
     <section className={"calendar-section"}>
-      <div className={'calendar-months'}>
+      <div className={'calendar-wrapper'}>
+        <div className={'calendar-months'}>
         {filters && isFetched
         ?
           filters.months.map((month) => {
@@ -151,8 +213,7 @@ const CalendarSection = () => {
           <></>
         }
       </div>
-
-      <div className={"calendar-days__days-and-filters"}>
+        <div className={"calendar-days__days-and-filters"}>
         <div className="calendar-days">
           <div className="calendar-days-wrapper">
             <button onClick={() => {handleChangePrevMonth()}}><img src={prev} alt={"prev"} /></button>
@@ -207,7 +268,8 @@ const CalendarSection = () => {
         }
       </div>
       </div>
-    <div className={'calendar-cards'}>
+      </div>
+      <div className={'calendar-cards'}>
       {allEvents && isFetchedEvents
         ?
         allEvents.map((event) => {
@@ -220,15 +282,15 @@ const CalendarSection = () => {
       }
 
     </div>
-      {!isLastPage ?
-        <button
-          onClick={ () => fetchNextPage() }
-          className={'calendar-section__show-more'}
-        >
-          Показать еще
-        </button> :
-        <></>
-      }
+        {!isLastPage && allEvents.length > 0 ?
+          <button
+            onClick={ () => fetchNextPage() }
+            className={'calendar-section__show-more'}
+          >
+            Показать еще
+          </button> :
+          <></>
+        }
     </section>
   );
 }
