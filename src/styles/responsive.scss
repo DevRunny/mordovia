@@ -463,11 +463,14 @@
   .calendar-cards {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin: 0 0.8rem 2rem 0.8rem;
   }
 
   .calendar-card {
     padding: 0.7rem 0.7rem 0.7rem 0.7rem;
     justify-content: space-between;
+    box-shadow: 0 0 0.4rem $colorBlack;
 
     &__topic {
       svg {
