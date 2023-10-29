@@ -15,7 +15,7 @@ const MainSection = () => {
         <span>12 апреля 2024</span>
       </div>
       <div className={"present"}>
-        <a href={'/'}><img src={cursor} alt={"↓"} /></a>
+        <a href={'alias'}><img src={cursor} alt={"↓"} /></a>
         <span>
           Приходите и откройте для себя множество
           <br className={"present-desktop"}  />

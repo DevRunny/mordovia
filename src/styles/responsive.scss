@@ -38,8 +38,10 @@
 
         span {
           position: relative;
-          font-size: 1.5069967707212055vh;
-          line-height: 2.1528525296017222vh;
+          font-size: 0.85rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1.25rem;
           text-align: center;
           white-space: nowrap;
           &:nth-child(2) {
@@ -60,26 +62,27 @@
         text-align: center;
         margin: 0;
         padding: 0 3.8751345532831003vh 0 3.8751345532831003vh;
-        gap: 7.642626480086114vh;
+        gap: 60px;
 
         .present-desktop {
           display: none;
         }
 
         span {
-          font-size: 16px;
+          font-size: 1rem;
         }
 
         img {
-          width: 5.597416576964478vh;
+          width: 3.25rem;
+          height: 3.25rem;
         }
       }
     }
 
   .main-content {
       background: url("../images/Map-bg-mobile.png") no-repeat;
-      background-position-y: -2.9935414424000015vh;
-      background-size: 100vw 80vh;
+      background-position-y: -7.9935414424vh;
+      background-size: 100vw 100%;
       display: block;
       padding-top: 31.431646932185146vh;
 
@@ -104,6 +107,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.25rem;
     padding: 1.7222820236813778vh 1.2917115177610334vh 0 1.2917115177610334vh;
 
     .subtitle-desktop {
@@ -111,7 +115,7 @@
     }
 
     h1 {
-      font-size: 4.3057050592034445vh;
+      font-size: 2.1rem;
       font-style: normal;
       font-weight: 800;
       line-height: 5.166846071044134vh; /* 95% */
@@ -120,14 +124,14 @@
 
     h2 {
       padding-left: 0;
-      font-size: 1.7222820236813778vh;
+      font-size: 1rem;
       font-style: normal;
       font-weight: 500;
-      line-height: 2.1528525296017222vh;
+      line-height: 1.3rem;
     }
 
     img {
-      width: 55%;
+      width: 77%;
     }
   }
 
@@ -161,8 +165,9 @@
       padding: 0;
 
       .splide__arrow {
-        width: 4.3057050592034445vh;
-        height: 4.3057050592034445vh;
+        width: 52px;
+        height: 52px;
+        z-index: 1;
       }
 
       .splide__arrow--next {
@@ -202,14 +207,17 @@
     }
 
     h3 {
-      font-size: 1.7222820236813778vh;
-      line-height: 2.3681377825618943vh;
-
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.4rem;
     }
 
     p {
-      font-size: 1.5069967707212055vh;
-      line-height: 2.1528525296017222vh;
+      font-size: 0.85rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.25rem;
     }
 
     .introducing-cards-mobile__card {
@@ -218,7 +226,10 @@
       }
 
       .introducing-cards-mobile__description {
-        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 3;
         position: absolute;
         bottom: 0;
         height: auto;
@@ -240,7 +251,7 @@
   .introducing-cards-mobile__card.active {
     .introducing-cards-mobile__description {
       p {
-        height: 8vh;
+        height: 4rem;
         opacity: 1;
       }
     }
@@ -248,24 +259,100 @@
 
   .calendar-section {
     &__show-more {
-      margin-top: 3.4445640473627557vh;
-      margin-bottom: 3.4445640473627557vh;
-      font-size: 1.7222820236813778vh;
-      line-height: 3.8751345532831003vh;
-      height: 6.458557588805167vh;
-      border-radius: 3.2292787944025836vh;
-      width: 37.78256189451022vh;
+      width: 92%;
+      height: 3.75rem;
+      font-size: 1rem;
+      border-radius: 1.8rem;
+    }
+  }
+
+  .calendar-wrapper {
+    width: 100%;
+  }
+
+  .calendar-months {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1.7222820236813778vh;
+  }
+
+  .calendar-days {
+    width: 70rem;
+
+    .calendar-days-wrapper {
+      width: 100%;
+    }
+
+    button {
+      display: none;
+    }
+
+    span {
+      font-size: 1rem;
+
+      &:last-child {
+        font-size: 0.75rem;
+      }
+    }
+
+    &__days-and-filters {
+      padding: 0 0.8vh 0 0.8vh;
+      gap: 0.75rem;
+    }
+
+    &__day{
+      padding: 0.57rem 1rem;
+
+      .day_initial {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .day_range_first {
+      height: 100%;
+      left: 0.3rem;
+    }
+
+    .day_range_second {
+      height: 100%;
+      right: 0.3rem;
+    }
+  }
+
+  .calendar-filters {
+    gap: 0.8611410118406889vh;
+    &__filter {
+      gap: 0.25rem;
+      border-radius: 3.6598493003229278vh;
+      padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+
+      span {
+        font-size: 0.85rem;
+        line-height: 0.8rem;
+      }
+      .filter_count {
+        font-size: 0.6rem;
+        line-height: 1.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+    .filter_active {
+      padding: 0.5rem 0.24rem 0.5rem 0.8rem;
+    }
+    .filter_closeBtn {
+      width: 1.25rem;
+      height: 1.25rem;
     }
   }
 
   .calendar-cards {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
   }
 
   .calendar-card {
-    padding: 1.2917115177610334vh 1.2917115177610334vh 1.2917115177610334vh 1.2917115177610334vh;
-    min-height: 25.618945102260493vh;
+    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
     justify-content: space-between;
 
     &__topic {
@@ -275,38 +362,39 @@
       }
 
       span {
-        font-size: 1.2917115177610334vh;
-        line-height: 2.1528525296017222vh; /* 125% */
-        letter-spacing: 0.310010764262648vh;
+        font-size: 0.75rem;
+        line-height: 1.3rem;
+        letter-spacing: 0.18rem;
       }
     }
 
     &__description {
-      gap: 2.1528525296017222vh;
+      gap: 0.75rem;
       h3 {
-        font-size: 1.7222820236813778vh;
-        line-height: 2.3681377825618943vh;
+        font-size: 1rem;
+        line-height: 1.4rem;
       }
 
       p {
-        font-size: 1.5069967707212055vh;
+        font-size: 0.9rem;
+        line-height: 1.3rem;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 2.1528525296017222vh;
+        margin-bottom: 1.25rem;
       }
     }
 
     &__date {
-      gap: 0.8611410118406889vh;
+      gap: 0.5rem;
 
       p {
-        font-size: 1.2917115177610334vh;
+        font-size: 12px;
         line-height: normal;
       }
 
       svg {
-        width: 2.1528525296017222vh;
-        height: 2.1528525296017222vh;
+        width: 1.25rem;
+        height: 1.25rem;
       }
     }
   }
@@ -318,8 +406,10 @@
   .FAQ {
 
     h4 {
-      font-size: 2.583423035522067vh;
-      line-height: 3.013993541442411vh;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.75rem;
     }
 
     .accordion {
@@ -330,8 +420,8 @@
         border-bottom: 0.05382131324004306vh;
 
         img {
-          width: 4.3057050592034445vh;
-          height: 4.3057050592034445vh;
+          width: 2.5rem;
+          height: 2.5rem;
         }
       }
 
@@ -339,8 +429,10 @@
         padding: 2.583423035522067vh 1.2917115177610334vh 1.7222820236813778vh 1.2917115177610334vh;
 
         span {
-          font-size: 1.5069967707212055vh;
-          line-height: 2.1528525296017222vh;
+          font-size: 0.85rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1.25rem;
         }
       }
     }
@@ -354,35 +446,34 @@
 
     &__sponsors {
       :first-child {
-        width: 18.945102260495155vh;
+        width: 101.31px;
       }
       :last-child {
-        width: 18.945102260495155vh;
+        width: 159.636px;
       }
     }
 
     &__social-network {
-      gap: 1.7222820236813778vh;
-
+      gap: 1rem;
     }
 
     &__links-wrapper {
       span {
-        font-size: 1.7222820236813778vh;
-        line-height: 2.1528525296017222vh;
+        font-size: 0.9rem;
+        line-height: 1.25rem;
       }
     }
 
     &__links {
-      gap: 1.9375672766415502vh;
+      gap: 1.14rem;
 
       a {
-        font-size: 1.5069967707212055vh;
+        font-size: 0.9rem;
       }
 
       img {
-        width: 2.1528525296017222vh;
-        height: 2.1528525296017222vh;
+        width: 1.25rem;
+        height: 1.25rem;
       }
     }
   }
