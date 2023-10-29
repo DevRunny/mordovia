@@ -7,7 +7,7 @@ import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
 
-const CalendarSection = () => {
+const CalendarSection = ({id}) => {
   const [activeMonth, setActiveMonth] = useState('');
   const [topicId, setTopicId] = useState();
   const [queryParams, setQueryParams] = useState();
@@ -194,7 +194,7 @@ const CalendarSection = () => {
   }, [firstDay, secondDay])
 
   return (
-    <section className={"calendar-section"}>
+    <section id={id} className={"calendar-section"}>
       <div className={'calendar-wrapper'}>
         <div className={'calendar-months'}>
         {filters && isFetched

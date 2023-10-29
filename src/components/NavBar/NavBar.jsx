@@ -2,8 +2,16 @@ import * as React from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
 import burgerMenu from "../../images/Burger.svg"
+import { useState } from "react";
+import { Link } from "react-scroll";
 
 export const NavBar = () => {
+  const [isOpenBurger, setIsOpenBurger] = useState()
+
+  const handleOpenBurgerMenu = () => {
+    setIsOpenBurger(!isOpenBurger)
+  }
+
   return (
     <header>
       <div className={"header-logo"}>
@@ -13,10 +21,54 @@ export const NavBar = () => {
       </div>
       <nav>
         <ul>
-          <li><a href={"#events"}>События</a></li>
-          <li><a href={"#calendar"}>Календарь</a></li>
-          <li><a href={"#about-exposition"}>Об экспозиции</a></li>
-          <li><a href={"#how-to-get-there"}>Как добраться</a></li>
+          <li>
+            <Link
+            activeClass="active"
+            to="events"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={500}
+            >
+              События
+            </Link>
+          </li>
+          <li>
+            <Link
+            activeClass="active"
+            to="#calendar"
+            spy={true}
+            smooth={true}
+            offset={-350}
+            duration={500}
+            >
+              Календарь
+            </Link>
+          </li>
+          <li>
+            <Link
+              activeClass="active"
+              to="#about-exposition"
+              spy={true}
+              smooth={true}
+              offset={-330}
+              duration={500}
+              >
+                Об экспозиции
+              </Link>
+          </li>
+          <li>
+            <Link
+            activeClass="active"
+            to="how-to-get-there"
+            spy={true}
+            smooth={true}
+            offset={-330}
+            duration={500}
+            >
+              Как добраться
+            </Link>
+          </li>
           <li><a href={"#news"}>Новости</a></li>
         </ul>
       </nav>
@@ -28,10 +80,74 @@ export const NavBar = () => {
             <a href={'/'}>TG</a>
           </div>
         </div>
-      <div className={"burger-menu-wrapper"}>
-        <button className={"burger-menu"}>
-          <img src={burgerMenu} alt={'menu'}/>
-        </button>
+      <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn"}>
+        <img src={burgerMenu} alt={'menu'}/>
+      </button>
+      <div style={{display: `${isOpenBurger ? "block" : "none"}`}} className={"burger-menu"}>
+        <div className={"burger-menu-wrapper"}>
+          <div className={"burger-menu__nav"}>
+            <ul>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="events"
+                  spy={true}
+                  smooth={true}
+                  offset={-40}
+                  duration={500}
+                >
+                  События
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#calendar"
+                  spy={true}
+                  smooth={true}
+                  offset={-200}
+                  duration={500}
+                >
+                  Календарь
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#about-exposition"
+                  spy={true}
+                  smooth={true}
+                  offset={-210}
+                  duration={500}
+                >
+                  Об экспозиции
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="how-to-get-there"
+                  spy={true}
+                  smooth={true}
+                  offset={-125}
+                  duration={500}
+                >
+                  Как добраться
+                </Link>
+              </li>
+              <li><a href={"#news"}>Новости</a></li>
+            </ul>
+          </div>
+          <div className={"burger-menu__links"}>
+            <a href={'/'}>VK</a>
+            <a href={'/'}>OK</a>
+            <a href={'/'}>TG</a>
+          </div>
+        </div>
       </div>
     </header>
   );

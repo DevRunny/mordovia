@@ -8,7 +8,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "./MobileCardComponent";
 import { CardComponent } from "./CardComponent";
 
-function InteractiveZonesSection() {
+function InteractiveZonesSection({id}) {
   const opacity = useOpacity()
   const hover = useHoverCard()
   const { width } = useWindowSize()
@@ -17,6 +17,7 @@ function InteractiveZonesSection() {
   if (width < 767) {
     return (
       <motion.div
+        id={id}
         ref={opacity.ref}
         style={{
           // opacity: opacity.scrollYProgress,
@@ -56,6 +57,7 @@ function InteractiveZonesSection() {
   return (
     <>
       <motion.div
+        id={id}
         ref={opacity.ref}
         style={{
           // opacity: opacity.scrollYProgress

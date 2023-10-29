@@ -3,15 +3,21 @@ import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
 export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
-  const hover = useHoverCard()
+  const { isHovered, setHovered } = useHoverCard()
+
+  const mouseActiveHover = () => {
+    setTimeout(() => {
+      setHovered(!isHovered)
+    }, 100)
+  }
 
 
   return (
     <div
       style={{cursor: "pointer"}}
-      onMouseEnter={ () => hover.setHovered(true)}
-      onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-cards__card  ${hover.isHovered ? "active" : ""}` }
+      onMouseEnter={ () => setHovered(true)}
+      onMouseLeave={ () => mouseActiveHover()}
+      className={ `introducing-cards__card  ${isHovered ? "active" : ""}` }
     >
 
       <a href={url} rel="noreferrer" target={"_blank"}>

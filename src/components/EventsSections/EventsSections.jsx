@@ -6,9 +6,10 @@ import InteractiveZonesSection from "./InteractiveZonesSection";
 import headline from "../../images/Headline.svg";
 import { Titles } from "../Titles/Titles";
 
-const EventsSections = () => {
+const EventsSections = ({id}) => {
+
   return (
-    <>
+    <section id={id}>
       <Titles
         img={headline}
         h2={<>Удивительные открытия
@@ -22,14 +23,14 @@ const EventsSections = () => {
           <br className={"subtitle-desktop"} /> выставки <br className={"subtitle-mobile"}/> и ярмарки
           <br className={"subtitle-desktop"} /> народного промысла</>}
       />
-      <KeyEventsSection />
+      <KeyEventsSection id={"#about-exposition"}/>
       <Titles
         img={headline}
         h2={<>Увлекательные события,
           <br className={"subtitle-desktop"}/> выставки <br className={"subtitle-mobile"} /> и ярмарки
           <br className={"subtitle-desktop"}/> народного промысла</>}
       />
-      <CalendarSection />
+      <CalendarSection id={"#calendar"}/>
       <Titles
         img={headline}
         h2={<>Интерактивные выставки с уникальными <br className={"subtitle-mobile"} />
@@ -37,7 +38,7 @@ const EventsSections = () => {
           <br className={"subtitle-desktop"}/> и историю Мордовии.</>}
       />
       <InteractiveZonesSection />
-    </>
+    </section>
   );
 };
 

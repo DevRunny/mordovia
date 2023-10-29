@@ -8,9 +8,9 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "./MobileCardComponent";
 import { useAnnounces } from "../../queries/useAnnounces";
 
-export const KeyEventsSection = () => {
+export const KeyEventsSection = ({id}) => {
   const opacity = useOpacity()
-  const hover = useHoverCard()
+  const { isHovered, setHovered } = useHoverCard()
   const { width } = useWindowSize()
   const { announces, isFetched } = useAnnounces({})
 
@@ -18,13 +18,14 @@ export const KeyEventsSection = () => {
   if (width < 767) {
     return (
       <motion.div
+        id={id}
         ref={opacity.ref}
         style={{
           // opacity: opacity.scrollYProgress,
         }}
-        onMouseEnter={ () => hover.setHovered(true) }
-        onMouseLeave={ () => hover.setHovered(false) }
-        className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
+        onMouseEnter={ () => setHovered(true) }
+        onMouseLeave={ () => setHovered(false) }
+        className={`introducing-cards-mobile ${isHovered ? "active" : "" }`}
       >
 
         <Splide>
@@ -59,14 +60,15 @@ export const KeyEventsSection = () => {
   return (
     <>
       <motion.div
+        id={id}
         ref={opacity.ref}
         style={{
           // opacity: opacity.scrollYProgress
           opacity: 1
         }}
-        onMouseEnter={ () => hover.setHovered(true) }
-        onMouseLeave={ () => hover.setHovered(false) }
-        className={`introducing-cards ${hover.isHovered ? "active" : ""}`}
+        onMouseEnter={ () => setHovered(true) }
+        onMouseLeave={ () => setHovered(false) }
+        className={`introducing-cards ${isHovered ? "active" : ""}`}
       >
         {announces && isFetched
         ?

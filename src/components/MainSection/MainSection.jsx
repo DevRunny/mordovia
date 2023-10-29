@@ -1,11 +1,16 @@
 import React from "react";
 import cursor from "../../images/Cursor.svg";
+import { Link } from "react-scroll";
+import { useWindowSize } from "usehooks-ts";
 
 const MainSection = () => {
+  const { width } = useWindowSize()
+
   return (
     <main>
-      <video className={ "bg-video" }
-             autoPlay muted loop playsInline
+      <video
+        className={ "bg-video" }
+        autoPlay muted loop playsInline
       >
         <source src={"http://test.srcdev.ru/mordoviya2.mp4"} type="video/mp4" />
       </video>
@@ -15,7 +20,17 @@ const MainSection = () => {
         <span>12 апреля 2024</span>
       </div>
       <div className={"present"}>
-        <a href={'alias'}><img src={cursor} alt={"↓"} /></a>
+        <Link
+          style={{cursor: "pointer"}}
+          activeClass="active"
+          to="events"
+          spy={true}
+          smooth={true}
+          offset={width < 767 ? -50 :-80}
+          duration={500}
+        >
+          <img src={cursor} alt={"↓"} />
+        </Link>
         <span>
           Приходите и откройте для себя множество
           <br className={"present-desktop"}  />

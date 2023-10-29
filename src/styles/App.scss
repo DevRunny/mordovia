@@ -88,6 +88,7 @@ header {
     li {
       font-size: 1.0416666666666667vw;
       font-weight: 500;
+      cursor: pointer;
 
       a {
         color: $colorBlack
@@ -114,7 +115,7 @@ header {
     }
   }
 
-  .burger-menu-wrapper {
+  .burger-menuBtn {
     display: none;
   }
 
@@ -207,12 +208,7 @@ main {
   }
 }
 
-
-
 .titles {
-  //position: -webkit-sticky;
-  //position: sticky;
-  //top: 120px;
   @include flex-row();
   padding: 0 1vw 0 1vw;
   margin-bottom: 4.3057050592034445vh;
@@ -240,7 +236,6 @@ main {
     line-height: 2.2916666666666665vw;
   }
 }
-
 
 .introducing-classic-cards {
   width: 100%;
@@ -371,7 +366,6 @@ main {
   }
 }
 
-
 .calendar-section {
   @include flex-column;
   gap: 2.0833333333333335vw;
@@ -458,7 +452,7 @@ main {
     position: absolute;
     background: $colorRed;
     color: $colorWhite;
-    border-radius: 24px;
+    border-radius: 1.25vw;
     transition: 0.5s;
     z-index: 2;
     height: 100%;
@@ -475,20 +469,20 @@ main {
   .day_range_first {
     position: absolute;
     background: $colorLightGrey;
-    border-radius: 24px 0 0 24px;
+    border-radius: 1.25vw 0 0 1.25vw;
     z-index: 1;
-    height: 76px;
+    height: 3.9583333333333335vw;
     width: 100%;
-    left: 5px;
+    left: 0.2604166666666667vw;
   }
   .day_range_second {
     position: absolute;
     background: $colorLightGrey;
-    border-radius: 0 24px 24px 0;
+    border-radius: 0 1.25vw 1.25vw 0;
     z-index: 1;
-    height: 76px;
+    height: 3.9583333333333335vw;
     width: 100%;
-    right: 5px;
+    right: 0.2604166666666667vw;
   }
   .day_range {
     background: $colorLightGrey;
@@ -511,15 +505,14 @@ main {
     @include flex-column;
     align-items: center;
     justify-content: center;
-    height: 76px;
-    width: 46px;
+    height: 3.9583333333333335vw;
+    width: 2.3958333333333335vw;
   }
 
   .weekend {
     color: $colorRed;
   }
 }
-
 
 .calendar-filters {
   @include flex-row;
@@ -674,12 +667,8 @@ main {
   }
 }
 
-footer {
-  @include flex-column;
-  gap: 4.166666666666667vw;
-}
-
 .gift-shop {
+  margin-bottom: 4.166666666666667vw;
   img {
     width: 100%;
   }
@@ -730,6 +719,57 @@ footer {
       &:visited {
         color: #D20000;
       }
+    }
+  }
+}
+
+.event-page {
+  @include flex-row;
+  align-items: flex-start;
+}
+
+.event {
+
+  &__info {
+    @include flex-column;
+    gap: 44px;
+
+    .event-date-and-point-wrapper {
+      @include flex-row;
+      gap: 36px;
+
+      .date {
+        @include flex-row;
+      }
+
+      .point {
+        @include flex-row;
+      }
+    }
+
+    span {
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 125% */
+      letter-spacing: 3.84px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-family: Wix Madefor Display;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 84px; /* 105% */
+      letter-spacing: -3.2px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__content {
+    img {
+      width: 20%;
     }
   }
 }
