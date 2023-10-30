@@ -12,7 +12,7 @@ const MainSection = () => {
         className={ "bg-video" }
         autoPlay muted loop playsInline
       >
-        <source src={"http://test.srcdev.ru/mordoviya2.mp4"} type="video/mp4" />
+        <source src={"https://mordovia-russia.ru/video/mordoviya2.mp4"} type="video/mp4" />
       </video>
       <div className={"about"}>
         <span>4 ноября 2023</span>
