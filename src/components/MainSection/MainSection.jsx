@@ -6,6 +6,41 @@ import { useWindowSize } from "usehooks-ts";
 const MainSection = () => {
   const { width } = useWindowSize()
 
+  let main, cursorPointer;
+
+  function handleMouseMove(event) {
+
+    let doc = document.documentElement;
+    let top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+  	let my = event.clientY + top;
+
+	let mainHeight = main.offsetHeight;
+
+	if (my >= main.offsetTop + mainHeight/2 && my <= main.offsetTop + mainHeight) {
+		if (cursorPointer.style.display == 'none') {
+			cursorPointer.style.display = 'block';
+
+			document.body.classList.add("cursor-none");
+		}
+
+		cursorPointer.style.left = (event.clientX)+'px';
+		cursorPointer.style.top = (my - main.offsetTop)+'px';
+	} else {
+		if (cursorPointer.style.display == 'block') {
+			cursorPointer.style.display = 'none';
+
+			document.body.classList.remove("cursor-none");
+		}
+	}
+  }
+
+  setTimeout(function(){
+  	main = document.querySelector("main");
+  	cursorPointer = document.querySelector(".cursorPointer");
+
+  	document.addEventListener("mousemove", handleMouseMove);
+  }, 100);
+
   return (
     <main>
       <video
@@ -20,17 +55,7 @@ const MainSection = () => {
         <span>12 апреля 2024</span>
       </div>
       <div className={"present"}>
-        <Link
-          style={{cursor: "pointer"}}
-          activeClass="active"
-          to="events"
-          spy={true}
-          smooth={true}
-          offset={width < 767 ? -50 :-80}
-          duration={500}
-        >
-          <img src={cursor} alt={"↓"} />
-        </Link>
+        
         <span>
           Приходите и откройте для себя множество
           <br className={"present-desktop"}  />
@@ -45,6 +70,20 @@ const MainSection = () => {
           <h4>Экспозиция республики</h4>
         </div>
       </div>
+
+	  <Link
+	    className="cursorPointer"
+        style={{cursor: "pointer", display: "none", transform: "translate(-50%, -50%)"}}
+        activeClass="active"
+        to="events"
+        spy={true}
+        smooth={true}
+        offset={width < 767 ? -50 :-80}
+        duration={500}
+      >
+        <img src={cursor} alt={"↓"} />
+      </Link>
+
     </main>
   );
 };

@@ -37,15 +37,17 @@ const CalendarCardComponent = ({props}) => {
         >
           { props.topic }
         </motion.span>
-        <svg className={'calendar-card__arrow-link'} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <motion.path
-            initial={{stroke: colorBlack}}
-            animate={{
-              stroke : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
-              transition: {duration: duration}
-            }}
-            d="M17 7L7 17M17 7H8M17 7V16" stroke="#2B2B2B" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        {isHovered &&
+          <svg className={'calendar-card__arrow-link'} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <motion.path
+              initial={{stroke: colorBlack}}
+              animate={{
+                stroke : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
+                transition: {duration: duration}
+              }}
+              d="M17 7L7 17M17 7H8M17 7V16" stroke="#2B2B2B" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+	    }
       </div>
       <div className={"calendar-card__description"}>
         <motion.h3

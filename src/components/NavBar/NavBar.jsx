@@ -12,6 +12,14 @@ export const NavBar = () => {
     setIsOpenBurger(!isOpenBurger)
   }
 
+  const handlePlayAudio = () => {
+    let audio = document.getElementById("main_audio");
+    if (audio.paused)
+    	audio.play();
+    else
+    	audio.pause();
+  }
+
   return (
     <header>
       <div className={"header-logo"}>
@@ -74,10 +82,10 @@ export const NavBar = () => {
       </nav>
         <div className={"header-links"}>
           <div className={"social-links"}>
-            <a href={'/'}><img src={sound} alt={"alt"} /></a>
-            <a href={'/'}>VK</a>
-            <a href={'/'}>OK</a>
-            <a href={'/'}>TG</a>
+            <a href="#" onClick={() => {handlePlayAudio()}}><img src={sound} alt={"alt"} /></a>
+            <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
+            <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
+            <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
           </div>
         </div>
       <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn"}>
@@ -143,12 +151,14 @@ export const NavBar = () => {
             </ul>
           </div>
           <div className={"burger-menu__links"}>
-            <a href={'/'}>VK</a>
-            <a href={'/'}>OK</a>
-            <a href={'/'}>TG</a>
+            <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
+            <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
+            <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
           </div>
         </div>
       </div>
+
+      <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
     </header>
   );
 };

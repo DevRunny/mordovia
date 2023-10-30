@@ -151,8 +151,10 @@ main {
   }
 
   .present {
+  	pointer-events: none;
     position: absolute;
-    padding-left: 37.5vw;
+    /*padding-left: 37.5vw;*/
+    padding-left: 49.5vw;
     top: 71.4692142088vh;
     @include flex-row;
     justify-content: center;
@@ -772,4 +774,19 @@ main {
       width: 20%;
     }
   }
+}
+
+.cursorPointer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+
+main {
+	overflow: hidden;
+}
+
+body.cursor-none, body.cursor-none * {
+	cursor: none !important;
 }
