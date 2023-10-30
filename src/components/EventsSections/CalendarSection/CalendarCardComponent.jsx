@@ -18,7 +18,7 @@ const CalendarCardComponent = ({props}) => {
         backgroundSize: "cover"
       } : {}}
       whileHover={isMobile ? {} : {
-        backgroundImage: `url(${props.img})`,
+        backgroundImage: `url(${isHovered ? props.img : ""})`,
         backgroundSize: "cover",
         cursor: "pointer",
         transition: {duration: duration}
@@ -64,8 +64,8 @@ const CalendarCardComponent = ({props}) => {
           style={isMobile ? {height: "auto"} : {height: 0}}
           animate={{
             color : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
-            height : isMobile ? {height: "auto"} : isHovered ? "auto" : 0,
-            opacity: isMobile ? {opacity: 1} : isHovered ? 1 : 0,
+            height : isMobile ? "auto" : isHovered ? "auto" : 0,
+            opacity: isMobile ? 1 : isHovered ? 1 : 0,
             transition: {duration: duration}
           }}
         >

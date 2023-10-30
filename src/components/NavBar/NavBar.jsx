@@ -14,10 +14,12 @@ export const NavBar = () => {
 
   const handlePlayAudio = () => {
     let audio = document.getElementById("main_audio");
-    if (audio.paused)
+    if (audio.paused) {
     	audio.play();
-    else
-    	audio.pause();
+      return;
+    }
+
+    audio.pause();
   }
 
   return (
@@ -82,7 +84,10 @@ export const NavBar = () => {
       </nav>
         <div className={"header-links"}>
           <div className={"social-links"}>
-            <a href="#" onClick={() => {handlePlayAudio()}}><img src={sound} alt={"alt"} /></a>
+            <div style={{cursor: "pointer"}} onClick={() => {handlePlayAudio()}}>
+              <img src={sound} alt={"alt"} />
+              <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
+            </div>
             <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
             <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
             <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
@@ -157,8 +162,6 @@ export const NavBar = () => {
           </div>
         </div>
       </div>
-
-      <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
     </header>
   );
 };
