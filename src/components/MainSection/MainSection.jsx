@@ -17,7 +17,7 @@ const MainSection = () => {
 	let mainHeight = main.offsetHeight;
 
 	if (my >= main.offsetTop + mainHeight/2 && my <= main.offsetTop + mainHeight) {
-		if (cursorPointer.style.display == 'none') {
+		if (cursorPointer.style.display === 'none') {
 			cursorPointer.style.display = 'block';
 
 			document.body.classList.add("cursor-none");
@@ -26,7 +26,7 @@ const MainSection = () => {
 		cursorPointer.style.left = (event.clientX)+'px';
 		cursorPointer.style.top = (my - main.offsetTop)+'px';
 	} else {
-		if (cursorPointer.style.display == 'block') {
+		if (cursorPointer.style.display === 'block') {
 			cursorPointer.style.display = 'none';
 
 			document.body.classList.remove("cursor-none");

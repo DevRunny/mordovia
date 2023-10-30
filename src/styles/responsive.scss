@@ -561,16 +561,25 @@
 
   .footer {
     flex-direction: column-reverse;
-    gap: 3.4445640473627557vh;
-    padding: 4.3057050592034445vh 1.2917115177610334vh 4.3057050592034445vh 1.2917115177610334vh;
+    gap: 2rem;
+    padding: 2.5rem 0.75rem;
 
+    &__logos {
+      gap: 2.1528525296017222vh;
+    }
+
+    &__logo {
+      img {
+        width: 100%;
+      }
+    }
 
     &__sponsors {
       :first-child {
-        width: 101.31px;
+        width: 6rem;
       }
       :last-child {
-        width: 159.636px;
+        width: 11rem;
       }
     }
 
@@ -595,6 +604,18 @@
       img {
         width: 1.25rem;
         height: 1.25rem;
+      }
+    }
+  }
+
+  footer {
+    .copyright {
+      height: 2.75rem;
+      padding: 0.85rem 0.5rem;
+
+      p {
+        font-size: 0.85rem;
+        line-height: 1rem;
       }
     }
   }

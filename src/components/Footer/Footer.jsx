@@ -2,6 +2,7 @@ import * as React from "react";
 import international from "../../images/International.svg";
 import investments from "../../images/Investments.png";
 import iconSite from "../../images/Icon-site.png";
+import mordoviaLogo from "../../images/Republic-Mordovia.png"
 
 
 export const Footer = () => {
@@ -9,6 +10,9 @@ export const Footer = () => {
     <footer>
       <div className={"footer"}>
         <div className={"footer__logos"}>
+          <div className={"footer__logo"}>
+            <img src={mordoviaLogo} alt={"logo-of-mordovia"} />
+          </div>
           <div className={"footer__sponsors"}>
             <img src={international} alt={"logo-international"} />
             <img src={investments} alt={"logo-investments"} />
@@ -60,7 +64,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
+    <div className={"copyright"}><p>© Республика Мордовия, 2023</p></div>
     </footer>
   );
 };

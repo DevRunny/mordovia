@@ -410,6 +410,7 @@ main {
   justify-content: flex-start;
   gap: 1.25vw;
   padding: 0.5208333333333334vw 0 0.5208333333333334vw 1.40625vw;
+  cursor: pointer;
 
   &__month {
     color: $colorLightGrey;
@@ -430,6 +431,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .calendar-days-wrapper {
     width: 100vw;
     display: flex;
@@ -502,6 +504,7 @@ main {
   align-items: center;
   width: 2.5vw;
   flex-grow: 1;
+  cursor: pointer;
 
   .day_initial {
     @include flex-column;
@@ -528,6 +531,7 @@ main {
     border-radius: 1.7708333333333333vw;
     transition: 0.5s;
     background: $colorLightGrey;
+    cursor: pointer;
   }
 
   .filter_active {
@@ -680,19 +684,31 @@ main {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 31.71875vw;
-  padding: 4.166666666666667vw 4.84375vw 4.166666666666667vw 5.729166666666667vw;
+  gap: 14.166666666666666vw;
+  padding: 2.1875vw 1.25vw 5.46875vw;
   background-color: $backgroundColorLightGrey;
 
-  &__sponsors {
+  &__logos {
     @include flex-column;
+    justify-content: space-between;
+    gap: 15vw;
+  }
+
+  &__logo {
+    img {
+      width: 34.548854166666665vw;
+    }
+  }
+
+  &__sponsors {
+    @include flex-row;
     gap: 2.0833333333333335vw;
 
     :first-child {
-      width: 12.552083333333334vw;
+      width: 8.117760416666666vw;
     }
     :last-child {
-      width: 11.510416666666666vw;
+      width: 12.791354166666666vw;
     }
   }
 
@@ -700,6 +716,7 @@ main {
   &__social-network {
     @include flex-column;
     gap: 2.0833333333333335vw;
+    padding-top: 3.2291666666666665vw;
   }
 
   &__links-wrapper {
@@ -721,6 +738,23 @@ main {
       &:visited {
         color: #D20000;
       }
+    }
+  }
+}
+
+footer {
+  .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.8020833333333335vw;
+    padding: 0.625vw 0.5208333333333334vw;
+    background: $colorRed;
+
+    p {
+      font-size: 1.0416666666666667vw;
+      line-height: 1.4583333333333333vw;
+      color: $colorWhite;
     }
   }
 }
