@@ -8,8 +8,6 @@ import { Footer } from "../Footer/Footer";
 import GiftShop from "../GiftShop/GitfShop";
 
 const Home = () => {
-
-
   return (
     <>
       <NavBar/>

@@ -3,6 +3,7 @@ import { getEvents } from "../services/events";
 import { MORDOVIA_ENDPOINTS } from "../API/endpoints";
 
 export const useEvents = ({queryParams}) => {
+  if (!queryParams) queryParams = '';
   const { data, isFetched, ...rest } = useInfiniteQuery({
     queryKey: [MORDOVIA_ENDPOINTS.events],
     queryFn: ({pageParam = 1}) => getEvents(`${queryParams}&page=${pageParam}`),
