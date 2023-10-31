@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import plus from "../../images/Plus.svg";
 import minus from "../../images/Minus.svg";
 
-const AccordionComponent = ({id, question, answer}) => {
+const AccordionComponent = ({question, answer}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>

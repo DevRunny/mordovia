@@ -156,10 +156,6 @@ main {
     top: 23.3389666308vh;
     padding: 0 8.75vw 0 8.75vw;
     z-index: 1;
-
-    .about-mobile {
-      display: none;
-    }
   }
 
   .present {
@@ -172,10 +168,6 @@ main {
     justify-content: center;
     gap: 5.833333333333333vw;
     z-index: 1;
-
-    .present-mobile {
-      display: none;
-    }
 
     img {
       width: 6.666666666666667vw;
@@ -229,10 +221,6 @@ main {
   margin-bottom: 4.3057050592034445vh;
   z-index: 2;
 
-  .subtitle-mobile {
-    display: none;
-  }
-
   img {
     width: 46.197916666666664vw;
   }
@@ -276,9 +264,7 @@ main {
       position: absolute;
       bottom: 0;
       height: auto;
-      /*background: rgba(255, 255, 255, 0.60);*/
-      background: #FFFFFF;
-      /*backdrop-filter: blur(15px);*/
+      background: $colorWhite;
       color: $colorBlack;
       padding: 2.583423035522067vh 1.25vw;
       width: 100%;
@@ -345,9 +331,7 @@ main {
       position: absolute;
       bottom: 0;
       height: auto;
-      /*background: rgba(255, 255, 255, 0.60);
-      backdrop-filter: blur(15px);*/
-      background: #FFFFFF;
+      background: $colorWhite;
       color: $colorBlack;
       padding: 2.583423035522067vh 1.25vw;
       width: 100%;
@@ -754,10 +738,10 @@ main {
       height: 1.25vw;
     }
     a {
-      color: #D20000;
+      color: $colorRed;
 
       &:visited {
-        color: #D20000;
+        color: $colorRed;
       }
     }
   }

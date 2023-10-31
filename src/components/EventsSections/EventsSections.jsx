@@ -5,37 +5,32 @@ import CalendarSection from "./CalendarSection/CalendarSection";
 import InteractiveZonesSection from "./InteractiveZonesSection";
 import headline from "../../images/Headline.svg";
 import { Titles } from "../Titles/Titles";
+import { useTitles } from "../../queries/useTitles";
 
 const EventsSections = ({id}) => {
+    const { titles, isFetched } = useTitles()
 
   return (
     <section id={id}>
-      <Titles
-        img={headline}
-        h2={<>Удивительные открытия
-          <br className={"subtitle-desktop"}/> о народе <br className={"subtitle-mobile"}/> республики
-          <br className={"subtitle-desktop"} /> Мордовия</>}
-      />
+        <Titles
+          img={headline}
+          h2={isFetched ? titles.screen2.text1 : ""}
+        />
+
       <AboutPeopleOfMordoviaSection />
       <Titles
         img={headline}
-        h2={<>Увлекательные события,
-          <br className={"subtitle-desktop"} /> выставки <br className={"subtitle-mobile"}/> и ярмарки
-          <br className={"subtitle-desktop"} /> народного промысла</>}
+        h2={isFetched ? titles.screen3.text1 : ""}
       />
       <KeyEventsSection id={"#about-exposition"}/>
       <Titles
         img={headline}
-        h2={<>Увлекательные события,
-          <br className={"subtitle-desktop"}/> выставки <br className={"subtitle-mobile"} /> и ярмарки
-          <br className={"subtitle-desktop"}/> народного промысла</>}
+        h2={isFetched ? titles.screen3.text1 : ""}
       />
       <CalendarSection id={"#calendar"}/>
       <Titles
         img={headline}
-        h2={<>Интерактивные выставки с уникальными <br className={"subtitle-mobile"} />
-          <br className={"subtitle-desktop"}/> возможностями погружения в культуру <br className={"subtitle-mobile"}/>
-          <br className={"subtitle-desktop"}/> и историю Мордовии.</>}
+        h2={isFetched ? titles.screen4.text1 : ""}
       />
       <InteractiveZonesSection />
     </section>

@@ -2,9 +2,11 @@ import React from "react";
 import cursor from "../../images/Cursor.svg";
 import { Link } from "react-scroll";
 import { useWindowSize } from "usehooks-ts";
+import { useTitles } from "../../queries/useTitles";
 
 const MainSection = () => {
   const { width } = useWindowSize()
+  const { titles, isFetched } = useTitles()
 
   let main, cursorPointer;
 
@@ -51,18 +53,11 @@ const MainSection = () => {
       </video>
       <div className={"about"}>
         <span>4 ноября 2023</span>
-        <span>Международная <br className={"about-mobile"} /> выставка – форум Россия</span>
+        {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text1}} /> : <></>}
         <span>12 апреля 2024</span>
       </div>
       <div className={"present"}>
-        
-        <span>
-          Приходите и откройте для себя множество
-          <br className={"present-desktop"}  />
-          удивительных фактов
-          <br className={"present-mobile"} />о Мордовии, ее народе
-          <br className={"present-desktop"}  /> и его творческом наследии.
-        </span>
+        {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text2}} /> : <></>}
       </div>
       <div className={"main-content"}>
         <div className={"main-content__title"}>

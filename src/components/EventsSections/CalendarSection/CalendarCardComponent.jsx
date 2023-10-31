@@ -27,28 +27,31 @@ const CalendarCardComponent = ({props}) => {
       onMouseLeave={() => setHovered(false)}
       className={"calendar-card"}
     >
-      <div className={"calendar-card__topic"}>
-        <motion.span
-          initial={{color: colorBlack}}
-          animate={{
-            color : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
-            transition: {duration: duration}
-          }}
-        >
-          { props.topic }
-        </motion.span>
-        {isHovered &&
-          <svg className={'calendar-card__arrow-link'} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      { props.topic
+      ?
+        <div className={"calendar-card__topic"}>
+          <motion.span
+            initial={{color: colorBlack}}
+            animate={{
+              color : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
+              transition: {duration: duration}
+            }}
+          >
+            { props.topic }
+          </motion.span>
+          <svg className={ 'calendar-card__arrow-link' } xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <motion.path
-              initial={{stroke: colorBlack}}
-              animate={{
-                stroke : isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
-                transition: {duration: duration}
-              }}
-              d="M17 7L7 17M17 7H8M17 7V16" stroke="#2B2B2B" strokeLinecap="round" strokeLinejoin="round"/>
+              initial={ { stroke: colorBlack } }
+              animate={ {
+                stroke: isMobile ? colorWhite : isHovered ? colorWhite : colorBlack,
+                transition: { duration: duration }
+              } }
+              d="M17 7L7 17M17 7H8M17 7V16" stroke="#2B2B2B" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-	    }
-      </div>
+        </div>
+        :
+        <></>
+      }
       <div className={"calendar-card__description"}>
         <motion.h3
         initial={{color: colorBlack}}

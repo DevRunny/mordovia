@@ -6,6 +6,8 @@ import closeFilter from "../../../images/Close-filter.svg"
 import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
+import { Link } from "react-router-dom";
+import { PATHS } from "../../../router";
 
 const CalendarSection = ({id}) => {
   const [activeMonth, setActiveMonth] = useState('');
@@ -274,7 +276,7 @@ const CalendarSection = ({id}) => {
         ?
         allEvents.map((event) => {
           return (
-            <CalendarCardComponent key={event.id} props={ event } />
+            <Link key={event.id} to={ PATHS.EVENT } ><CalendarCardComponent key={event.id} props={ event } /></Link>
           )
         })
         :
