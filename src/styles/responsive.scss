@@ -619,6 +619,14 @@
       }
     }
   }
+
+  .br-mobile {
+    display: block;
+  }
+
+  .br-desktop {
+    display: none;
+  }
 }
 
 @media (max-width: 370px) {
