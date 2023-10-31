@@ -50,8 +50,24 @@
       width: 55%;
     }
   }
+
+  .sticky-subtitle {
+    top: 13vh;
+    padding-left: 55vw;
+  }
 }
 
+@media (max-width: 1150px) and (max-height: 920px) {
+  .sticky-subtitle {
+    top: 11vh
+  }
+}
+
+@media (max-width: 900px) {
+  .sticky-subtitle {
+    top: 9.5vh
+  }
+}
 
 @media (max-width: 767px) {
   header {
@@ -231,16 +247,27 @@
       letter-spacing: -0.063rem;
     }
 
+    img {
+      width: 77%;
+    }
+  }
+
+  .sticky-subtitle {
+    background: $colorWhite;
+    top: 17vh;
+    z-index: 10;
+    padding-left: 1.2917115177610334vh;
+    padding-bottom: 0;
+
+
     h2 {
-      padding-left: 0;
+      background: $colorWhite;
       font-size: 1rem;
       font-style: normal;
       font-weight: 500;
       line-height: 1.3rem;
-    }
-
-    img {
-      width: 77%;
+      width: 100vw;
+      padding-bottom: 4.3057050592034445vh;
     }
   }
 
