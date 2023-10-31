@@ -39,7 +39,7 @@ export const NavBar = () => {
             to="events"
             spy={true}
             smooth={true}
-            offset={-80}
+            offset={50}
             duration={500}
             >
               События
@@ -51,7 +51,7 @@ export const NavBar = () => {
             to="#calendar"
             spy={true}
             smooth={true}
-            offset={-350}
+            offset={-380}
             duration={500}
             >
               Календарь
@@ -63,7 +63,7 @@ export const NavBar = () => {
               to="#about-exposition"
               spy={true}
               smooth={true}
-              offset={-330}
+              offset={-315}
               duration={500}
               >
                 Об экспозиции

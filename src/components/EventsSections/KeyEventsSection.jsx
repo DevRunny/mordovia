@@ -1,15 +1,13 @@
 import * as React from "react";
 import { CardKeyEventsComponent } from "./CardKeyEventsComponent";
 import { motion } from "framer-motion";
-import { useOpacity } from "../../hooks/useOpacity";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "./MobileCardComponent";
 import { useAnnounces } from "../../queries/useAnnounces";
 
-export const KeyEventsSection = ({id}) => {
-  const opacity = useOpacity()
+export const KeyEventsSection = ({id, ref}) => {
   const { isHovered, setHovered } = useHoverCard()
   const { width } = useWindowSize()
   const { announces, isFetched } = useAnnounces({})
@@ -19,10 +17,6 @@ export const KeyEventsSection = ({id}) => {
     return (
       <motion.div
         id={id}
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress,
-        }}
         onMouseEnter={ () => setHovered(true) }
         onMouseLeave={ () => setHovered(false) }
         className={`introducing-cards-mobile ${isHovered ? "active" : "" }`}
@@ -61,11 +55,7 @@ export const KeyEventsSection = ({id}) => {
     <>
       <motion.div
         id={id}
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress
-          opacity: 1
-        }}
+        ref={ref}
         onMouseEnter={ () => setHovered(true) }
         onMouseLeave={ () => setHovered(false) }
         className={`introducing-cards ${isHovered ? "active" : ""}`}

@@ -212,11 +212,12 @@
     }
 
   .titles {
+    top: 6.889128094725511vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
-    padding: 1.7222820236813778vh 1.2917115177610334vh 0 1.2917115177610334vh;
+    padding: 1.7222820236813778vh 1.2917115177610334vh 4.3057050592034445vh 1.2917115177610334vh;
 
     .subtitle-desktop {
       display: none;
@@ -226,8 +227,8 @@
       font-size: 2.1rem;
       font-style: normal;
       font-weight: 800;
-      line-height: 5.166846071044134vh; /* 95% */
-      letter-spacing: -0.10764262648008611vh;
+      line-height: 3rem; /* 95% */
+      letter-spacing: -0.063rem;
     }
 
     h2 {

@@ -61,6 +61,11 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: $colorBlack;
+
+  &:visited {
+    color: $colorBlack;
+  }
 }
 
 .cursorPointer {
@@ -79,8 +84,9 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(30px);
+  background: $colorWhite;
+  //background: rgba(255, 255, 255, 0.60);
+  //backdrop-filter: blur(30px);
   @include flex-row();
   justify-content: space-between;
   padding: 1.25vw;
@@ -119,8 +125,9 @@ header {
 
       .sound-wave-clue {
         position: absolute;
-        bottom: -4.6875vw;
-        right: -3.90625vw;
+        width: 8.125vw;
+        bottom: -3.6875vw;
+        right: -2.87vw;
       }
     }
 
@@ -129,10 +136,10 @@ header {
     }
 
     a {
-      color: #D20000;
+      color: $colorRed;
 
       &:visited {
-        color: #D20000;
+        color: $colorRed;
       }
     }
   }
@@ -227,10 +234,15 @@ main {
 }
 
 .titles {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6.25vw;
   @include flex-row();
+  //4.3057050592034445vh
   padding: 0 1vw 0 1vw;
-  margin-bottom: 4.3057050592034445vh;
-  z-index: 2;
+  background: $colorWhite;
+  overflow: auto;
+  z-index: 10;
 
   img {
     width: 46.197916666666664vw;
@@ -240,10 +252,18 @@ main {
     line-height: 10.416666666666666vw; /* 125% */
     letter-spacing: -0.20833333333333334vw;
   }
+}
+
+.sticky-subtitle {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 8vw;
+  z-index: 10;
+  padding-left: 50vw;
+  padding-bottom: 50px;
 
   h2 {
-    padding-left: 2.03125vw;
-    word-wrap: normal;
+    background: $colorWhite;
     font-size: 1.875vw;
     font-style: normal;
     font-weight: 500;
@@ -256,6 +276,7 @@ main {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 4.166666666666667vw;
   .introducing-classic-cards__card {
     width: 33.334%;
     height: 32.2vw;
@@ -308,6 +329,7 @@ main {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 4.166666666666667vw;
   .introducing-cards__card {
     width: 33.334%;
     height: 32.2vw;
@@ -382,6 +404,7 @@ main {
   @include flex-column;
   gap: 2.0833333333333335vw;
   padding-bottom: 2.0833333333vw;
+  margin-bottom: 4.166666666666667vw;
 
   &__show-more {
     color: $colorBlack;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 
 export const useOpacity = () => {
@@ -6,7 +6,7 @@ export const useOpacity = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["100% 40%", "end end" ],
+    offset: ["70% 100%", "100% 60%" ],
   })
   const opacityProgress = useTransform(scrollYProgress, [0, 0], [0.2, 1])
 
