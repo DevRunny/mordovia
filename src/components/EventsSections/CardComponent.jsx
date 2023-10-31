@@ -5,16 +5,19 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
   const hover = useHoverCard()
 
+  const linkAttributes = url
+    ? { target: "_blank", href: url, rel: "noreferrer" }
+    : { };
 
   return (
     <div
-      style={{cursor: "pointer"}}
+      style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
       className={ `introducing-classic-cards__card ${hover.isHovered ? "active" : ""}` }
     >
 
-      <a href={url} rel="noreferrer" target={"_blank"}>
+      <a {...linkAttributes}>
 
         {preview
           ?
@@ -60,7 +63,7 @@ export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, t
           :
           <></>
         }
-      </a>
+        </a>
     </div>
   )
 }

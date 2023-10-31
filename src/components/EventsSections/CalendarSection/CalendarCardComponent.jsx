@@ -20,7 +20,7 @@ const CalendarCardComponent = ({props}) => {
       whileHover={isMobile ? {} : {
         backgroundImage: `url(${isHovered ? props.img : ""})`,
         backgroundSize: "cover",
-        cursor: "pointer",
+        cursor: props.hasDetailCard ? "pointer" : "default",
         transition: {duration: duration}
       }}
       onMouseEnter={() => setHovered(true)}
@@ -91,7 +91,7 @@ const CalendarCardComponent = ({props}) => {
             transition: {duration: duration}
           }}
         >
-          { props.date + " " + props.t }
+          { props.date }
         </motion.p>
       </div>
     </motion.div>

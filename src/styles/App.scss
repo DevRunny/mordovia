@@ -190,6 +190,7 @@ main {
   height: 92.57265877287406vh;
   position: relative;
   background: url("../images/Map-bg.png") no-repeat;
+  background-color: #fff;
   background-size: cover;
   background-position-y: -13.993541442411194vh;
   mix-blend-mode: screen;
@@ -275,8 +276,9 @@ main {
       position: absolute;
       bottom: 0;
       height: auto;
-      background: rgba(255, 255, 255, 0.60);
-      backdrop-filter: blur(15px);
+      /*background: rgba(255, 255, 255, 0.60);*/
+      background: #FFFFFF;
+      /*backdrop-filter: blur(15px);*/
       color: $colorBlack;
       padding: 2.583423035522067vh 1.25vw;
       width: 100%;
@@ -343,8 +345,9 @@ main {
       position: absolute;
       bottom: 0;
       height: auto;
-      background: rgba(255, 255, 255, 0.60);
-      backdrop-filter: blur(15px);
+      /*background: rgba(255, 255, 255, 0.60);
+      backdrop-filter: blur(15px);*/
+      background: #FFFFFF;
       color: $colorBlack;
       padding: 2.583423035522067vh 1.25vw;
       width: 100%;
@@ -481,7 +484,6 @@ main {
     }
   }
 
-
   .day_range_first {
     position: absolute;
     background: $colorLightGrey;
@@ -504,6 +506,13 @@ main {
     background: $colorLightGrey;
   }
 }
+
+.day_disabled .day_initial {
+	color: #aaaaaa;
+	opacity: 0.8;
+	cursor: default;
+}
+
 .calendar-days.is-range {
   .days-range {
     display: block;

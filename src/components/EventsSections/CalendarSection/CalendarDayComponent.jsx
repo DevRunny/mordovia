@@ -14,10 +14,11 @@ const CalendarDayComponent = ({day, handleChangeRange, firstDay, secondDay, rang
   }
   return (
     <div
-      onClick={() => {handleChangeRange(day.title)}}
+      onClick={() => { if (!day.disabled) handleChangeRange(day.title)}}
       key={day.id}
       className={
         `calendar-days__day
+        ${day.disabled ? "day_disabled" : ""}
         ${rangeBetween?.includes(day.title) ? 'day_range' : ''}`
       }
     >
