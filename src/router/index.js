@@ -4,7 +4,7 @@ import EventDetailsPage from "../components/Pages/EventDetailsPage";
 
 export const PATHS = {
   MAIN: "/",
-  EVENT: "/event",
+  EVENT: "/event-details",
   NOTFOUND: "*"
 }
 

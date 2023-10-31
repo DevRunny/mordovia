@@ -620,6 +620,141 @@
     }
   }
 
+  .back-to-main {
+    font-size: 0.75rem;
+    color: $colorBlack;
+    margin-left: 0.75rem;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .event-details-page {
+    @include flex-column;
+    padding: 0;
+    gap: 2.1528525296017222vh;
+  }
+
+  .event {
+    &__info {
+      padding: 1rem 0.75rem 1.25rem;
+      h1 {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 2.4rem; /* 105.556% */
+        letter-spacing: -0.0485rem;
+      }
+
+      span {
+        font-size: 0.75rem;
+        line-height: 1.25rem; /* 166.667% */
+        letter-spacing: 2.88px;
+      }
+
+      .event-date-and-point-wrapper {
+        @include flex-column;
+        align-items: flex-start;
+        gap: 0.8611410118406889vh;
+
+        p {
+          font-size: 0.75rem;
+          line-height: normal;
+        }
+
+        .date {
+          gap: 0.8611410118406889vh;
+
+          svg {
+            width: 2.1528525296017222vh;
+            height: 2.1528525296017222vh;
+          }
+        }
+
+        .point {
+          gap: 0.8611410118406889vh;
+
+          svg {
+            width: 2.1528525296017222vh;
+            height: 2.1528525296017222vh;
+          }
+        }
+      }
+    }
+
+    &__details {
+      gap: 2.1528525296017222vh;
+      margin-bottom: 4.3057050592034445vh;
+      img {
+        width: 100%;
+      }
+      .details_description {
+        gap: 3.013993541442411vh;
+        padding: 0 1.2917115177610334vh 0 1.2917115177610334vh;
+      }
+    }
+
+    &__gallery-wrapper {
+      gap: 2.1528525296017222vh;
+
+      h4 {
+        padding-left: 0.75rem;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.75rem; /* 116.667% */
+      }
+    }
+
+    &__gallery {
+      img:not(:first-child) {
+        display: none;
+      }
+      img {
+        width: 100vw;
+      }
+    }
+
+    &__members {
+      gap: 2.1528525296017222vh;
+      margin-bottom: 4.3057050592034445vh;
+
+      h4 {
+        padding-left: 0.75rem;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.75rem; /* 116.667% */
+      }
+
+      .members_member {
+        h3 {
+          padding-top: 1.2917115177610334vh;
+          padding-left: 1.2917115177610334vh;
+          font-size: 1rem;
+          line-height: 1.4rem; /* 137.5% */
+        }
+        p {
+          padding-left: 1.2917115177610334vh;
+          font-size: 0.85rem;
+          line-height: 1.25rem; /* 142.857% */
+        }
+
+        img {
+          width: 50vw;
+        }
+        &:last-child {
+          display: none;
+        }
+      }
+
+
+    }
+
+  }
+
   .br-mobile {
     display: block;
   }

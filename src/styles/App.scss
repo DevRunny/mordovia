@@ -798,19 +798,13 @@ footer {
     @include flex-column;
     gap: 2.2916666666666665vw;
 
-    .event-date-and-point-wrapper {
-      @include flex-row;
-      gap: 1.875vw;
-
-      .date {
-        @include flex-row;
-        gap: 0.4166666666666667vw;
-      }
-
-      .point {
-        @include flex-row;
-        gap: 0.4166666666666667vw;
-      }
+    h1 {
+      font-size: 4.166666666666667vw;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 4.375vw; /* 105% */
+      letter-spacing: -0.16666666666666666vw;
+      text-transform: uppercase;
     }
 
     span {
@@ -821,13 +815,30 @@ footer {
       letter-spacing: 0.2vw;
       text-transform: uppercase;
     }
-    h1 {
-      font-size: 4.166666666666667vw;
-      font-style: normal;
-      font-weight: 800;
-      line-height: 4.375vw; /* 105% */
-      letter-spacing: -0.16666666666666666vw;
-      text-transform: uppercase;
+
+    .event-date-and-point-wrapper {
+      @include flex-row;
+      gap: 1.875vw;
+
+      .date {
+        @include flex-row;
+        gap: 0.4166666666666667vw;
+
+        svg {
+          width: 1.25vw;
+          height: 1.25vw;
+        }
+      }
+
+      .point {
+        @include flex-row;
+        gap: 0.4166666666666667vw;
+
+        svg {
+          width: 1.25vw;
+          height: 1.25vw;
+        }
+      }
     }
   }
 
@@ -859,7 +870,6 @@ footer {
 
     img {
       width: 12.5vw;
-      height: 7.03125vw;
     }
   }
 

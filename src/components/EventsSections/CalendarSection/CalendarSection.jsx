@@ -276,7 +276,9 @@ const CalendarSection = ({id}) => {
         ?
         allEvents.map((event) => {
           return (
-            <Link key={event.id} to={ PATHS.EVENT } ><CalendarCardComponent key={event.id} props={ event } /></Link>
+            <Link key={event.id} to={ PATHS.EVENT } >
+              <CalendarCardComponent key={event.id} props={ event } />
+            </Link>
           )
         })
         :

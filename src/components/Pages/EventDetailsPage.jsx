@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import eventPhoto from "../../images/Event-photo.png"
 import eventVideo from "../../images/Event-video.png"
 import eventGallery from "../../images/Event-gallery-photo.png"
 import morePhoto from "../../images/Event-gallery-morephoto.png"
 import memberPhoto from "../../images/Event-member.png"
+import { animateScroll as scroll  } from "react-scroll"
 import { Footer } from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../router";
 
 const EventDetailsPage = () => {
 
+  const scrollToTop = () => {
+    const options = {
+      duration: 0,
+      smooth: false,
+    };
+    scroll.scrollToTop(options);
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [])
 
   return (
     <>
