@@ -8,12 +8,10 @@ import CalendarDayComponent from "./CalendarDayComponent";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../../router";
 import CalendarFilterComponent from "./CalendarFilterComponent";
-import closeFilter from "../../../images/Close-filter.svg";
 
 const CalendarSection = ({id}) => {
   const [activeMonth, setActiveMonth] = useState('');
-  const [tomorrow, setTomorrow] = useState();
-  const [weekend, setWeekend] = useState();
+  const [activeDate, setActiveDate] = useState()
   const [topicId, setTopicId] = useState();
   const [queryParams, setQueryParams] = useState();
   const [allEvents, setAllEvents] = useState([]);
@@ -34,12 +32,19 @@ const CalendarSection = ({id}) => {
       const indexFirstDay = allDays.indexOf(firstDay);
       const indexSecondDay = allDays.indexOf(secondDay);
       let range = [];
+
+      if (activeDate && !secondDay) {
+        setRangeBetween([]);
+        return;
+      }
+
       if (indexFirstDay < indexSecondDay) {
         range = allDays.slice(indexFirstDay + 1, indexSecondDay)
       }
       if (indexFirstDay > indexSecondDay) {
         range = allDays.slice(indexSecondDay + 1, indexFirstDay)
       }
+
       setRangeBetween(range);
     }
   }
@@ -69,6 +74,7 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangeRange = useCallback((day) => {
+      setActiveDate(null);
       if (firstDay === day) {
         setFirstDay(null);
         setRangeBetween([]);
@@ -94,6 +100,7 @@ const CalendarSection = ({id}) => {
 
   const handleChangeMonth = (month) => {
     setActiveMonth(month);
+    setActiveDate(null);
   }
 
   const handleChangeFilter = (filterId) => {
@@ -111,17 +118,39 @@ const CalendarSection = ({id}) => {
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}`);
   }
 
-  const handleChangeFilterTomorrow = (filterId) => {
-    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days.map((day) => day.id) : []
-    const tomorrow = filters ? allDays.find((day) => day === filters.tomorrow.dayId) : []
+  const handleChangeFilterDate = (filterDate) => {
+    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
+    const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
+    const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
+    const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
+    if (filterDate === 1) {
+      setActiveDate(filterDate);
+      setFirstDay(tomorrowDay);
+      setSecondDay(null);
+    }
+    if (filterDate === 2) {
+      setActiveDate(filterDate);
+      setFirstDay(weekendStart);
+      setSecondDay(weekendEnd);
+    }
 
-    // setTomorrow(tomorrow)
-    // if (firstDay) {}
   }
 
-  const handleChangeFilterWeekend = (filterId) => {
-
+  const handleResetFilterDate = () => {
+    if (activeDate === 1) {
+      setFirstDay(null);
+    }
+    if (activeDate === 2) {
+      setFirstDay(null);
+      setSecondDay(null);
+    }
+    setActiveDate(null);
   }
+
+  const handleResetTopic = () => {
+    setTopicId(null)
+  }
+
 
   const handleChangePrevMonth = () => {
     const activeMonthIndex = allMonths.indexOf(activeMonth);
@@ -194,6 +223,7 @@ const CalendarSection = ({id}) => {
   useEffect(() => {
     if (firstDay && secondDay) countingRangeBetween();
     if (!firstDay && !secondDay) countingRangeBetween();
+    if (firstDay && !secondDay && activeDate) countingRangeBetween();
   }, [firstDay, secondDay, activeMonth])
 
   useEffect(() => {
@@ -258,17 +288,22 @@ const CalendarSection = ({id}) => {
           </div>
       </div>
       <div className={"calendar-filters"}>
-        {/*<CalendarFilterComponent*/}
-        {/*title={"Завтра"}*/}
-        {/*setTopicIdState={setTomorrow}*/}
-        {/*handleChangeFilterFunc={handleChangeFilterTomorrow}*/}
-        {/*topicId={}*/}
-        {/*/>*/}
-        {/*<CalendarFilterComponent*/}
-        {/*title={"Выходные"}*/}
-        {/*setTopicIdState={setWeekend}*/}
-        {/*handleChangeFilterFunc={}*/}
-        {/*/>*/}
+        <CalendarFilterComponent
+          id={1}
+          title={"Завтра"}
+          disableFilter={handleResetFilterDate}
+          handleChangeFilterFunc={handleChangeFilterDate}
+          topicId={activeDate}
+          cnt={filters && isFetched ? filters.tomorrow.cnt : 0}
+        />
+        <CalendarFilterComponent
+          id={2}
+          title={"Выходные"}
+          disableFilter={handleResetFilterDate}
+          handleChangeFilterFunc={handleChangeFilterDate}
+          topicId={activeDate}
+          cnt={filters && isFetched ? filters.weekend.cnt : 0}
+        />
         {filters && isFetched
           ?
           filters.topics.map((topic) => {
@@ -279,7 +314,7 @@ const CalendarSection = ({id}) => {
                 handleChangeFilterFunc={handleChangeFilter}
                 title={topic.title}
                 cnt={topic.cnt}
-                setTopicIdState={setTopicId}
+                disableFilter={handleResetTopic}
                 topicId={topicId}
               />
             )
