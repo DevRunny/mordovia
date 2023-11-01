@@ -7,7 +7,7 @@ html {
 }
 
 h1 {
-  font-family: Wix Madefor Display;
+  font-family: Wix Madefor Display, serif;
   font-size: 8.333333333333334vw;
   font-style: normal;
   font-weight: 800;
@@ -33,7 +33,7 @@ h3 {
 }
 
 h4 {
-  font-family: Wix Madefor Display;
+  font-family: Wix Madefor Display, serif;
   font-size: 2.0833333333333335vw;
   font-style: normal;
   font-weight: 800;
@@ -199,8 +199,7 @@ main {
   justify-content: center;
   height: 92.57265877287406vh;
   position: relative;
-  background: url("../images/Map-bg.png") no-repeat;
-  background-color: $colorWhite;
+  background: $colorWhite url("../images/Map-bg.png") no-repeat;
   background-size: cover;
   background-position-y: -13.993541442411194vh;
   mix-blend-mode: screen;
@@ -213,7 +212,7 @@ main {
     flex-direction: column-reverse;
 
     h1 {
-      font-family: Wix Madefor Display;
+      font-family: Wix Madefor Display, serif;
       font-size: 16.666666666666668vw;
       font-style: normal;
       font-weight: 800;
@@ -222,7 +221,7 @@ main {
       color: $colorBlack;
     }
     h4 {
-      font-family: Wix Madefor Display;
+      font-family: Wix Madefor Display, serif;
       font-size: 2.0833333333333335vw;
       font-style: normal;
       font-weight: 500;
@@ -270,6 +269,10 @@ main {
     font-weight: 500;
     line-height: 2.2916666666666665vw;
   }
+}
+
+.not-sticky {
+  position: revert;
 }
 
 .introducing-classic-cards {
@@ -434,7 +437,7 @@ main {
 }
 
 .calendar-months {
-  font-family: Wix Madefor Display;
+  font-family: Wix Madefor Display, serif;
   font-size: 2.5vw;
   font-style: normal;
   font-weight: 800;

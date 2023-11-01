@@ -2,7 +2,7 @@ import React from "react";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 
-const StickySubtitle = ({subtitle}) => {
+const StickySubtitle = ({subtitle, classPosition}) => {
   const {scrollYProgress, ref} = useOpacity()
 
   return (
@@ -11,7 +11,7 @@ const StickySubtitle = ({subtitle}) => {
       style={{
         opacity: scrollYProgress,
       }}
-      className={"sticky-subtitle"}>
+      className={`sticky-subtitle ${classPosition}`}>
       {subtitle ? <h2 dangerouslySetInnerHTML={{__html: subtitle}} />: <></>}
     </motion.div>
   );

@@ -2,15 +2,18 @@ import React, { useCallback, useEffect, useState } from "react";
 import CalendarCardComponent from "./CalendarCardComponent";
 import prev from "../../../images/Arrow-prev.svg";
 import next from "../../../images/Arrow-next.svg";
-import closeFilter from "../../../images/Close-filter.svg"
 import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../../router";
+import CalendarFilterComponent from "./CalendarFilterComponent";
+import closeFilter from "../../../images/Close-filter.svg";
 
 const CalendarSection = ({id}) => {
   const [activeMonth, setActiveMonth] = useState('');
+  const [tomorrow, setTomorrow] = useState();
+  const [weekend, setWeekend] = useState();
   const [topicId, setTopicId] = useState();
   const [queryParams, setQueryParams] = useState();
   const [allEvents, setAllEvents] = useState([]);
@@ -64,6 +67,7 @@ const CalendarSection = ({id}) => {
 
     return formatedDate;
   }
+
   const handleChangeRange = useCallback((day) => {
       if (firstDay === day) {
         setFirstDay(null);
@@ -105,6 +109,18 @@ const CalendarSection = ({id}) => {
       return;
     }
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${filterId ? '&topicId=' + filterId : ''}`);
+  }
+
+  const handleChangeFilterTomorrow = (filterId) => {
+    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days.map((day) => day.id) : []
+    const tomorrow = filters ? allDays.find((day) => day === filters.tomorrow.dayId) : []
+
+    // setTomorrow(tomorrow)
+    // if (firstDay) {}
+  }
+
+  const handleChangeFilterWeekend = (filterId) => {
+
   }
 
   const handleChangePrevMonth = () => {
@@ -242,27 +258,30 @@ const CalendarSection = ({id}) => {
           </div>
       </div>
       <div className={"calendar-filters"}>
+        {/*<CalendarFilterComponent*/}
+        {/*title={"Завтра"}*/}
+        {/*setTopicIdState={setTomorrow}*/}
+        {/*handleChangeFilterFunc={handleChangeFilterTomorrow}*/}
+        {/*topicId={}*/}
+        {/*/>*/}
+        {/*<CalendarFilterComponent*/}
+        {/*title={"Выходные"}*/}
+        {/*setTopicIdState={setWeekend}*/}
+        {/*handleChangeFilterFunc={}*/}
+        {/*/>*/}
         {filters && isFetched
           ?
           filters.topics.map((topic) => {
             return (
-              <div key={ topic.id }
-                   onClick={() => {handleChangeFilter(topic.id)}}
-                   className={`calendar-filters__filter ${topicId === topic.id ? "filter_active" : ""}`}>
-                <span>{ topic.title }</span>
-                <span className={"filter_count"}>{ topic.cnt }</span>
-                {topicId === topic.id
-                  ?
-                  <button onClick={(e) => {
-                    e.stopPropagation()
-                    setTopicId(null)
-                  }}>
-                    <img className={"filter_closeBtn"} src={closeFilter} alt={"X"} />
-                  </button>
-                  :
-                  <></>
-                }
-              </div>
+              <CalendarFilterComponent
+                key={topic.id}
+                id={topic.id}
+                handleChangeFilterFunc={handleChangeFilter}
+                title={topic.title}
+                cnt={topic.cnt}
+                setTopicIdState={setTopicId}
+                topicId={topicId}
+              />
             )
           })
           :

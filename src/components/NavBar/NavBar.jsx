@@ -51,7 +51,7 @@ export const NavBar = () => {
             to="#calendar"
             spy={true}
             smooth={true}
-            offset={-380}
+            offset={-200}
             duration={500}
             >
               Афиша
@@ -136,39 +136,39 @@ export const NavBar = () => {
                   to="#calendar"
                   spy={true}
                   smooth={true}
-                  offset={-200}
+                  offset={-80}
                   duration={500}
                 >
                   Календарь
                 </Link>
               </li>
-              <li>
-                <Link
-                  onClick={() => {handleOpenBurgerMenu()}}
-                  activeClass="active"
-                  to="#about-exposition"
-                  spy={true}
-                  smooth={true}
-                  offset={-210}
-                  duration={500}
-                >
-                  Об экспозиции
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => {handleOpenBurgerMenu()}}
-                  activeClass="active"
-                  to="how-to-get-there"
-                  spy={true}
-                  smooth={true}
-                  offset={-125}
-                  duration={500}
-                >
-                  Как добраться
-                </Link>
-              </li>
-              <li><a href={"#news"}>Новости</a></li>
+              {/*<li>*/}
+              {/*  <Link*/}
+              {/*    onClick={() => {handleOpenBurgerMenu()}}*/}
+              {/*    activeClass="active"*/}
+              {/*    to="#about-exposition"*/}
+              {/*    spy={true}*/}
+              {/*    smooth={true}*/}
+              {/*    offset={-210}*/}
+              {/*    duration={500}*/}
+              {/*  >*/}
+              {/*    Об экспозиции*/}
+              {/*  </Link>*/}
+              {/*</li>*/}
+              {/*<li>*/}
+              {/*  <Link*/}
+              {/*    onClick={() => {handleOpenBurgerMenu()}}*/}
+              {/*    activeClass="active"*/}
+              {/*    to="how-to-get-there"*/}
+              {/*    spy={true}*/}
+              {/*    smooth={true}*/}
+              {/*    offset={-125}*/}
+              {/*    duration={500}*/}
+              {/*  >*/}
+              {/*    Как добраться*/}
+              {/*  </Link>*/}
+              {/*</li>*/}
+              {/*<li><a href={"#news"}>Новости</a></li>*/}
             </ul>
           </div>
           <div className={"burger-menu__links"}>
