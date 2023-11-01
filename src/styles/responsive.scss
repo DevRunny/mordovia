@@ -407,16 +407,24 @@
 
   .calendar-wrapper {
     width: 100%;
+    overflow: hidden;
   }
 
   .calendar-months {
     font-size: 1.5rem;
     line-height: 2rem;
     margin-bottom: 1.7222820236813778vh;
+
+    width: 100%;
+    overflow: auto;
   }
 
   .calendar-days {
-    width: 70rem;
+    /*width: 70rem;*/
+
+    width: 100%;
+
+    overflow: auto;
 
     .calendar-days-wrapper {
       width: 100%;
@@ -440,7 +448,9 @@
     }
 
     &__day{
-      padding: 0.57rem 1rem;
+      /*padding: 0.57rem 1rem;*/
+
+      padding: 0.57rem 1.17rem;
 
       .day_initial {
         height: 100%;
@@ -465,6 +475,9 @@
   }
 
   .calendar-filters {
+
+  	overflow: auto;
+
     gap: 0.8611410118406889vh;
     &__filter {
       gap: 0.25rem;
