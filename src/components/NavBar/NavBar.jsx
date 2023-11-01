@@ -58,6 +58,19 @@ export const NavBar = () => {
             </Link>
           </li>
 
+          <li>
+            <Link
+            activeClass="active"
+            to="#faq"
+            spy={true}
+            smooth={true}
+            offset={-230}
+            duration={500}
+            >
+              Вопросы-ответы
+            </Link>
+          </li>
+
           {/*
           <li>
             <Link
@@ -142,6 +155,20 @@ export const NavBar = () => {
                   Календарь
                 </Link>
               </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#faq"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Вопросы-ответы
+                </Link>
+              </li>
+
               {/*<li>*/}
               {/*  <Link*/}
               {/*    onClick={() => {handleOpenBurgerMenu()}}*/}

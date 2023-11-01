@@ -819,6 +819,10 @@
   .bg-video.video-scrolled {
   	display: none;
   }
+
+  #video-section {
+    display: none;
+  }
 }
 
 @media (max-width: 370px) {
