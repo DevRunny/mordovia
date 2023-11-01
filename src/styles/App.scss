@@ -273,6 +273,14 @@ main {
 
 .not-sticky {
   position: revert;
+  display: flex;
+  gap: 2.5520833333333335vw;
+  padding: 0 1vw 0 1vw;
+  align-items: center;
+
+  img {
+    width: 46.197916666666664vw;
+  }
 }
 
 .introducing-classic-cards {
