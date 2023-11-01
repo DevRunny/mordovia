@@ -273,12 +273,19 @@ const CalendarSection = ({id}) => {
       </div>
       <div className={'calendar-cards'}>
       {allEvents && isFetchedEvents
-        ?
+      	?
         allEvents.map((event) => {
           return (
-            <Link key={event.id} to={ PATHS.EVENT } >
+            <React.Fragment key={event.id}>
+            { event.hasDetailCard
+              ?
+              <Link key={event.id} to={ PATHS.EVENT } >
+                <CalendarCardComponent key={event.id} props={ event } />
+              </Link>
+              :
               <CalendarCardComponent key={event.id} props={ event } />
-            </Link>
+            }
+            </React.Fragment>
           )
         })
         :

@@ -27,7 +27,7 @@ export const KeyEventsSection = ({id, ref}) => {
             ?
             announces.screen2.map((card)=> {
               return (
-                <>
+                <React.Fragment key={card.id}>
                   <SplideSlide>
                     <MobileCardComponent
                       key={card.id}
@@ -40,7 +40,7 @@ export const KeyEventsSection = ({id, ref}) => {
                       topicName={card.topicName}
                     />
                   </SplideSlide>
-                </>
+                </React.Fragment>
               )
             })
             :

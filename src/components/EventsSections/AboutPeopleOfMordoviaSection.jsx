@@ -33,7 +33,7 @@ export const AboutPeopleOfMordoviaSection = () => {
             ?
             announces.screen1.map((card)=> {
               return (
-                <>
+                <React.Fragment key={card.id}>
                   <SplideSlide>
                     <MobileCardComponent
                       key={card.id}
@@ -43,7 +43,7 @@ export const AboutPeopleOfMordoviaSection = () => {
                       subtitle={card.subtitle}
                     />
                   </SplideSlide>
-                </>
+                </React.Fragment>
               )
             })
             :

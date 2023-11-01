@@ -200,11 +200,12 @@ main {
   height: 92.57265877287406vh;
   position: relative;
   background: url("../images/Map-bg.png") no-repeat;
-  background-color: #fff;
+  background-color: $colorWhite;
   background-size: cover;
   background-position-y: -13.993541442411194vh;
   mix-blend-mode: screen;
   user-select: none;
+  transform: translate3d(0,0,0);
 
   &__title {
     display: flex;
@@ -615,7 +616,7 @@ main {
   gap: 1.3541666666666667vw;
   padding: 1.25vw 1.25vw 1.25vw 1.25vw;
   min-height: 17.5vw;
-  background: #FFF;
+  background: $colorWhite;
   backdrop-filter: blur(0.78125vw);
 
 
@@ -749,6 +750,12 @@ main {
     }
     :last-child {
       width: 12.791354166666666vw;
+    }
+
+    a {
+      img {
+        width: 100% !important;
+      }
     }
   }
 

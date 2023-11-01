@@ -37,9 +37,7 @@ const AccordionComponent = ({question, answer}) => {
               },
             }}
           >
-            <span>
-              { answer }
-            </span>
+            <span dangerouslySetInnerHTML={{__html: answer}} />
           </motion.div>
         ) : (
           ''

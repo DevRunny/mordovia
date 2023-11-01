@@ -71,8 +71,8 @@ const CalendarCardComponent = ({props}) => {
             opacity: isMobile ? 1 : isHovered ? 1 : 0,
             transition: {duration: duration}
           }}
+          dangerouslySetInnerHTML={{__html: props.subtitle}}
         >
-          { props.subtitle }
         </motion.p>
       </div>
       <div className={"calendar-card__date"}>

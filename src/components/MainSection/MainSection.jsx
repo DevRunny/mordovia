@@ -3,10 +3,25 @@ import cursor from "../../images/Cursor.svg";
 import { Link } from "react-scroll";
 import { useWindowSize } from "usehooks-ts";
 import { useTitles } from "../../queries/useTitles";
+import { useEffect, useState } from 'react';
 
 const MainSection = () => {
   const { width } = useWindowSize()
   const { titles, isFetched } = useTitles()
+
+  const [isVideoScrolled, setVideoScrolled] = useState(0);
+
+  useEffect(() => {
+    const onScroll = e => {
+      if (e.target.documentElement.scrollTop > document.body.scrollHeight / 4)
+	    setVideoScrolled(1);
+	  else
+	    setVideoScrolled(0);
+    };
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   let main, cursorPointer;
 
@@ -46,9 +61,10 @@ const MainSection = () => {
   return (
     <main>
       <video
-        className={ "bg-video" }
+        className={`bg-video ${isVideoScrolled ? "video-scrolled" : ""}`}
         autoPlay muted loop playsInline
       >
+        <source src={"https://mordovia-russia.ru/video/mordoviya2_mob.mp4"} type="video/mp4" media="(max-width:1024px)" />
         <source src={"https://mordovia-russia.ru/video/mordoviya2.mp4"} type="video/mp4" />
       </video>
       <div className={"about"}>
