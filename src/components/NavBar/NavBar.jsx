@@ -54,9 +54,11 @@ export const NavBar = () => {
             offset={-380}
             duration={500}
             >
-              Календарь
+              Афиша
             </Link>
           </li>
+
+          {/*
           <li>
             <Link
               activeClass="active"
@@ -82,6 +84,7 @@ export const NavBar = () => {
             </Link>
           </li>
           <li><a href={"#news"}>Новости</a></li>
+          */}
         </ul>
       </nav>
         <div className={"header-links"}>

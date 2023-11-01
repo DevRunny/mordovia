@@ -56,8 +56,7 @@ export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, t
               <></>
             }
             <h3>{ title }</h3>
-            <p>
-              { subtitle }
+            <p dangerouslySetInnerHTML={{__html: subtitle}}>
             </p>
           </div>
           :

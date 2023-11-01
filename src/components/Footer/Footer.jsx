@@ -11,11 +11,11 @@ export const Footer = () => {
       <div className={"footer"}>
         <div className={"footer__logos"}>
           <div className={"footer__logo"}>
-            <img src={mordoviaLogo} alt={"logo-of-mordovia"} />
+            <a href="https://e-mordovia.ru" target="_blank" rel="noreferrer"><img src={mordoviaLogo} alt={"logo-of-mordovia"} /></a>
           </div>
           <div className={"footer__sponsors"}>
-            <img src={international} alt={"logo-international"} />
-            <img src={investments} alt={"logo-investments"} />
+            <a href="https://russia.ru" target="_blank" rel="noreferrer"><img src={international} alt={"logo-international"} /></a>
+            <a href="https://investrm.ru" target="_blank" rel="noreferrer"><img src={investments} alt={"logo-investments"} /></a>
           </div>
         </div>
         <div className={"footer__social-network"}>
@@ -28,7 +28,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className={"footer__links-wrapper"}>
-            <span>Глава Республики Мордовия Артем Здунов</span>
+            <span>Глава Республики Мордовия Артём Здунов</span>
             <div className={"footer__links"}>
               <a href="https://vk.com/artem_zdunov" target="_blank" rel="noreferrer">VK</a>
               <a href="https://t.me/zdunov" target="_blank" rel="noreferrer">TG</a>

@@ -207,6 +207,7 @@
       background: url("../images/Map-bg-mobile.png") no-repeat;
       background-position-y: -7.9935414424vh;
       background-size: 100vw 100%;
+      background-color: $colorWhite;
       display: block;
       padding-top: 31.431646932185146vh;
 
@@ -266,7 +267,8 @@
       font-style: normal;
       font-weight: 500;
       line-height: 1.3rem;
-      width: 100vw;
+      /*width: 100vw;*/
+      width: 100%;
       padding-bottom: 4.3057050592034445vh;
     }
   }
@@ -369,8 +371,9 @@
         position: absolute;
         bottom: 0;
         height: auto;
-        background: rgba(255, 255, 255, 0.60);
-        backdrop-filter: blur(.6146393972012918vh);
+        /*background: rgba(255, 255, 255, 0.60);
+        backdrop-filter: blur(.6146393972012918vh);*/
+        background: $colorWhite;
         color: $colorBlack;
         padding: 1.2917115177610334vh;
         width: 100%;
@@ -404,16 +407,24 @@
 
   .calendar-wrapper {
     width: 100%;
+    overflow: hidden;
   }
 
   .calendar-months {
     font-size: 1.5rem;
     line-height: 2rem;
     margin-bottom: 1.7222820236813778vh;
+
+    width: 100%;
+    overflow: auto;
   }
 
   .calendar-days {
-    width: 70rem;
+    /*width: 70rem;*/
+
+    width: 100%;
+
+    overflow: auto;
 
     .calendar-days-wrapper {
       width: 100%;
@@ -437,7 +448,9 @@
     }
 
     &__day{
-      padding: 0.57rem 1rem;
+      /*padding: 0.57rem 1rem;*/
+
+      padding: 0.57rem 1.17rem;
 
       .day_initial {
         height: 100%;
@@ -462,6 +475,9 @@
   }
 
   .calendar-filters {
+
+  	overflow: auto;
+
     gap: 0.8611410118406889vh;
     &__filter {
       gap: 0.25rem;
@@ -789,6 +805,19 @@
 
   .br-desktop {
     display: none;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  footer {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bg-video.video-scrolled {
+  	display: none;
   }
 }
 

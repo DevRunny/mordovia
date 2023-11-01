@@ -33,7 +33,7 @@ function InteractiveZonesSection({id}) {
             ?
             zones.map((card)=> {
               return (
-                <>
+                <React.Fragment key={card.id}>
                   <SplideSlide>
                     <MobileCardComponent
                       key={ card.id }
@@ -43,7 +43,7 @@ function InteractiveZonesSection({id}) {
                       subtitle={ card.subtitle }
                     />
                   </SplideSlide>
-                </>
+                </React.Fragment>
               )
             })
             :

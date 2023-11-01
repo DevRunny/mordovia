@@ -14,7 +14,7 @@ const Home = () => {
       <MainSection />
       <div style={{background: "white", width: "100%", height: "100%"}}>
         <EventsSections id={"events"}/>
-        <HowToGetThereSection id={"how-to-get-there"}/>
+        {/*<HowToGetThereSection id={"how-to-get-there"}/>*/}
         <FAQSection />
         <GiftShop />
         <Footer />
