@@ -76,6 +76,7 @@ export const AboutPeopleOfMordoviaSection = () => {
                     img={card.img}
                     title={card.title}
                     subtitle={card.subtitle}
+                    type="1"
                   />
 
                 )

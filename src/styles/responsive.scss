@@ -186,12 +186,17 @@
         }
       }
       .present {
-        flex-direction: column-reverse;
+        /*flex-direction: column-reverse;*/
         top: 50vh;
         text-align: center;
         margin: 0;
-        padding: 0 3.8751345532831003vh 0 3.8751345532831003vh;
-        gap: 60px;
+        /*padding: 0 3.8751345532831003vh 0 3.8751345532831003vh;*/
+        padding: 0;
+        width: 100%;
+        /*gap: 60px;*/
+
+        left: 50%;
+	    transform: translate(-50%, 0);
 
         .present-desktop {
           display: none;
@@ -495,6 +500,7 @@
   .calendar-filters {
 
   	overflow: auto;
+  	flex-wrap: nowrap;
 
     gap: 0.8611410118406889vh;
     &__filter {

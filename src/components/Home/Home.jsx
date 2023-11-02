@@ -16,7 +16,7 @@ const Home = () => {
         <EventsSections id={"events"}/>
         {/*<HowToGetThereSection id={"how-to-get-there"}/>*/}
         <FAQSection />
-        <News />
+        {/*<News />*/}
         <GiftShop />
         <Footer />
       </div>

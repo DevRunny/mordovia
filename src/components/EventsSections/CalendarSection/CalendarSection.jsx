@@ -286,6 +286,7 @@ const CalendarSection = ({id}) => {
             ><img src={next} alt={"next"} /></button>
           </div>
       </div>
+
       <div className={"calendar-filters"}>
         <CalendarFilterComponent
           id={1}
@@ -322,6 +323,7 @@ const CalendarSection = ({id}) => {
           <></>
         }
       </div>
+
       </div>
       </div>
       <div className={'calendar-cards'}>

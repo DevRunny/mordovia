@@ -4,7 +4,6 @@ import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
 import clue from "../../images/Clue.svg"
 import burgerMenu from "../../images/Burger.svg"
-import { useState } from "react";
 import { Link } from "react-scroll";
 
 export const NavBar = () => {
@@ -129,9 +128,9 @@ export const NavBar = () => {
               />
               <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
             </div>
-            <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
-            <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
-            <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
+            <a href="https://vk.com/mordovia_russia" target="_blank" rel="noreferrer">VK</a>
+            <a href="https://ok.ru/group/70000004289347" target="_blank" rel="noreferrer">OK</a>
+            <a href="https://t.me/Mordovia_Russia" target="_blank" rel="noreferrer">TG</a>
           </div>
         </div>
       <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn"}>

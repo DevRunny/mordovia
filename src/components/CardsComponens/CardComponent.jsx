@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews }) => {
+export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews, type }) => {
   const hover = useHoverCard()
 
   const linkAttributes = url
@@ -14,7 +14,7 @@ export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, t
       style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-classic-cards__card ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
+      className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
     >
 
       <a {...linkAttributes}>
