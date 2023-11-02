@@ -1,9 +1,8 @@
-import * as React from "react";
+import React from "react";
 import international from "../../images/International.svg";
 import investments from "../../images/Investments.png";
 import iconSite from "../../images/Icon-site.png";
-import mordoviaLogo from "../../images/Republic-Mordovia.png"
-
+import mordoviaLogo from "../../images/Republic-Mordovia.png";
 
 export const Footer = () => {
   return (

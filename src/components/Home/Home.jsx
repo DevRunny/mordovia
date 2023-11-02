@@ -2,10 +2,10 @@ import React from "react";
 import { NavBar } from "../NavBar/NavBar";
 import MainSection from "../MainSection/MainSection";
 import EventsSections from "../EventsSections/EventsSections";
-import HowToGetThereSection from "../HowToGetThereSection/HowToGetThereSection";
 import FAQSection from "../FAQSection/FAQSection";
 import { Footer } from "../Footer/Footer";
 import GiftShop from "../GiftShop/GitfShop";
+import News from "../News/News";
 
 const Home = () => {
   return (
@@ -16,6 +16,7 @@ const Home = () => {
         <EventsSections id={"events"}/>
         {/*<HowToGetThereSection id={"how-to-get-there"}/>*/}
         <FAQSection />
+        <News />
         <GiftShop />
         <Footer />
       </div>

@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
-import clue from "../../images/Clue.svg"
-import burgerMenu from "../../images/Burger.svg"
-import { useState } from "react";
+import clue from "../../images/Clue.svg";
+import burgerMenu from "../../images/Burger.svg";
 import { Link } from "react-scroll";
 
 export const NavBar = () => {

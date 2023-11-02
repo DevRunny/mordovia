@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import cursor from "../../images/Cursor.svg";
 import { Link } from "react-scroll";
 import { useWindowSize } from "usehooks-ts";
 import { useTitles } from "../../queries/useTitles";
-import { useEffect, useState } from 'react';
 
 const MainSection = () => {
   const { width } = useWindowSize()
