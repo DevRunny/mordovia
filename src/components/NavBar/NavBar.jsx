@@ -4,7 +4,6 @@ import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
 import clue from "../../images/Clue.svg"
 import burgerMenu from "../../images/Burger.svg"
-import { useState } from "react";
 import { Link } from "react-scroll";
 
 export const NavBar = () => {
