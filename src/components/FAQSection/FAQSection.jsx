@@ -6,7 +6,7 @@ const FAQSection = () => {
   const { faq, isFetched } = useFaq()
 
   return (
-    <div className={'FAQ'}>
+    <div className={'FAQ'} id="#faq">
       {isFetched
         ?
         faq.map((item) => {

@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
-import clue from "../../images/Clue.svg";
-import burgerMenu from "../../images/Burger.svg";
+import soundAnimated from "../../images/Sound-animated.svg";
+import clue from "../../images/Clue.svg"
+import burgerMenu from "../../images/Burger.svg"
+import { useState } from "react";
 import { Link } from "react-scroll";
 
 export const NavBar = () => {
   const [isOpenBurger, setIsOpenBurger] = useState()
   const [clueVisible, setClueVisible] = useState(false)
+  const [audioPlaying, setAudioPlaying] = useState(false)
 
   const handleOpenBurgerMenu = () => {
     setIsOpenBurger(!isOpenBurger)
   }
 
   const handlePlayAudio = () => {
+
+    setAudioPlaying(!audioPlaying);
+
     let audio = document.getElementById("main_audio");
     if (audio.paused) {
-    	audio.play();
+      audio.play();
       return;
     }
 
@@ -57,6 +63,19 @@ export const NavBar = () => {
             </Link>
           </li>
 
+          <li>
+            <Link
+            activeClass="active"
+            to="#faq"
+            spy={true}
+            smooth={true}
+            offset={-230}
+            duration={500}
+            >
+              Вопросы-ответы
+            </Link>
+          </li>
+
           {/*
           <li>
             <Link
@@ -94,13 +113,20 @@ export const NavBar = () => {
               onMouseEnter={() => {setClueVisible(true)}}
               onMouseLeave={() => {setClueVisible(false)}}
               onClick={() => {handlePlayAudio()}}>
-               <img className={"sound-wave"} src={sound} alt={"alt"} />
-               <img
-                 style={clueVisible ? {display: "block"} : {display: "none"}}
-                 className={"sound-wave-clue"}
-                 src={clue}
-                 alt={"clue"}
-               />
+               
+              {audioPlaying
+              ?
+              <img className={"sound-wave"} src={soundAnimated} alt={"alt"} />
+              :
+			  <img className={"sound-wave"} src={sound} alt={"alt"} />
+			  }
+
+              <img
+                style={clueVisible ? {display: "block"} : {display: "none"}}
+                className={"sound-wave-clue"}
+                src={clue}
+                alt={"clue"}
+              />
               <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
             </div>
             <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
@@ -141,6 +167,20 @@ export const NavBar = () => {
                   Календарь
                 </Link>
               </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#faq"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  Вопросы-ответы
+                </Link>
+              </li>
+
               {/*<li>*/}
               {/*  <Link*/}
               {/*    onClick={() => {handleOpenBurgerMenu()}}*/}

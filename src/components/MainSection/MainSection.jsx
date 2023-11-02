@@ -85,7 +85,7 @@ const MainSection = () => {
 	    className="cursorPointer"
         style={{cursor: "pointer", display: "none", transform: "translate(-50%, -50%)"}}
         activeClass="active"
-        to="events"
+        to="video-section"
         spy={true}
         smooth={true}
         offset={width < 767 ? -50 :-80}
@@ -94,6 +94,7 @@ const MainSection = () => {
         <img src={cursor} alt={"↓"} />
       </Link>
 
+      <div id="video-section"></div>
     </main>
   );
 };

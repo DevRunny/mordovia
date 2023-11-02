@@ -109,7 +109,8 @@
 
         .burger-menu-wrapper {
           background: $colorWhite;
-          height: 100%;
+          /*height: 100%;*/
+          height: 100vh;
           width: 100vw;
           @include flex-column;
           align-items: center;
@@ -531,7 +532,7 @@
   .calendar-card {
     padding: 0.7rem 0.7rem 0.7rem 0.7rem;
     justify-content: space-between;
-    box-shadow: 0 0 0.4rem $colorBlack;
+    /*box-shadow: 0 0 0.4rem $colorBlack;*/
 
     &__topic {
       svg {
@@ -835,6 +836,10 @@
 
   .bg-video.video-scrolled {
   	display: none;
+  }
+
+  #video-section {
+    display: none;
   }
 }
 
