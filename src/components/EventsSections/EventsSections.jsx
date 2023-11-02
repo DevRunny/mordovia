@@ -6,7 +6,7 @@ import InteractiveZonesSection from "./InteractiveZonesSection";
 import headline from "../../images/Headline.svg";
 import { Titles } from "../Titles/Titles";
 import { useTitles } from "../../queries/useTitles";
-import StickySubtitle from "../Titles/StickySubtitle";
+import StickyTitle from "../Titles/StickyTitle";
 
 const EventsSections = ({id}) => {
     const { titles, isFetched } = useTitles()
@@ -17,13 +17,13 @@ const EventsSections = ({id}) => {
         <Titles
           img={headline}
         />
-        <StickySubtitle subtitle={isFetched ? titles.screen2.text1 : ""} />
+        <StickyTitle subtitle={isFetched ? titles.screen2.text1 : ""} />
         <AboutPeopleOfMordoviaSection />
-        <StickySubtitle subtitle={isFetched ? titles.screen3.text1 : ""} />
+        <StickyTitle subtitle={isFetched ? titles.screen3.text1 : ""} />
         <KeyEventsSection id={"#about-exposition"}/>
       </div>
       <CalendarSection id={"#calendar"}/>
-      <StickySubtitle img={headline} classPosition={"not-sticky"} subtitle={isFetched ? titles.screen4.text1 : ""} />
+      <StickyTitle img={headline} classPosition={"not-sticky"} subtitle={isFetched ? titles.screen4.text1 : ""} />
       <InteractiveZonesSection />
     </section>
   );

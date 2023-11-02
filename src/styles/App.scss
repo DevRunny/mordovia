@@ -324,6 +324,14 @@ main {
         line-height: 1.25vw;
       }
     }
+
+    .introducing-classic-cards__news {
+      @include flex-column;
+      gap: 1.3541666666666667vw;
+    }
+  }
+  .news-cards {
+    width: 25%;
   }
 }
 
@@ -332,6 +340,11 @@ main {
     p {
       height: 3rem;
       opacity: 1;
+    }
+  }
+  .introducing-classic-cards__news {
+    p {
+      margin-bottom: 1.3541666666666667vw;
     }
   }
 }

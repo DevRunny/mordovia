@@ -1,10 +1,10 @@
 import * as React from "react";
-import { CardKeyEventsComponent } from "./CardKeyEventsComponent";
+import { CardKeyEventsComponent } from "../CardsComponens/CardKeyEventsComponent";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { MobileCardComponent } from "./MobileCardComponent";
+import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { useAnnounces } from "../../queries/useAnnounces";
 
 export const KeyEventsSection = ({id, ref}) => {

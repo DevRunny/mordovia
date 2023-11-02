@@ -338,19 +338,24 @@
         opacity: 0;
       }
       .splide__pagination {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        justify-content: center;
+        background: #cbcacb;
+        background-clip: content-box;
+        height: 3px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
         bottom: -1.7222820236813778vh
       }
 
       .splide__pagination__page.is-active {
+        width: 32vw;
+        height: 3px;
         background: $colorRed;
       }
       .splide__pagination__page {
-        width: 32vw;
-        margin: 0;
-        height: 0.21528525296017223vh;
+        margin: 0 0 10px 0;
+        width: 0.05382131324004306vh;
+        height: 0.05382131324004306vh;
+        transition: 0s;
 
         &:hover {
           background-color: #ccc;
@@ -370,6 +375,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: 1.25rem;
+      margin-bottom: 0.5rem;
     }
 
     .introducing-cards-mobile__card {
@@ -385,8 +391,6 @@
         position: absolute;
         bottom: 0;
         height: auto;
-        /*background: rgba(255, 255, 255, 0.60);
-        backdrop-filter: blur(.6146393972012918vh);*/
         background: $colorWhite;
         color: $colorBlack;
         padding: 1.2917115177610334vh;

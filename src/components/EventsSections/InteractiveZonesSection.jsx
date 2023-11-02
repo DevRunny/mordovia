@@ -5,8 +5,8 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { useZones } from "../../queries/useZones";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { MobileCardComponent } from "./MobileCardComponent";
-import { CardComponent } from "./CardComponent";
+import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
+import { CardComponent } from "../CardsComponens/CardComponent";
 
 function InteractiveZonesSection({id}) {
   const opacity = useOpacity()

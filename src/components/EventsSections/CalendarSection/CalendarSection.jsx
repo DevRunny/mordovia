@@ -151,7 +151,6 @@ const CalendarSection = ({id}) => {
     setTopicId(null)
   }
 
-
   const handleChangePrevMonth = () => {
     const activeMonthIndex = allMonths.indexOf(activeMonth);
     const prevMonth = allMonths[activeMonthIndex - 1];

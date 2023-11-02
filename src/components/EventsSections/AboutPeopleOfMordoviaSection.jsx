@@ -5,14 +5,14 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 import "@splidejs/react-splide/css/sea-green";
 import { useAnnounces } from "../../queries/useAnnounces";
 import { useWindowSize } from "usehooks-ts";
-import { MobileCardComponent } from "./MobileCardComponent";
+import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { CardComponent } from "./CardComponent";
+import { CardComponent } from "../CardsComponens/CardComponent";
 
 export const AboutPeopleOfMordoviaSection = () => {
-  const opacity = useOpacity()
-  const hover = useHoverCard()
-  const { width } = useWindowSize()
+  const opacity = useOpacity();
+  const hover = useHoverCard();
+  const { width } = useWindowSize();
   const { announces, isFetched } = useAnnounces({});
 
   if (width < 767) {

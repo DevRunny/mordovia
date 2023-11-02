@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";

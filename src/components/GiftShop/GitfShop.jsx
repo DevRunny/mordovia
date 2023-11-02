@@ -3,7 +3,6 @@ import giftShop from "../../images/Gift-shop.svg";
 import giftShopMobile from "../../images/Gift-shop-mobile.svg";
 import { useWindowSize } from "usehooks-ts";
 
-
 const GiftShop = () => {
   const { width } = useWindowSize()
   return (

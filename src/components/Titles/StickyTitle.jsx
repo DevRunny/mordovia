@@ -2,7 +2,7 @@ import React from "react";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 
-const StickySubtitle = ({subtitle, classPosition, img}) => {
+const StickyTitle = ({subtitle, classPosition, img}) => {
   const {scrollYProgress, ref} = useOpacity()
 
   return (
@@ -18,4 +18,4 @@ const StickySubtitle = ({subtitle, classPosition, img}) => {
   );
 };
 
-export default StickySubtitle;
+export default StickyTitle;
