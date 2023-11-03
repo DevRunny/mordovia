@@ -119,12 +119,28 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangeFilterDate = (filterDate) => {
-    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
+
+    let allDays;
+
+    const tomorrowMonth = filters.months.find((month) => month.id === filters.tomorrow.monthId);
+    if (tomorrowMonth) {
+      setActiveMonth(tomorrowMonth.title);
+      setMonthId(tomorrowMonth.id);
+
+      allDays = filters ? filters.months.find((month) => month.id === tomorrowMonth.id)?.days : [];
+
+    } else {
+
+      allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
+
+	}
+    
     const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
     const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
     const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
+
     if (filterDate === 1) {
-      setActiveDate(filterDate);
+  	  setActiveDate(filterDate);
       setFirstDay(tomorrowDay);
       setSecondDay(null);
     }

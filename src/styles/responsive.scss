@@ -99,6 +99,13 @@
           width: 2.5rem;
           height: 2.5rem;
         }
+
+        &.burger-opened {
+          img {
+	        width: 1.7rem;
+	        height: 1.7rem;
+	      }
+        }
       }
 
       .burger-menu {
@@ -158,7 +165,8 @@
 
   main {
       .bg-video {
-        top: 9vh;
+        /*top: 9vh;*/
+        top: 7vh;
       }
 
       .about {
@@ -643,11 +651,16 @@
     }
 
     &__sponsors {
+
+   	  margin-left: 33vw;
+   	  gap: 8.0833333333vw;
+   	  margin-top: -5vw;
+
       :first-child {
-        width: 6rem;
+        width: 11rem;
       }
       :last-child {
-        width: 11rem;
+        width: 9.5rem;
       }
     }
 

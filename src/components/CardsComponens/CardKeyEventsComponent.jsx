@@ -11,16 +11,20 @@ export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onl
     }, 100)
   }
 
+  const linkAttributes = url
+    ? { target: "_blank", href: url, rel: "noreferrer" }
+    : { };
+
 
   return (
     <div
-      style={{cursor: "pointer"}}
+      style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => setHovered(true)}
       onMouseLeave={ () => mouseActiveHover()}
       className={ `introducing-cards__card  ${isHovered ? "active" : ""}` }
     >
 
-      <a href={url} rel="noreferrer" target={"_blank"}>
+      <a {...linkAttributes}>
 
         {preview
           ?
@@ -58,8 +62,7 @@ export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onl
             <></>
           }
           <h3>{ title }</h3>
-          <p>
-            { subtitle }
+          <p dangerouslySetInnerHTML={{__html: subtitle}}>
           </p>
         </div>
         :
