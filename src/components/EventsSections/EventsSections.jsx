@@ -23,7 +23,7 @@ const EventsSections = ({id}) => {
         <KeyEventsSection id={"#about-exposition"}/>
       </div>
       <CalendarSection id={"#calendar"}/>
-      <StickyTitle img={headline} classPosition={"not-sticky"} subtitle={isFetched ? titles.screen4.text1 : ""} />
+      <StickyTitle img={headline} notSticky={true} subtitle={isFetched ? titles.screen4.text1 : ""} />
       <InteractiveZonesSection />
     </section>
   );

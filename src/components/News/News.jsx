@@ -14,7 +14,7 @@ const News = () => {
   if (width < 767) {
     return (
       <div id={"#news"}>
-        <Titles classPosition={"not-sticky"} h1={"Новости"}/>
+        <Titles notSticky={true} h1={"Новости"}/>
         <div className={"news"}>
           <div
             onMouseEnter={ () => hover.setHovered(true) }
@@ -76,7 +76,7 @@ const News = () => {
 
   return (
     <div id={"#news"}>
-      <Titles classPosition={"not-sticky"} h1={"Новости"}/>
+      <Titles notSticky={true} h1={"Новости"}/>
       <div className={"news"}>
         <div
           onMouseEnter={ () => hover.setHovered(true) }
@@ -84,6 +84,7 @@ const News = () => {
           className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
         >
         <CardComponent
+          id={0}
           img={newsCard}
           topic={true}
           topicName={"Новость"}
@@ -93,6 +94,7 @@ const News = () => {
           date={"29 ноября 19:00"}
           />
         <CardComponent
+          id={1}
           img={newsCard}
           topic={true}
           topicName={"Новость"}
@@ -102,6 +104,7 @@ const News = () => {
           date={"29 ноября 19:00"}
           />
         <CardComponent
+          id={2}
           img={newsCard}
           topic={true}
           topicName={"Новость"}
@@ -111,6 +114,7 @@ const News = () => {
           date={"29 ноября 19:00"}
           />
           <CardComponent
+            id={3}
             img={newsCard}
             topic={true}
             topicName={"Новость"}

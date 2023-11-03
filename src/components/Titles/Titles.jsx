@@ -2,7 +2,7 @@ import React from "react";
 import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 
-export const Titles = ({img, h1, classPosition}) => {
+export const Titles = ({img, h1, notSticky = false}) => {
   const { ref, scrollYProgress } = useOpacity()
 
   return (
@@ -11,7 +11,7 @@ export const Titles = ({img, h1, classPosition}) => {
       style={{
         opacity: scrollYProgress
       }}
-      className={`titles ${classPosition}`}>
+      className={`titles ${notSticky ? "not-sticky" : ""}`}>
       {img ? <img src={img} alt={"Вас ждут"} /> : <></>}
       {h1 ? <h1>{ h1 }</h1> : <></>}
     </motion.div>

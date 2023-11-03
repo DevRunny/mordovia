@@ -6,7 +6,7 @@ import exposition from "../../images/Map-exposition.svg";
 const HowToGetThereSection = () => {
   return (
     <div id={"#how-to-get-there"}>
-      <Titles h1={"Как добраться"} h2={""}/>
+      <Titles notSticky={true} h1={"Как добраться"}/>
       <div className={"how-to-get-there"}>
         <div className={"how-to-get-there__link"}>
           <a href={'/'}>
