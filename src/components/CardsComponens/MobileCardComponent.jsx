@@ -4,14 +4,20 @@ import { motion } from "framer-motion";
 
 export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews }) => {
   const hover = useHoverCard()
+
+  const linkAttributes = url
+    ? { target: "_blank", href: url, rel: "noreferrer" }
+    : { };
+
   return (
     <div
-      style={{cursor: "pointer"}}
+      style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
       className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
     >
-      <a href={url} rel="noreferrer" target={"_blank"}>
+
+      <a {...linkAttributes}>
 
         {preview
           ?
@@ -46,9 +52,7 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
             <></>
           }
           <h3>{ title }</h3>
-          <p>
-            { subtitle }
-          </p>
+          <p dangerouslySetInnerHTML={{__html: subtitle}}></p>
           {date
             ?
             <div className={"calendar-card__date"}>

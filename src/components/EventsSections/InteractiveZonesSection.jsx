@@ -77,6 +77,7 @@ function InteractiveZonesSection({id}) {
                 title={ card.title }
                 preview={card.preview }
                 subtitle={ card.subtitle }
+                type="1"
               />
             )
           })

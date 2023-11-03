@@ -4,6 +4,7 @@ import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
 import clue from "../../images/Clue.svg"
 import burgerMenu from "../../images/Burger.svg"
+import burgerMenuExit from "../../images/Burger-exit.svg"
 import { Link } from "react-scroll";
 
 export const NavBar = () => {
@@ -128,13 +129,18 @@ export const NavBar = () => {
               />
               <audio id="main_audio" src="https://mordovia-russia.ru/audio/mordoviya.mp3" style={{display: "none"}} />
             </div>
-            <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
-            <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
-            <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
+            <a href="https://vk.com/mordovia_russia" target="_blank" rel="noreferrer">VK</a>
+            <a href="https://ok.ru/group/70000004289347" target="_blank" rel="noreferrer">OK</a>
+            <a href="https://t.me/Mordovia_Russia" target="_blank" rel="noreferrer">TG</a>
           </div>
         </div>
-      <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn"}>
+      <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn" + (isOpenBurger ? " burger-opened" : "")}>
+      	{isOpenBurger
+      	?
+      	<img src={burgerMenuExit} alt={'menu'}/>
+      	:
         <img src={burgerMenu} alt={'menu'}/>
+        }
       </button>
       <div style={{display: `${isOpenBurger ? "block" : "none"}`}} className={"burger-menu"}>
         <div className={"burger-menu-wrapper"}>
@@ -163,7 +169,7 @@ export const NavBar = () => {
                   offset={-80}
                   duration={500}
                 >
-                  Календарь
+                  Афиша
                 </Link>
               </li>
               <li>
@@ -210,9 +216,9 @@ export const NavBar = () => {
             </ul>
           </div>
           <div className={"burger-menu__links"}>
-            <a href="https://vk.com/officialmordovia" target="_blank" rel="noreferrer">VK</a>
-            <a href="https://ok.ru/officialmordovia" target="_blank" rel="noreferrer">OK</a>
-            <a href="https://t.me/officialmordovia" target="_blank" rel="noreferrer">TG</a>
+            <a href="https://vk.com/mordovia_russia" target="_blank" rel="noreferrer">VK</a>
+            <a href="https://ok.ru/group/70000004289347" target="_blank" rel="noreferrer">OK</a>
+            <a href="https://t.me/Mordovia_Russia" target="_blank" rel="noreferrer">TG</a>
           </div>
         </div>
       </div>
