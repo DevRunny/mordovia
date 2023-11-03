@@ -119,25 +119,13 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangeFilterDate = (filterDate) => {
-
-    let allDays;
-    // TODO: ДОДЕЛАТЬ ПЕРЕКЛЮЧЕНИЕ НА ЗАВТРА И АКТИВНЫЙ МЕСЯЦ
-    const tomorrowMonth = filters.months.find((month) => month.id === filters.tomorrow.monthId);
-    if (tomorrowMonth) {
-      setActiveMonth(tomorrowMonth.title);
-      setMonthId(tomorrowMonth.id);
-
-      allDays = filters ? filters.months.find((month) => month.id === tomorrowMonth.id)?.days : [];
-
-    } else {
-
-      allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
-
-	}
-    
+    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
+    const actualMonthTomorrow = filters ? filters.months.find((month) => month.id === filters.tomorrow.monthId)?.title : [];
     const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
     const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
     const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
+
+    setActiveMonth(actualMonthTomorrow);
 
     if (filterDate === 1) {
   	  setActiveDate(filterDate);
@@ -149,7 +137,6 @@ const CalendarSection = ({id}) => {
       setFirstDay(weekendStart);
       setSecondDay(weekendEnd);
     }
-
   }
 
   const handleResetFilterDate = () => {
@@ -168,6 +155,7 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangePrevMonth = () => {
+    setActiveDate(null);
     const activeMonthIndex = allMonths.indexOf(activeMonth);
     const prevMonth = allMonths[activeMonthIndex - 1];
     const lastMonth = allMonths[allMonths.length - 1];
@@ -179,6 +167,7 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangeNextMonth = () => {
+    setActiveDate(null);
     const activeMonthIndex = allMonths.indexOf(activeMonth);
     const nextMonth = allMonths[activeMonthIndex + 1];
     const firstMonth = allMonths[0];
@@ -209,11 +198,27 @@ const CalendarSection = ({id}) => {
   useEffect(() => {
     if (!filters) return;
     const monthId = filters.months.find((month) => month.title === activeMonth)?.id;
+    const allDays = filters.months.find((month) => month.id === monthId)?.days;
+    const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
+    const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
+    const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
     setMonthId(monthId);
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
+    if (activeDate === 1) {
+        setFirstDay(tomorrowDay);
+        return;
+    }
+
+    if (activeDate === 2) {
+      setFirstDay(weekendStart);
+      setSecondDay(weekendEnd);
+      return;
+    }
+
     setFirstDay(null);
     setSecondDay(null);
   }, [activeMonth])
+
 
   useEffect(() => {
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
