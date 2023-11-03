@@ -9,7 +9,6 @@ import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { CardComponent } from "../CardsComponens/CardComponent";
 
 function InteractiveZonesSection({id}) {
-  const opacity = useOpacity()
   const hover = useHoverCard()
   const { width } = useWindowSize()
   const { zones, isFetched } = useZones()
@@ -18,11 +17,6 @@ function InteractiveZonesSection({id}) {
     return (
       <motion.div
         id={id}
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress,
-          // opacity: 1
-        }}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
@@ -58,20 +52,16 @@ function InteractiveZonesSection({id}) {
     <>
       <motion.div
         id={id}
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress
-          opacity: 1
-        }}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
       >
         { zones && isFetched
           ?
-          zones.map((card) => {
+          zones.map((card, index) => {
             return (
               <CardComponent
+                id={index}
                 key={ card.id }
                 img={ card.img }
                 title={ card.title }

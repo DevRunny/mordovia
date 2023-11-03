@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { CardKeyEventsComponent } from "../CardsComponens/CardKeyEventsComponent";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
@@ -62,9 +62,10 @@ export const KeyEventsSection = ({id, ref}) => {
       >
         {announces && isFetched
         ?
-          announces.screen2.map((card)=>{
+          announces.screen2.map((card, index)=>{
               return (
                 <CardKeyEventsComponent
+                  id={index}
                   key={card.id}
                   url={card.url}
                   img={card.img}

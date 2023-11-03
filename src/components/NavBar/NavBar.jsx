@@ -44,7 +44,7 @@ export const NavBar = () => {
             to="events"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={70}
             duration={500}
             >
               События
@@ -113,13 +113,8 @@ export const NavBar = () => {
               onMouseEnter={() => {setClueVisible(true)}}
               onMouseLeave={() => {setClueVisible(false)}}
               onClick={() => {handlePlayAudio()}}>
-               
-              {audioPlaying
-              ?
-              <img className={"sound-wave"} src={soundAnimated} alt={"alt"} />
-              :
-			  <img className={"sound-wave"} src={sound} alt={"alt"} />
-			  }
+
+              <img className={"sound-wave"} src={audioPlaying ? soundAnimated : sound} alt={"alt"} />
 
               <img
                 style={clueVisible ? {display: "block"} : {display: "none"}}
@@ -135,12 +130,7 @@ export const NavBar = () => {
           </div>
         </div>
       <button onClick={() => {handleOpenBurgerMenu()}} className={"burger-menuBtn" + (isOpenBurger ? " burger-opened" : "")}>
-      	{isOpenBurger
-      	?
-      	<img src={burgerMenuExit} alt={'menu'}/>
-      	:
-        <img src={burgerMenu} alt={'menu'}/>
-        }
+      	<img src={isOpenBurger ? burgerMenuExit : burgerMenu} alt={'menu'}/>
       </button>
       <div style={{display: `${isOpenBurger ? "block" : "none"}`}} className={"burger-menu"}>
         <div className={"burger-menu-wrapper"}>

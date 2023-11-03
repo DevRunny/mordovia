@@ -121,7 +121,7 @@ const CalendarSection = ({id}) => {
   const handleChangeFilterDate = (filterDate) => {
 
     let allDays;
-
+    // TODO: ДОДЕЛАТЬ ПЕРЕКЛЮЧЕНИЕ НА ЗАВТРА И АКТИВНЫЙ МЕСЯЦ
     const tomorrowMonth = filters.months.find((month) => month.id === filters.tomorrow.monthId);
     if (tomorrowMonth) {
       setActiveMonth(tomorrowMonth.title);

@@ -2,15 +2,33 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews, type }) => {
+export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews, type }) => {
   const hover = useHoverCard()
+
+  const cardVariants = {
+    offscreen: {
+      y: id  === 0 ? 100 : id === 1 ? 200 : id === 2 ? 300 : id === 3 ? 400 : 0,
+      opacity: 0.2
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1 ,
+      }
+    }
+  };
 
   const linkAttributes = url
     ? { target: "_blank", href: url, rel: "noreferrer" }
     : { };
 
   return (
-    <div
+    <motion.div
+      initial={cardVariants.offscreen}
+      whileInView={cardVariants.onscreen}
+      viewport={{ once: true, amount: "some" }}
       style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
@@ -79,6 +97,6 @@ export const CardComponent = ({ img, url, title, subtitle, preview, onlyImage, t
           <></>
         }
         </a>
-    </div>
+    </motion.div>
   )
 }

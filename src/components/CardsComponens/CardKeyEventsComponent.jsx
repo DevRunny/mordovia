@@ -2,8 +2,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 
-export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
+export const CardKeyEventsComponent = ({id, img, url, title, subtitle, preview, onlyImage, topic, topicName }) => {
   const { isHovered, setHovered } = useHoverCard()
+
+  const cardVariants = {
+    offscreen: {
+      y: id  === 0 ? 100 : id === 1 ? 200 : id === 2 ? 300 : id === 3 ? 400 : 0,
+      opacity: 0.2
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1 ,
+      }
+    }
+  };
 
   const mouseActiveHover = () => {
     setTimeout(() => {
@@ -17,7 +32,10 @@ export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onl
 
 
   return (
-    <div
+    <motion.div
+      initial={cardVariants.offscreen}
+      whileInView={cardVariants.onscreen}
+      viewport={{ once: true, amount: "some" }}
       style={ url ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => setHovered(true)}
       onMouseLeave={ () => mouseActiveHover()}
@@ -69,6 +87,6 @@ export const CardKeyEventsComponent = ({ img, url, title, subtitle, preview, onl
         <></>
       }
       </a>
-    </div>
+    </motion.div>
   )
 }

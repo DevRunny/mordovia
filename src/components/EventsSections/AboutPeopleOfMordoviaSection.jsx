@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useOpacity } from "../../hooks/useOpacity";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import "@splidejs/react-splide/css/sea-green";
 import { useAnnounces } from "../../queries/useAnnounces";
@@ -10,19 +9,13 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { CardComponent } from "../CardsComponens/CardComponent";
 
 export const AboutPeopleOfMordoviaSection = () => {
-  const opacity = useOpacity();
   const hover = useHoverCard();
   const { width } = useWindowSize();
   const { announces, isFetched } = useAnnounces({});
 
   if (width < 767) {
     return (
-      <motion.div
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress,
-          // opacity: 1
-        }}
+      <div
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
@@ -50,27 +43,23 @@ export const AboutPeopleOfMordoviaSection = () => {
             <></>
           }
         </Splide>
-      </motion.div>
+      </div>
     )
   }
 
   return (
     <>
       <motion.div
-        ref={opacity.ref}
-        style={{
-          // opacity: opacity.scrollYProgress,
-          // opacity: 1
-        }}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
       >
           {announces && isFetched
             ?
-            announces.screen1.map((card)=> {
+            announces.screen1.map((card, index)=> {
                 return (
                   <CardComponent
+                    id={index}
                     key={card.id}
                     url={card.url}
                     img={card.img}
