@@ -1,5 +1,4 @@
 import React from "react";
-import { useOpacity } from "../../hooks/useOpacity";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";

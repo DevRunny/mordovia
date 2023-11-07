@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import notFound from "../../images/NotFound.svg"
+import notFound from "../../images/NotFound.svg";
 import { animateScroll as scroll } from "react-scroll";
 import ButtonBackToMain from "../Buttons/ButtonBackToMain";
 

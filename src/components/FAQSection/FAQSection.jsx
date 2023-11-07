@@ -2,11 +2,11 @@ import React from "react";
 import AccordionComponent from "./AccordionComponent";
 import { useFaq } from "../../queries/useFaq";
 
-const FAQSection = () => {
+const FAQSection = ({ id }) => {
   const { faq, isFetched } = useFaq()
 
   return (
-    <div className={'FAQ'} id="#faq">
+    <section id={id} className={'FAQ'}>
       {isFetched
         ?
         faq.map((item) => {
@@ -21,7 +21,7 @@ const FAQSection = () => {
         :
         <></>
       }
-    </div>
+    </section>
   );
 };
 

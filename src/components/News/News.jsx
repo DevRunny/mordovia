@@ -7,14 +7,14 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { useNews } from "../../queries/useNews";
 
-const News = () => {
+const News = ({ id }) => {
   const hover = useHoverCard();
   const { width } = useWindowSize();
   const { news, isFetched } = useNews();
 
   if (width < 767) {
     return (
-      <div id={"#news"}>
+      <section id={id}>
         <Titles notSticky={true} h1={"Новости"}/>
         <div className={"news"}>
           <div
@@ -37,6 +37,7 @@ const News = () => {
                         title={card.title}
                         subtitle={card.subtitle}
                         date={card.date}
+                        alias={card.alias}
                       />
                     </SplideSlide>
                   )
@@ -47,12 +48,12 @@ const News = () => {
             </Splide>
           </div>
         </div>
-      </div>
+      </section>
     )
   }
 
   return (
-    <div id={"#news"}>
+    <section id={id}>
       <Titles notSticky={true} h1={"Новости"}/>
       <div className={"news"}>
         <div
@@ -82,7 +83,7 @@ const News = () => {
           }
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

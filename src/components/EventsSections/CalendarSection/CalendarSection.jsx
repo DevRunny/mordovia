@@ -6,7 +6,6 @@ import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
 import { Link } from "react-router-dom";
-import { PATHS } from "../../../router";
 import CalendarFilterComponent from "./CalendarFilterComponent";
 
 const CalendarSection = ({id}) => {
@@ -197,26 +196,32 @@ const CalendarSection = ({id}) => {
 
   useEffect(() => {
     if (!filters) return;
-    const monthId = filters.months.find((month) => month.title === activeMonth)?.id;
-    // const allDays = filters.months.find((month) => month.id === monthId)?.days;
-    // const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
-    // const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
-    // const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
+    const monthId = filters ? filters.months.find((month) => month.title === activeMonth)?.id : [];
     setMonthId(monthId);
-    setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
-    // if (activeDate === 1) {
-    //     setFirstDay(tomorrowDay);
-    //     return;
-    // }
-    //
-    // if (activeDate === 2) {
-    //   setFirstDay(weekendStart);
-    //   setSecondDay(weekendEnd);
-    //   return;
-    // }
+    const allDays = filters ? filters.months.find((month) => month.id === monthId)?.days : [];
+    const tomorrowDay = allDays ? allDays.find((day) => day.id === filters.tomorrow.dayId)?.title : [];
+    const weekendStart = allDays ? allDays.find(day => day.id === filters.weekend.start.dayId)?.title : [];
+    const weekendEnd = allDays ? allDays.find(day => day.id === filters.weekend.end.dayId)?.title : [];
+    if (activeDate === 1) {
+      setFirstDay(tomorrowDay);
+      return;
+    }
+
+    if (activeDate === 2) {
+      setFirstDay(weekendStart);
+      setSecondDay(weekendEnd);
+      return;
+    }
 
     setFirstDay(null);
     setSecondDay(null);
+  }, [activeMonth])
+
+  useEffect(() => {
+    if (!filters) return;
+    const monthId = filters ? filters.months.find((month) => month.title === activeMonth)?.id : [];
+    setMonthId(monthId);
+    setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
   }, [activeMonth])
 
 

@@ -7,13 +7,13 @@ import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 
-const Achievements = () => {
+const Achievements = ({ id }) => {
   const hover = useHoverCard();
   const { width } = useWindowSize();
 
   if (width < 767) {
     return (
-      <div id={"#achievements"}>
+      <div id={id}>
         <Titles notSticky={true} h1={"Достижения"}/>
         <div className={"achievements"}>
           <div
@@ -58,7 +58,7 @@ const Achievements = () => {
   }
 
   return (
-    <div id={"#achievements"}>
+    <div id={id}>
       <Titles notSticky={true} h1={"Достижения"}/>
       <div className={"achievements"}>
         <div

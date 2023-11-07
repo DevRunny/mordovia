@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
-import { Link, useParams } from "react-router-dom";
-import { PATHS } from "../../router";
+import { useParams } from "react-router-dom";
 import { useNewsItem } from "../../queries/useNewsItem";
 import { useEvent } from "../../queries/useEvent";
 import Details from "../Details";

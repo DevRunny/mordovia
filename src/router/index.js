@@ -7,6 +7,8 @@ export const PATHS = {
   MAIN: "/",
   NEWS: "/news/*",
   EVENT: "/event/*",
+  NEWS_EMPTY: "/news",
+  EVENT_EMPTY: "/event",
   NOTFOUND: "*"
 }
 
@@ -18,6 +20,8 @@ export const router = () => {
       <Route path={ PATHS.NEWS } element={<DetailsPage newsEnable={true} />} />
       <Route path={ PATHS.EVENT } element={<DetailsPage eventEnable={true} />} />
       <Route path={ PATHS.NOTFOUND } element={<NotFoundPage />} />
+      <Route path={ PATHS.NEWS_EMPTY} element={<NotFoundPage />} />
+      <Route path={ PATHS.EVENT_EMPTY} element={<NotFoundPage />} />
     </Routes>
   )
 }

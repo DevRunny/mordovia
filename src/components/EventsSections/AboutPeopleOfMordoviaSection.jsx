@@ -8,14 +8,14 @@ import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { CardComponent } from "../CardsComponens/CardComponent";
 
-export const AboutPeopleOfMordoviaSection = () => {
+export const AboutPeopleOfMordoviaSection = ({id}) => {
   const hover = useHoverCard();
   const { width } = useWindowSize();
   const { announces, isFetched } = useAnnounces({});
 
   if (width < 767) {
     return (
-      <div
+      <section id={id}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
@@ -43,13 +43,13 @@ export const AboutPeopleOfMordoviaSection = () => {
             <></>
           }
         </Splide>
-      </div>
+      </section>
     )
   }
 
   return (
-    <>
-      <motion.div
+      <motion.section
+        id={id}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
@@ -73,7 +73,6 @@ export const AboutPeopleOfMordoviaSection = () => {
             :
               <></>
           }
-        </motion.div>
-    </>
+        </motion.section>
   );
 };

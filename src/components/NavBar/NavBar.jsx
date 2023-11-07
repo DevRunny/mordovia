@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
-import clue from "../../images/Clue.svg"
-import burgerMenu from "../../images/Burger.svg"
-import burgerMenuExit from "../../images/Burger-exit.svg"
+import clue from "../../images/Clue.svg";
+import burgerMenu from "../../images/Burger.svg";
+import burgerMenuExit from "../../images/Burger-exit.svg";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
+import { PATHS } from "../../router";
+import { HashLink } from "react-router-hash-link";
 
 export const NavBar = () => {
   const [isOpenBurger, setIsOpenBurger] = useState()
   const [clueVisible, setClueVisible] = useState(false)
   const [audioPlaying, setAudioPlaying] = useState(false)
 
-  const handleOpenBurgerMenu = () => {
+    const handleOpenBurgerMenu = () => {
     setIsOpenBurger(!isOpenBurger)
   }
 
@@ -32,9 +35,9 @@ export const NavBar = () => {
   return (
     <header>
       <div className={"header-logo"}>
-        <a href={"/"}>
+        <NavLink to={PATHS.MAIN}>
           <img src={logo} alt={"rpMordovia"} />
-        </a>
+        </NavLink>
       </div>
       <nav>
         <ul>
@@ -44,35 +47,44 @@ export const NavBar = () => {
             to="events"
             spy={true}
             smooth={true}
-            offset={70}
+            offset={-315}
             duration={500}
             >
-              События
+              <HashLink
+                to={`${PATHS.MAIN + "#events"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -315) }}
+              >События</HashLink>
             </Link>
           </li>
           <li>
             <Link
             activeClass="active"
-            to="#calendar"
+            to="calendar"
             spy={true}
             smooth={true}
             offset={-200}
             duration={500}
             >
-              Афиша
+              <HashLink
+                to={`${PATHS.MAIN + "#calendar"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -200) }}
+              >Афиша</HashLink>
             </Link>
           </li>
 
           <li>
             <Link
             activeClass="active"
-            to="#faq"
+            to="faq"
             spy={true}
             smooth={true}
-            offset={-230}
+            offset={-190}
             duration={500}
             >
-              Вопросы-ответы
+              <HashLink
+                to={`${PATHS.MAIN + "#faq"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
+              >Вопросы-ответы</HashLink>
             </Link>
           </li>
 
@@ -143,10 +155,13 @@ export const NavBar = () => {
                   to="events"
                   spy={true}
                   smooth={true}
-                  offset={-40}
+                  offset={-190}
                   duration={500}
                 >
-                  События
+                  <HashLink
+                    to={`${PATHS.MAIN + "#events"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
+                  >События</HashLink>
                 </Link>
               </li>
               <li>
@@ -159,7 +174,10 @@ export const NavBar = () => {
                   offset={-80}
                   duration={500}
                 >
-                  Афиша
+                  <HashLink
+                    to={`${PATHS.MAIN + "#calendar"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
+                  >Афиша</HashLink>
                 </Link>
               </li>
               <li>
@@ -172,7 +190,10 @@ export const NavBar = () => {
                   offset={-80}
                   duration={500}
                 >
-                  Вопросы-ответы
+                  <HashLink
+                    to={`${PATHS.MAIN + "#faq"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
+                  >Вопросы-ответы</HashLink>
                 </Link>
               </li>
 

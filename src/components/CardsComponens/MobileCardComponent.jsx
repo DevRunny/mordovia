@@ -1,13 +1,10 @@
 import React from "react";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews }) => {
+export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, alias }) => {
   const hover = useHoverCard()
-
-  const linkAttributes = url
-    ? { target: "_blank", href: url, rel: "noreferrer" }
-    : { };
 
   return (
     <div
@@ -17,7 +14,9 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
       className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
     >
 
-      <a {...linkAttributes}>
+      <Link
+        to={alias ? `${isNews ? "news/" : ""}${alias}`  : ""}
+      >
 
         {preview
           ?
@@ -52,7 +51,7 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
             <></>
           }
           <h3>{ title }</h3>
-          <p dangerouslySetInnerHTML={{__html: subtitle}}></p>
+          <p dangerouslySetInnerHTML={ { __html: subtitle } }/>
           {date
             ?
             <div className={"calendar-card__date"}>
@@ -73,7 +72,7 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
         :
         <></>
       }
-      </a>
+      </Link>
     </div>
   )
 }

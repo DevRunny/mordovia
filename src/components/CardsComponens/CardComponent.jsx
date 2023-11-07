@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { Link } from "react-router-dom";
-import { PATHS } from "../../router";
 
 export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, type, alias }) => {
   const hover = useHoverCard()
@@ -21,10 +20,6 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
       }
     }
   };
-
-  // const linkAttributes = url
-  //   ? { target: "_blank", href: url, rel: "noreferrer" }
-  //   : { };
 
   return (
     <motion.div
