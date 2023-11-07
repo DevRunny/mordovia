@@ -60,7 +60,7 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
         {!onlyImage
           ?
           <div className={ `introducing-classic-cards__description ${isNews ? "introducing-classic-cards__news" : ""}` }>
-            {topic
+            {topicName
               ?
               <div style={{marginBottom: 18}} className={"calendar-card__topic"}>
             <span>

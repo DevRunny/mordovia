@@ -4,5 +4,6 @@ export const MORDOVIA_ENDPOINTS = {
   filters: 'getFilters',
   events: 'getEvents',
   titles: 'getTitles',
-  faq: 'getFaq'
+  faq: 'getFaq',
+  news: 'getNews'
 }

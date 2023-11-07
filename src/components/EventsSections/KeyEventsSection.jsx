@@ -36,7 +36,6 @@ export const KeyEventsSection = ({id, ref}) => {
                       title={card.title}
                       subtitle={card.subtitle}
                       onlyImage={card.onlyImage}
-                      topic={card.topic}
                       topicName={card.topicName}
                     />
                   </SplideSlide>
@@ -72,7 +71,6 @@ export const KeyEventsSection = ({id, ref}) => {
                   title={card.title}
                   subtitle={card.subtitle}
                   onlyImage={card.onlyImage}
-                  topic={card.topic}
                   topicName={card.topicName}
                 />
               )

@@ -6,10 +6,12 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
+import { useNews } from "../../queries/useNews";
 
 const News = () => {
   const hover = useHoverCard();
   const { width } = useWindowSize();
+  const { news, isFetched } = useNews();
 
   if (width < 767) {
     return (
@@ -23,50 +25,26 @@ const News = () => {
           >
             <Splide
             >
-              <SplideSlide>
-                <MobileCardComponent
-                  img={newsCard}
-                  topic={true}
-                  topicName={"Новость"}
-                  isNews={true}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                  date={"29 ноября 19:00"}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <MobileCardComponent
-                  img={newsCard}
-                  topic={true}
-                  topicName={"Новость"}
-                  isNews={true}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                  date={"29 ноября 19:00"}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <MobileCardComponent
-                  img={newsCard}
-                  topic={true}
-                  topicName={"Новость"}
-                  isNews={true}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                  date={"29 ноября 19:00"}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <MobileCardComponent
-                  img={newsCard}
-                  topic={true}
-                  topicName={"Новость"}
-                  isNews={true}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                  date={"29 ноября 19:00"}
-                />
-              </SplideSlide>
+              {isFetched && news
+                ?
+                news.news.map((card, index) => {
+                  return (
+                    <SplideSlide>
+                      <MobileCardComponent
+                        id={index}
+                        img={card.img}
+                        topicName={card.topic}
+                        isNews={true}
+                        title={card.title}
+                        subtitle={card.subtitle}
+                        date={card.date}
+                      />
+                    </SplideSlide>
+                  )
+                })
+                :
+                <></>
+              }
             </Splide>
           </div>
         </div>
@@ -83,46 +61,24 @@ const News = () => {
           onMouseLeave={ () => hover.setHovered(false) }
           className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
         >
-        <CardComponent
-          id={0}
-          img={newsCard}
-          topic={true}
-          topicName={"Новость"}
-          isNews={true}
-          title={"Масторава – карнавал чудес"}
-          subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-          date={"29 ноября 19:00"}
-          />
-        <CardComponent
-          id={1}
-          img={newsCard}
-          topic={true}
-          topicName={"Новость"}
-          isNews={true}
-          title={"Масторава – карнавал чудес"}
-          subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-          date={"29 ноября 19:00"}
-          />
-        <CardComponent
-          id={2}
-          img={newsCard}
-          topic={true}
-          topicName={"Новость"}
-          isNews={true}
-          title={"Масторава – карнавал чудес"}
-          subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-          date={"29 ноября 19:00"}
-          />
-          <CardComponent
-            id={3}
-            img={newsCard}
-            topic={true}
-            topicName={"Новость"}
-            isNews={true}
-            title={"Масторава – карнавал чудес"}
-            subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-            date={"29 ноября 19:00"}
-          />
+          {isFetched && news
+            ?
+            news.news.map((card, index) => {
+              return (
+                <CardComponent
+                id={index}
+                img={card.img}
+                topicName={card.topic}
+                isNews={true}
+                title={card.title}
+                subtitle={card.subtitle}
+                date={card.date}
+                />
+              )
+            })
+            :
+            <></>
+          }
         </div>
       </div>
     </div>

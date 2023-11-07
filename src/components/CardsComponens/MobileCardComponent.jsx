@@ -2,7 +2,7 @@ import React from "react";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { motion } from "framer-motion";
 
-export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews }) => {
+export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews }) => {
   const hover = useHoverCard()
 
   const linkAttributes = url
@@ -38,7 +38,7 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
       {!onlyImage
         ?
         <div className={ `introducing-cards-mobile__description ${isNews ? "introducing-cards-mobile__mobile" : ""}` }>
-          {topic
+          {topicName
             ?
             <div style={{marginBottom: 18}} className={"calendar-card__topic"}>
             <span>
