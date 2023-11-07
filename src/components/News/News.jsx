@@ -1,7 +1,6 @@
 import React from "react";
 import { Titles } from "../Titles/Titles";
 import { CardComponent } from "../CardsComponens/CardComponent";
-import newsCard from "../../images/News-card.png";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -29,7 +28,7 @@ const News = () => {
                 ?
                 news.news.map((card, index) => {
                   return (
-                    <SplideSlide>
+                    <SplideSlide key={card.id}>
                       <MobileCardComponent
                         id={index}
                         img={card.img}
@@ -65,15 +64,17 @@ const News = () => {
             ?
             news.news.map((card, index) => {
               return (
-                <CardComponent
-                id={index}
-                img={card.img}
-                topicName={card.topic}
-                isNews={true}
-                title={card.title}
-                subtitle={card.subtitle}
-                date={card.date}
-                />
+                  <CardComponent
+                    key={card.id}
+                    id={index}
+                    img={card.img}
+                    topicName={card.topic}
+                    isNews={true}
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    date={card.date}
+                    alias={card.alias}
+                  />
               )
             })
             :

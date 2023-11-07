@@ -5,15 +5,18 @@ import NotFoundPage from "../components/Pages/NotFoundPage";
 
 export const PATHS = {
   MAIN: "/",
-  EVENT: "/event-details",
+  NEWS: "/news/*",
+  EVENT: "/event/*",
   NOTFOUND: "*"
 }
 
 export const router = () => {
+
   return (
     <Routes>
       <Route path={ PATHS.MAIN } element={<Home />} />
-      {/*<Route path={ PATHS.EVENT } element={<DetailsPage />}/> TODO: подключить как будет готов бэкенд */}
+      <Route path={ PATHS.NEWS } element={<DetailsPage newsEnable={true} />} />
+      <Route path={ PATHS.EVENT } element={<DetailsPage eventEnable={true} />} />
       <Route path={ PATHS.NOTFOUND } element={<NotFoundPage />} />
     </Routes>
   )

@@ -198,22 +198,22 @@ const CalendarSection = ({id}) => {
   useEffect(() => {
     if (!filters) return;
     const monthId = filters.months.find((month) => month.title === activeMonth)?.id;
-    const allDays = filters.months.find((month) => month.id === monthId)?.days;
-    const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
-    const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
-    const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
+    // const allDays = filters.months.find((month) => month.id === monthId)?.days;
+    // const tomorrowDay = allDays.find((day) => day.id === filters.tomorrow.dayId)?.title;
+    // const weekendStart = allDays.find(day => day.id === filters.weekend.start.dayId)?.title;
+    // const weekendEnd = allDays.find(day => day.id === filters.weekend.end.dayId)?.title;
     setMonthId(monthId);
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
-    if (activeDate === 1) {
-        setFirstDay(tomorrowDay);
-        return;
-    }
-
-    if (activeDate === 2) {
-      setFirstDay(weekendStart);
-      setSecondDay(weekendEnd);
-      return;
-    }
+    // if (activeDate === 1) {
+    //     setFirstDay(tomorrowDay);
+    //     return;
+    // }
+    //
+    // if (activeDate === 2) {
+    //   setFirstDay(weekendStart);
+    //   setSecondDay(weekendEnd);
+    //   return;
+    // }
 
     setFirstDay(null);
     setSecondDay(null);
@@ -355,7 +355,7 @@ const CalendarSection = ({id}) => {
             <React.Fragment key={event.id}>
             { event.hasDetailCard
               ?
-              <Link key={event.id} to={ PATHS.EVENT } >
+              <Link key={event.id} to={ event.alias ? `event/${event.alias}` : "" } >
                 <CalendarCardComponent key={event.id} props={ event } />
               </Link>
               :

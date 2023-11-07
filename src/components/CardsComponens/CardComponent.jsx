@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useHoverCard } from "../../hooks/useHoverCard";
+import { Link } from "react-router-dom";
+import { PATHS } from "../../router";
 
-export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topic, topicName, date, isNews, type }) => {
+export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, type, alias }) => {
   const hover = useHoverCard()
 
   const cardVariants = {
@@ -20,9 +22,9 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
     }
   };
 
-  const linkAttributes = url
-    ? { target: "_blank", href: url, rel: "noreferrer" }
-    : { };
+  // const linkAttributes = url
+  //   ? { target: "_blank", href: url, rel: "noreferrer" }
+  //   : { };
 
   return (
     <motion.div
@@ -35,7 +37,9 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
       className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
     >
 
-      <a {...linkAttributes}>
+      <Link
+        to={alias ? `${isNews ? "news/" : ""}${alias}`  : ""}
+      >
 
         {preview
           ?
@@ -96,7 +100,7 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
           :
           <></>
         }
-        </a>
+        </Link>
     </motion.div>
   )
 }

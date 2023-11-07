@@ -764,7 +764,7 @@ main {
 }
 
 .gift-shop {
-  margin-bottom: 4.166666666666667vw;
+  padding-bottom: 4.166666666666667vw;
   img {
     width: 100%;
   }
@@ -868,7 +868,7 @@ footer {
 .event-details-page {
   @include flex-row;
   align-items: flex-start;
-  gap: 10vw;
+  gap: 5vw;
   padding-left: 1.25vw;
   padding-top: 2.2916666666666665vw;
 }
@@ -931,6 +931,10 @@ footer {
       width: 50vw;
     }
 
+    video {
+      width: 50vw;
+    }
+
     .details_description {
       @include flex-column;
       gap: 1.4583333333333333vw;
@@ -956,13 +960,14 @@ footer {
   &__members {
     @include flex-column;
     gap: 1.6666666666666667vw;
+    margin-bottom: 4.166666666666667vw;
 
     .members_list {
       @include flex-row;
+      align-items: flex-start;
     }
 
     .members_member {
-      @include flex-column;
       gap: 0.625vw;
 
       h3 {
@@ -976,6 +981,12 @@ footer {
       img {
         width: 16.666666666666668vw;
       }
+    }
+    .member_info {
+      @include flex-column;
+      gap: 0.625vw;
+      padding-top: 0.625vw;
+      width: 16.666666666666668vw;
     }
   }
 }
@@ -994,15 +1005,15 @@ footer {
 }
 
 .error-404 {
-  position: absolute;
   @include flex-column;
   align-items: center;
   justify-content: center;
   gap: 4.166666666666667vw;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  margin-top: 4.427083333333333vw;
+  margin-bottom: 9.0625vw;
 
   img {
     width: 60.677083333333336vw;

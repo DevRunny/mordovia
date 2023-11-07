@@ -5,5 +5,7 @@ export const MORDOVIA_ENDPOINTS = {
   events: 'getEvents',
   titles: 'getTitles',
   faq: 'getFaq',
-  news: 'getNews'
+  news: 'getNews',
+  newsItem: "getNewsItem",
+  event: "getEvent"
 }
