@@ -7,7 +7,7 @@ export const CardKeyEventsComponent = ({id, img, url, title, subtitle, preview, 
 
   const cardVariants = {
     offscreen: {
-      y: id  === 0 ? 100 : id === 1 ? 200 : id === 2 ? 300 : id === 3 ? 400 : 0,
+      y: id  === 0 ? 200 : id === 1 ? 300 : id === 2 ? 400 : id === 3 ? 500 : 0,
       opacity: 0.2
     },
     onscreen: {
@@ -15,7 +15,7 @@ export const CardKeyEventsComponent = ({id, img, url, title, subtitle, preview, 
       opacity: 1,
       transition: {
         type: "spring",
-        duration: 1 ,
+        duration: 0.5,
       }
     }
   };

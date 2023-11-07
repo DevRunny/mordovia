@@ -294,7 +294,7 @@ main {
     height: 32.2vw;
     overflow: hidden;
     position: relative;
-    transition: 0.5s linear;
+    transition: 0.3s linear;
 
     img {
       width: 100%;
@@ -666,7 +666,7 @@ main {
   padding: 1.25vw 1.25vw 1.25vw 1.25vw;
   min-height: 17.5vw;
   background: $colorWhite;
-  backdrop-filter: blur(0.78125vw);
+  /*backdrop-filter: blur(0.78125vw);*/
 
 
   &__topic {
