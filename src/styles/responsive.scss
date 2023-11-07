@@ -864,6 +864,21 @@
   #video-section {
     display: none;
   }
+
+  .error-404 {
+    gap: 3vh;
+
+    img {
+      width: 95%;
+    }
+
+    span {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.25rem;
+    }
+  }
 }
 
 @media (max-width: 370px) {

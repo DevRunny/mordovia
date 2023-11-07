@@ -10,7 +10,7 @@ import { Footer } from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../router";
 
-const EventDetailsPage = () => {
+const DetailsPage = () => {
 
   const scrollToTop = () => {
     const options = {
@@ -139,4 +139,4 @@ const EventDetailsPage = () => {
   );
 };
 
-export default EventDetailsPage;
+export default DetailsPage;

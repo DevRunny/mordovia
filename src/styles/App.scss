@@ -989,9 +989,30 @@ footer {
   bottom: 0;
 }
 
-.calendar-filters__filter {
-}
-
 .calendar-filters__filter span {
 	white-space: nowrap;
+}
+
+.error-404 {
+  position: absolute;
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  gap: 4.166666666666667vw;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  img {
+    width: 60.677083333333336vw;
+  }
+
+  span {
+    font-size: 1.875vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.2916666666666665vw;
+  }
+
 }
