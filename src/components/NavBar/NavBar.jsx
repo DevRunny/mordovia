@@ -205,6 +205,9 @@ export const NavBar = () => {
               {/*<li><a href={"#news"}>Новости</a></li>*/}
             </ul>
           </div>
+
+          <img className={"sound-wave"} src={audioPlaying ? soundAnimated : sound} alt={"alt"} onClick={() => {handlePlayAudio()}} />
+
           <div className={"burger-menu__links"}>
             <a href="https://vk.com/mordovia_russia" target="_blank" rel="noreferrer">VK</a>
             <a href="https://ok.ru/group/70000004289347" target="_blank" rel="noreferrer">OK</a>

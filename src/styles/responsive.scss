@@ -122,9 +122,13 @@
           @include flex-column;
           align-items: center;
           justify-content: flex-start;
-          gap: 18.083961248654468vh;
+          gap: 12.083961248654468vh;
           padding-top: 15.392895586652314vh;
 
+        }
+
+        .sound-wave {
+        	width: 18vw;
         }
 
         &__nav {
