@@ -941,19 +941,26 @@ footer {
 
   &__gallery-wrapper {
     @include flex-column;
-    gap: 1.6666666666666667vw;
+    gap: 1.2666666666666667vw;
   }
 
   &__gallery {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-bottom: 13.1666666667vw;
+    /*display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    margin-bottom: 6.1666666667vw;
 
-    img {
-      width: 12.5vw;
-      height: 12.5vw;
-      object-fit: cover;
+    a {
+      display: inline-block;
+      width: 25%;
+      height: 9.5vw;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 
@@ -965,6 +972,8 @@ footer {
     .members_list {
       @include flex-row;
       align-items: flex-start;
+
+      flex-wrap: wrap;
     }
 
     .members_member {
@@ -980,6 +989,12 @@ footer {
       }
       img {
         width: 16.666666666666668vw;
+      }
+
+      .member_info {
+      	p:nth-child(2) {
+      		margin-bottom: 1vw;
+      	}
       }
     }
     .member_info {
@@ -1002,6 +1017,51 @@ footer {
 
 .calendar-filters__filter span {
 	white-space: nowrap;
+}
+
+.detail-video {
+  position: relative;
+  width: 50vw;
+}
+
+.detail-video .video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.detail-video .video-placeholder img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6.5vw;
+  cursor: pointer;
+}
+
+.event-details-page .event {
+  position: sticky;
+  top: 6.5vw;
+  margin-bottom: 5vw;
+}
+
+.galleryPlaceholder {
+  background: rgba(210, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: $colorWhite;
+  font-size: 1.0vw;
+  text-transform: uppercase;
 }
 
 .error-404 {
