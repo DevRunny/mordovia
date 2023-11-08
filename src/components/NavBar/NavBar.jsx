@@ -75,14 +75,14 @@ export const NavBar = () => {
           <li>
             <Link
             activeClass="active"
-            to="faq"
+            to="questions"
             spy={true}
             smooth={true}
             offset={-190}
             duration={500}
             >
               <HashLink
-                to={`${PATHS.MAIN + "#faq"}`}
+                to={`${PATHS.MAIN + "#questions"}`}
                 scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
               >Вопросы-ответы</HashLink>
             </Link>
@@ -184,14 +184,14 @@ export const NavBar = () => {
                 <Link
                   onClick={() => {handleOpenBurgerMenu()}}
                   activeClass="active"
-                  to="#faq"
+                  to="#questions"
                   spy={true}
                   smooth={true}
                   offset={-80}
                   duration={500}
                 >
                   <HashLink
-                    to={`${PATHS.MAIN + "#faq"}`}
+                    to={`${PATHS.MAIN + "#questions"}`}
                     scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
                   >Вопросы-ответы</HashLink>
                 </Link>
