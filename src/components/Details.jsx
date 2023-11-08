@@ -30,8 +30,8 @@ const Details = ({ props }) => {
       <div className={"event-details-content"}>
         <div className={"event__details"}>
           <img src={ props.img } alt={"eventPhoto"} />
-          <div className={"details_description"}>
-            <span dangerouslySetInnerHTML={{__html: props.descr}}/>
+          <div className={"details_description"} dangerouslySetInnerHTML={{__html: props.descr}}>
+            
           </div>
           { props.video
             ?

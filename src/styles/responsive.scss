@@ -17,6 +17,21 @@
     line-height: 1.25rem;
   }
 
+  .event__details .details_description {
+  	font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  .event__details .details_description p {
+  	font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin: 0;
+  }
+
   .main-content {
     height: 100vh;
   }
@@ -799,6 +814,8 @@
       }
       img {
         width: 100vw;
+        height: auto;
+        object-fit: initial;
       }
     }
 
@@ -830,9 +847,9 @@
         img {
           width: 50vw;
         }
-        &:last-child {
+        /*&:last-child {
           display: none;
-        }
+        }*/
       }
 
 
