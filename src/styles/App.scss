@@ -85,8 +85,6 @@ header {
   left: 0;
   right: 0;
   background: $colorWhite;
-  //background: rgba(255, 255, 255, 0.60);
-  //backdrop-filter: blur(30px);
   @include flex-row();
   justify-content: space-between;
   padding: 1.25vw;
@@ -179,7 +177,6 @@ main {
   .present {
   	pointer-events: none;
     position: absolute;
-    /*padding-left: 37.5vw;*/
     padding-left: 49.5vw;
     top: 71.4692142088vh;
     @include flex-row;
@@ -238,7 +235,6 @@ main {
   position: sticky;
   top: 6.25vw;
   @include flex-row();
-  //4.3057050592034445vh
   padding: 0 1vw 0 1vw;
   background: $colorWhite;
   overflow: auto;
@@ -666,8 +662,6 @@ main {
   padding: 1.25vw 1.25vw 1.25vw 1.25vw;
   min-height: 17.5vw;
   background: $colorWhite;
-  /*backdrop-filter: blur(0.78125vw);*/
-
 
   &__topic {
     @include flex-row;
@@ -954,7 +948,7 @@ footer {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-bottom: 4.166666666666667vw;
+    margin-bottom: 13.1666666667vw;
 
     img {
       width: 12.5vw;

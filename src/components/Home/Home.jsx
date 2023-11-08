@@ -33,7 +33,7 @@ const Home = () => {
         <InteractiveZonesSection />
         {/*<Achievements id={"achievements}/> TODO: подключить как будет готов бэкенд*/}
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
-        <FAQSection id={"faq"}/>
+        <FAQSection id={"questions"}/>
         <News id={"news"}/>
         <GiftShop id={"gift-shop"} />
       </div>

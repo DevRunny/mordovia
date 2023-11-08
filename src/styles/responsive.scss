@@ -17,21 +17,6 @@
     line-height: 1.25rem;
   }
 
-  .event__details .details_description {
-  	font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem;
-  }
-
-  .event__details .details_description p {
-  	font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem;
-    margin: 0;
-  }
-
   .main-content {
     height: 100vh;
   }
@@ -788,7 +773,7 @@
       gap: 2.1528525296017222vh;
       margin-bottom: 4.3057050592034445vh;
       img {
-        width: 100%;
+        width: 100vw;
       }
       .details_description {
         gap: 3.013993541442411vh;
@@ -809,13 +794,62 @@
     }
 
     &__gallery {
+      .splide {
+        width: 100vw;
+        padding: 0;
+
+        img {
+          width: 100vw;
+        }
+
+        .splide__arrow {
+          width: 52px;
+          height: 52px;
+          z-index: 1;
+        }
+
+        .splide__arrow--next {
+          display: none;
+        }
+
+        .splide__arrow--prev {
+          display: none;
+        }
+
+        .splide__arrow:disabled {
+          display: none;
+        }
+        .splide__pagination {
+          background: #cbcacb;
+          background-clip: content-box;
+          height: 3px;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          bottom: -1.7222820236813778vh
+        }
+
+        .splide__pagination__page.is-active {
+          width: 32vw;
+          height: 3px;
+          background: $colorRed;
+        }
+        .splide__pagination__page {
+          margin: 0 0 10px 0;
+          width: 0.05382131324004306vh;
+          height: 0.05382131324004306vh;
+          transition: 0s;
+
+          &:hover {
+            background-color: #ccc;
+          }
+        }
+      }
+
       img:not(:first-child) {
         display: none;
       }
       img {
-        width: 100vw;
-        height: auto;
-        object-fit: initial;
+        width: 100%;
       }
     }
 
@@ -847,9 +881,9 @@
         img {
           width: 50vw;
         }
-        /*&:last-child {
+        &:last-child {
           display: none;
-        }*/
+        }
       }
 
 

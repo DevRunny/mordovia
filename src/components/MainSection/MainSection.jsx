@@ -63,8 +63,8 @@ const MainSection = () => {
         className={`bg-video ${isVideoScrolled ? "video-scrolled" : ""}`}
         autoPlay muted loop playsInline
       >
-        <source src={"https://mordovia-russia.ru/video/mordoviya2_mob.mp4"} type="video/mp4" media="(max-width:1024px)" />
-        <source src={"https://mordovia-russia.ru/video/mordoviya2.mp4"} type="video/mp4" />
+        <source src={"https://mordovia-russia.ru/video/mordoviya3_mob.mp4"} type="video/mp4" media="(max-width:1024px)" />
+        <source src={"https://mordovia-russia.ru/video/mordoviya3.mp4"} type="video/mp4" />
       </video>
       <div className={"about"}>
         <span>4 ноября 2023</span>

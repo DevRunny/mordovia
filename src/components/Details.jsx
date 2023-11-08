@@ -1,6 +1,11 @@
 import React from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { useWindowSize } from "usehooks-ts";
 
 const Details = ({ props }) => {
+  const { width } = useWindowSize()
+
+
   return (
     <div className={"event-details-page"}>
       <div className={"event"}>
@@ -29,9 +34,12 @@ const Details = ({ props }) => {
       </div>
       <div className={"event-details-content"}>
         <div className={"event__details"}>
+          <img className={"details_photo"} src={ props.img } alt={"eventPhoto"} />
+          <div className={"details_description"}>
+            <span dangerouslySetInnerHTML={{__html: props.descr}}/>
           <img src={ props.img } alt={"eventPhoto"} />
           <div className={"details_description"} dangerouslySetInnerHTML={{__html: props.descr}}>
-            
+
           </div>
           { props.video
             ?
@@ -47,8 +55,20 @@ const Details = ({ props }) => {
           <div className={ "event__gallery-wrapper" }>
             <h4>Галерея</h4>
             <div className={ "event__gallery" }>
-              { props.gallery.map((img, index) =>
-                <img key={ index } src={ img } alt={ `img-${ index }` } />) }
+              {width > 767
+                ?
+                props.gallery.map((img, index) => <img key={ index } src={ img } alt={ `img-${ index }` } />)
+                :
+                <Splide>
+                  { props.gallery.map((img, index) => {
+                    return (
+                      <SplideSlide>
+                        <img key={ index } src={ img } alt={ `img-${ index }` } />
+                      </SplideSlide>
+                    )})}
+                </Splide>
+
+              }
             </div>
           </div>
           :
