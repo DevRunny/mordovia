@@ -61,7 +61,7 @@ const Details = ({ props }) => {
           { props.video
             ?
             <div className="detail-video">
-              <video id="detail_video">
+              <video id="detail_video" playsinline>
                 <source src={ props.video } type="video/mp4" />
               </video>
               { videoPlaying
@@ -77,7 +77,7 @@ const Details = ({ props }) => {
             <></>
           }
         </div>
-        { props.gallery
+        { props.gallery && props.gallery.length > 0
           ?
           <div className={ "event__gallery-wrapper" }>
             <h4>Галерея</h4>
@@ -136,7 +136,7 @@ const Details = ({ props }) => {
           :
           <></>
         }
-        { props.persons
+        { props.persons && props.persons.length > 0
           ?
           <div className={"event__members"}>
             <h4>Участники</h4>
