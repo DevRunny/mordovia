@@ -3,7 +3,7 @@ import AccordionComponent from "./AccordionComponent";
 import { useFaq } from "../../queries/useFaq";
 
 const FAQSection = ({ id }) => {
-  const { faq, isFetched } = useFaq()
+  const { faq, isFetched } = useFaq();
 
   return (
     <section id={id} className={'FAQ'}>

@@ -11,11 +11,13 @@ import { AboutPeopleOfMordoviaSection } from "../EventsSections/AboutPeopleOfMor
 import { KeyEventsSection } from "../EventsSections/KeyEventsSection";
 import CalendarSection from "../EventsSections/CalendarSection/CalendarSection";
 import InteractiveZonesSection from "../EventsSections/InteractiveZonesSection";
+import { useScrollToId } from "../../hooks/useScrollToId";
 // import Achievements from "../Achievements/Achievements"; TODO: подключить как будет готов бэкенд
 // import HowToGetThereSection from "../HowToGetThereSection/HowToGetThereSection"; TODO: подключить как будет готов бэкенд
 
 const Home = () => {
   const { titles, isFetched } = useTitles()
+  useScrollToId();
 
   return (
     <>
