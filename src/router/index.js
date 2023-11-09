@@ -17,8 +17,8 @@ export const router = () => {
   return (
     <Routes>
       <Route path={ PATHS.MAIN } element={<Home />} />
-      <Route path={ PATHS.NEWS } element={<DetailsPage newsEnable={true} />} />
-      <Route path={ PATHS.EVENT } element={<DetailsPage eventEnable={true} />} />
+      <Route path={ PATHS.NEWS } element={<DetailsPage />} />
+      <Route path={ PATHS.EVENT } element={<DetailsPage />} />
       <Route path={ PATHS.NOTFOUND } element={<NotFoundPage />} />
       <Route path={ PATHS.NEWS_EMPTY} element={<NotFoundPage />} />
       <Route path={ PATHS.EVENT_EMPTY} element={<NotFoundPage />} />
