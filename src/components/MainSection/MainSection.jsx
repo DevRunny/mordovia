@@ -22,9 +22,12 @@ const MainSection = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  let main, cursorPointer;
+  let main = null, cursorPointer;
 
   function handleMouseMove(event) {
+
+    if (!main)
+    	return;
 
     let doc = document.documentElement;
     let top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
