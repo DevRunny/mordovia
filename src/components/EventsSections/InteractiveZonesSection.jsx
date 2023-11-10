@@ -15,7 +15,6 @@ function InteractiveZonesSection({id}) {
   if (width < 767) {
     return (
       <motion.div
-        id={id}
         onMouseEnter={ () => hover.setHovered(true) }
         onMouseLeave={ () => hover.setHovered(false) }
         className={`introducing-cards-mobile ${hover.isHovered ? "active" : "" }`}
