@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useWindowSize } from "usehooks-ts";
 
 export const useScrollToId = () => {
   const { hash } = window.location;
@@ -8,16 +9,16 @@ export const useScrollToId = () => {
       case "#events":
         setTimeout(() => {
           const element = document.getElementById('events');
-          element.style.scrollMargin = "320px";
+          element.style.scrollMargin = '260px';
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 1000)
         break;
 
-      case "#calendar":
+      case "#afisha":
         setTimeout(() => {
-          const element = document.getElementById('calendar');
+          const element = document.getElementById('afisha');
           element.style.scrollMargin = "160px";
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -35,9 +36,64 @@ export const useScrollToId = () => {
         }, 1000)
         break;
 
-        case "#news":
+      case "#news":
         setTimeout(() => {
           const element = document.getElementById('news');
+          element.style.scrollMargin = "120px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000)
+        break;
+
+	  case "#video":
+        setTimeout(() => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior : 'smooth'
+          });
+        }, 1000)
+        break;
+
+	  case "#favorites":
+        setTimeout(() => {
+          const element = document.getElementById('favorites');
+          element.style.scrollMargin = "260px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000)
+        break;
+
+	  case "#interactive":
+        setTimeout(() => {
+          const element = document.getElementById('interactive');
+          element.style.scrollMargin = "120px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000)
+        break;
+
+	  case "#achievements":
+        break;
+
+	  case "#map":
+        break;
+
+	  case "#shop":
+	    setTimeout(() => {
+          const element = document.getElementById('gift-shop');
+          element.style.scrollMargin = "140px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000)
+        break;
+
+      case "#contacts":
+        setTimeout(() => {
+          const element = document.querySelector('footer');
           element.style.scrollMargin = "120px";
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });

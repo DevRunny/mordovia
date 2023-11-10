@@ -784,6 +784,8 @@
     &__gallery-wrapper {
       gap: 2.1528525296017222vh;
 
+      margin-bottom: 5vw;
+
       h4 {
         padding-left: 0.75rem;
         font-size: 1.5rem;
@@ -881,9 +883,9 @@
         img {
           width: 50vw;
         }
-        &:last-child {
+        /*&:last-child {
           display: none;
-        }
+        }*/
       }
 
 
@@ -939,13 +941,18 @@
     margin-bottom: 0;
   }
 
-   .event__details .details_description {
+  .event-details-content {
+    width: 100%;
+  }
+
+  .event__details .details_description {
   	font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+    width: 100%;
   }
 
   .event__details .details_description p {
@@ -987,6 +994,14 @@
 
   .galleryPlaceholder {
     font-size: 6vw;
+  }
+
+  .event__members .members_list {
+    margin-top: 0;
+  }
+
+  .event__gallery {
+    margin-top: 0;
   }
 }
 

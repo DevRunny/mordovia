@@ -44,14 +44,14 @@ export const NavBar = () => {
           <li>
             <Link
             activeClass="active"
-            to="events"
+            to="favorites"
             spy={true}
             smooth={true}
             offset={-315}
             duration={500}
             >
               <HashLink
-                to={`${PATHS.MAIN + "#events"}`}
+                to={`${PATHS.MAIN + "#favorites"}`}
                 scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -315) }}
               >События</HashLink>
             </Link>
@@ -59,14 +59,14 @@ export const NavBar = () => {
           <li>
             <Link
             activeClass="active"
-            to="calendar"
+            to="afisha"
             spy={true}
             smooth={true}
             offset={-200}
             duration={500}
             >
               <HashLink
-                to={`${PATHS.MAIN + "#calendar"}`}
+                to={`${PATHS.MAIN + "#afisha"}`}
                 scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -200) }}
               >Афиша</HashLink>
             </Link>
@@ -152,14 +152,14 @@ export const NavBar = () => {
                 <Link
                   onClick={() => {handleOpenBurgerMenu()}}
                   activeClass="active"
-                  to="events"
+                  to="favorites"
                   spy={true}
                   smooth={true}
                   offset={-190}
                   duration={500}
                 >
                   <HashLink
-                    to={`${PATHS.MAIN + "#events"}`}
+                    to={`${PATHS.MAIN + "#favorites"}`}
                     scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
                   >События</HashLink>
                 </Link>
@@ -168,14 +168,14 @@ export const NavBar = () => {
                 <Link
                   onClick={() => {handleOpenBurgerMenu()}}
                   activeClass="active"
-                  to="#calendar"
+                  to="#afisha"
                   spy={true}
                   smooth={true}
                   offset={-80}
                   duration={500}
                 >
                   <HashLink
-                    to={`${PATHS.MAIN + "#calendar"}`}
+                    to={`${PATHS.MAIN + "#afisha"}`}
                     scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
                   >Афиша</HashLink>
                 </Link>

@@ -7,6 +7,14 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { useNews } from "../../queries/useNews";
 
+
+
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 const News = ({ id }) => {
   const hover = useHoverCard();
   const { width } = useWindowSize();
@@ -56,32 +64,39 @@ const News = ({ id }) => {
     <section id={id}>
       <Titles notSticky={true} h1={"Новости"}/>
       <div className={"news"}>
-        <div
-          onMouseEnter={ () => hover.setHovered(true) }
+        <Swiper
+           modules={[Navigation]}
+	      spaceBetween={0}
+	      slidesPerView={4}
+	      navigation
+	      onMouseEnter={ () => hover.setHovered(true) }
           onMouseLeave={ () => hover.setHovered(false) }
           className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
-        >
+	    >
           {isFetched && news
             ?
             news.news.map((card, index) => {
               return (
-                  <CardComponent
-                    key={card.id}
-                    id={index}
-                    img={card.img}
-                    topicName={card.topic}
-                    isNews={true}
-                    title={card.title}
-                    subtitle={card.subtitle}
-                    date={card.date}
-                    alias={card.alias}
-                  />
+              	  <SwiperSlide key={card.id}>
+                    <CardComponent
+                      key={card.id}
+                      id={index}
+                      img={card.img}
+                      topicName={card.topic}
+                      isNews={true}
+                      title={card.title}
+                      subtitle={card.subtitle}
+                      date={card.date}
+                      alias={card.alias}
+                      type="1"
+                    />
+                  </SwiperSlide>
               )
             })
             :
             <></>
           }
-        </div>
+		</Swiper>
       </div>
     </section>
   );

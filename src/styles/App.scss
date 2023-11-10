@@ -338,7 +338,7 @@ main {
     }
   }
   .news-cards {
-    width: 25%;
+    width: 100%;
   }
 }
 
@@ -862,12 +862,16 @@ footer {
 .event-details-page {
   @include flex-row;
   align-items: flex-start;
-  gap: 5vw;
+  /*gap: 5vw;*/
   padding-left: 1.25vw;
   padding-top: 2.2916666666666665vw;
 }
 
 .event {
+
+  width: 50%;
+  padding-right: 5vw;
+
   &__info {
     @include flex-column;
     gap: 2.2916666666666665vw;
@@ -922,11 +926,11 @@ footer {
     margin-bottom: 4.166666666666667vw;
 
     img {
-      width: 50vw;
+      width: 100%;
     }
 
     video {
-      width: 50vw;
+      width: 100%;
     }
 
     .details_description {
@@ -936,8 +940,13 @@ footer {
       font-size: 1.0416666667vw;
       /*line-height: 3.5139935414vh;*/
       line-height: 1.3;
-      width: 50vw;
+      width: 100%;
       padding-right: 1vw;
+
+      p {
+      	margin: 0;
+      	line-height: 1.3;
+      }
     }
   }
 
@@ -1008,6 +1017,10 @@ footer {
   }
 }
 
+.event-details-content {
+	width: 50%;
+}
+
 .br-mobile {
   display: none;
 }
@@ -1023,7 +1036,7 @@ footer {
 
 .detail-video {
   position: relative;
-  width: 50vw;
+  width: 100%;
 }
 
 .detail-video .video-placeholder {
@@ -1064,6 +1077,55 @@ footer {
   color: $colorWhite;
   font-size: 1.0vw;
   text-transform: uppercase;
+}
+
+.event__gallery {
+  margin-top: -1vw;
+}
+
+.event__members .members_list {
+  margin-top: -1vw;
+}
+
+.swiper .swiper-button-prev {
+  position: absolute;
+  top: 35%;
+  left: 3vw;
+  width: 3vw;
+  height: 3vw;
+  background: url("../images/arrow-left.svg") no-repeat;
+  background-size: cover;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.swiper .swiper-button-next {
+  position: absolute;
+  top: 35%;
+  right: 3vw;
+  width: 3vw;
+  height: 3vw;
+  background: url("../images/arrow-right.svg") no-repeat;
+  background-size: cover;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.swiper:hover .swiper-button-prev, .swiper:hover .swiper-button-next {
+  opacity: 1;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  display: none;
+}
+
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+  display: none;
 }
 
 .error-404 {
