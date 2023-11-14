@@ -310,6 +310,12 @@ main {
 	    }
     }
 
+    &.news-cards {
+      img {
+        height: 55%;
+      }
+	}
+
     .introducing-classic-cards__description {
       z-index: 2;
       position: absolute;

@@ -8,7 +8,7 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
 
   const cardVariants = {
     offscreen: {
-      y: id  === 0 ? 200 : id === 1 ? 300 : id === 2 ? 400 : id === 3 ? 500 : 0,
+      y: id  === 0 ? 200 : id === 1 ? 300 : id === 2 ? 350 : id === 3 ? 400 : 0,
       opacity: 0.2
     },
     onscreen: {
@@ -21,21 +21,10 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
     }
   };
 
-  return (
-    <motion.div
-      initial={cardVariants.offscreen}
-      whileInView={cardVariants.onscreen}
-      viewport={{ once: true, amount: "some" }}
-      style={ url ? {cursor: "pointer"} : {}}
-      onMouseEnter={ () => hover.setHovered(true)}
-      onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
-    >
+  url = alias ? ((isNews ? "news/" : "") + alias) : url;
 
-      <Link
-        to={alias ? `${isNews ? "news/" : ""}${alias}`  : ""}
-      >
-
+  var cardContent = (
+    <React.Fragment>
         {preview
           ?
           <motion.img
@@ -95,7 +84,32 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
           :
           <></>
         }
-        </Link>
+    </React.Fragment>
+  );
+
+  return(
+  	<motion.div
+      initial={cardVariants.offscreen}
+      whileInView={cardVariants.onscreen}
+      viewport={{ once: true, amount: "some" }}
+      style={ url && url.length ? {cursor: "pointer"} : {}}
+      onMouseEnter={ () => hover.setHovered(true)}
+      onMouseLeave={ () => hover.setHovered(false)}
+      className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
+    >
+
+    {url
+      ?
+	  <>
+	    <Link to={url}>{cardContent}</Link>
+	  </>
+	  :
+	  <>
+	    {cardContent}
+	  </>
+	}
+
     </motion.div>
   )
+
 }

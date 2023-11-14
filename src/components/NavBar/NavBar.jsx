@@ -113,8 +113,8 @@ export const NavBar = () => {
               Как добраться
             </Link>
           </li>
-          <li><a href={"#news"}>Новости</a></li>
           */}
+          <li><a href={"#news"}>Новости</a></li>
         </ul>
       </nav>
         <div className={"header-links"}>
@@ -223,7 +223,7 @@ export const NavBar = () => {
               {/*    Как добраться*/}
               {/*  </Link>*/}
               {/*</li>*/}
-              {/*<li><a href={"#news"}>Новости</a></li>*/}
+              <li><a href={"#news"}>Новости</a></li>
             </ul>
           </div>
 

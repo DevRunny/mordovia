@@ -61,7 +61,7 @@ const Details = ({ props }) => {
           { props.video
             ?
             <div className="detail-video">
-              <video id="detail_video" playsinline>
+              <video id="detail_video" playsInline>
                 <source src={ props.video } type="video/mp4" />
               </video>
               { videoPlaying
