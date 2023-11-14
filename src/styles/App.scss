@@ -336,6 +336,12 @@ main {
         height: 0;
         line-height: 1.25vw;
       }
+
+      &.introducing-classic-cards__news {
+        h3 {
+          height: 3vw;
+        }
+      }
     }
 
     .introducing-classic-cards__news {
