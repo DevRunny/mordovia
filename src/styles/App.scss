@@ -330,6 +330,12 @@ main {
         height: 0;
         line-height: 1.25vw;
       }
+
+      &.introducing-classic-cards__news {
+        h3 {
+          height: 3vw;
+        }
+      }
     }
 
     .introducing-classic-cards__news {
@@ -984,7 +990,8 @@ footer {
       @include flex-row;
       align-items: flex-start;
 
-      flex-wrap: wrap;
+      /*flex-wrap: wrap;*/
+      width: 100%;
     }
 
     .members_member {
@@ -999,7 +1006,8 @@ footer {
         line-height: 1.25vw;
       }
       img {
-        width: 16.666666666666668vw;
+        /*width: 16.666666666666668vw;*/
+        width: 100%;
       }
 
       .member_info {
@@ -1012,7 +1020,8 @@ footer {
       @include flex-column;
       gap: 0.625vw;
       padding-top: 0.625vw;
-      width: 16.666666666666668vw;
+      /*width: 16.666666666666668vw;*/
+      width: 100%;
     }
   }
 }

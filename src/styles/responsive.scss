@@ -939,6 +939,7 @@
     position: relative;
     top: auto;
     margin-bottom: 0;
+    width: 100%;
   }
 
   .event-details-content {
@@ -998,6 +999,8 @@
 
   .event__members .members_list {
     margin-top: 0;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .event__gallery {
