@@ -114,7 +114,23 @@ export const NavBar = () => {
             </Link>
           </li>
           */}
-          <li><a href={"#news"}>Новости</a></li>
+
+          <li>
+            <Link
+            activeClass="active"
+            to="news"
+            spy={true}
+            smooth={true}
+            offset={-130}
+            duration={500}
+            >
+              <HashLink
+                to={`${PATHS.MAIN + "#news"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
+              >Новости</HashLink>
+            </Link>
+          </li>
+
         </ul>
       </nav>
         <div className={"header-links"}>
@@ -223,7 +239,24 @@ export const NavBar = () => {
               {/*    Как добраться*/}
               {/*  </Link>*/}
               {/*</li>*/}
-              <li><a href={"#news"}>Новости</a></li>
+
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#news"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  <HashLink
+                    to={`${PATHS.MAIN + "#news"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -50) }}
+                  >Новости</HashLink>
+                </Link>
+              </li>
+
             </ul>
           </div>
 

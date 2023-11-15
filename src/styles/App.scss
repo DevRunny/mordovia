@@ -871,6 +871,11 @@ footer {
   line-height: 1.25vw;
 }
 
+.event .back-to-main {
+	margin-bottom: 2.4vw;
+	margin-left: 0;
+}
+
 .event-details-page {
   @include flex-row;
   align-items: flex-start;

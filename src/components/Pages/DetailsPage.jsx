@@ -5,6 +5,7 @@ import { useNewsItem } from "../../queries/useNewsItem";
 import { useEvent } from "../../queries/useEvent";
 import Details from "../Details";
 import ButtonBackToMain from "../Buttons/ButtonBackToMain";
+import NotFoundPage from "../Pages/NotFoundPage";
 
 const DetailsPage = () => {
   const location = useLocation()
@@ -28,18 +29,32 @@ const DetailsPage = () => {
 
   return (
     <>
-      <ButtonBackToMain />
-      { isFetched && newsItem && pathname !== "event"
+      { pathname === "news"
         ?
+        <>
+      	{ isFetched && newsItem
+          ?
           <Details props={newsItem.data}/>
-        :
-          <></>
+          :
+          <NotFoundPage />
+		}
+        </>
+		:
+		<></>
       }
-      {isFetchedEvent && event && pathname !== "news"
+
+      { pathname === "event"
         ?
-          <Details props={event.data} />
-        :
-          <></>
+        <>
+      	{ isFetchedEvent && event
+          ?
+          <Details props={event.data}/>
+          :
+          <NotFoundPage />
+        }
+        </>
+		:
+		<></>
       }
 
     </>
