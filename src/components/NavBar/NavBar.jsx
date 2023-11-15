@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
@@ -15,9 +15,14 @@ export const NavBar = () => {
   const [clueVisible, setClueVisible] = useState(false)
   const [audioPlaying, setAudioPlaying] = useState(false)
 
-    const handleOpenBurgerMenu = () => {
+  const handleOpenBurgerMenu = () => {
     setIsOpenBurger(!isOpenBurger)
   }
+
+  useEffect(() => {
+    let audio = document.getElementById("main_audio");
+    audio.addEventListener("ended", (event) => { setAudioPlaying(0); });
+  }, [])
 
   const handlePlayAudio = () => {
 

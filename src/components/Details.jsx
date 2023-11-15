@@ -19,6 +19,7 @@ const Details = ({ props }) => {
   const handlePlayVideo = () => {
     setVideoPlaying(0);
     let video = document.getElementById("detail_video");
+    video.volume = 0.5;
     video.play();
     video.setAttribute("controls", "controls");
   }
