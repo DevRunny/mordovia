@@ -75,6 +75,13 @@ export const useScrollToId = () => {
         break;
 
 	  case "#achievements":
+      setTimeout(() => {
+        const element = document.getElementById('achievements');
+        element.style.scrollMargin = "120px";
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 1000)
         break;
 
 	  case "#map":

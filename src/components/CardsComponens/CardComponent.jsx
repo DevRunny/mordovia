@@ -4,7 +4,7 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 import { Link } from "react-router-dom";
 import CardContent from "./CardContent";
 
-export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, type, alias }) => {
+export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topicName, date, isNews = false, isAchievement = false, type, alias }) => {
   const hover = useHoverCard();
 
   const props = { img, title, subtitle, preview, onlyImage, topicName, date, isNews };
@@ -24,7 +24,7 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
     }
   };
 
-  url = alias ? ((isNews ? "news/" : "") + alias) : url;
+  url = alias ? isNews ? ((isNews ? "news/" : "") + alias) : isAchievement ? ((isAchievement ? "achievement/" : "") + alias) : url : url;
 
   return(
   	<motion.div

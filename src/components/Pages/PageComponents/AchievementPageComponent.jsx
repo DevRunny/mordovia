@@ -2,8 +2,12 @@ import React from "react";
 import ButtonBackToMain from "../../Buttons/ButtonBackToMain";
 import MiniCardsComponent from "../../CardsComponens/MiniCardsComponent";
 import MiniCardComponent from "../../CardsComponens/MiniCardComponent";
+import { useLocation } from "react-router-dom";
 
 export const AchievementPageComponent = () => {
+  const location = useLocation()
+  const pathname = location.pathname.split("/")[1]
+
   const props = {
     topic: "Люди",
     hasDetailCard: false,
@@ -15,7 +19,7 @@ export const AchievementPageComponent = () => {
 
   return (
     <div>
-      <ButtonBackToMain toSection={""} />
+      <ButtonBackToMain toSection={pathname === "achievement" ? "/#achievements" : "/"} />
       <div className={"achievement-title"}>
         <h1>Культура</h1>
         <div className={"achievement-watch-video"}>

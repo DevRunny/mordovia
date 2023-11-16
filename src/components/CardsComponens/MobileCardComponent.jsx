@@ -3,7 +3,7 @@ import { useHoverCard } from "../../hooks/useHoverCard";
 import { Link } from "react-router-dom";
 import CardContentMobile from "./CardContentMobile";
 
-export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, alias }) => {
+export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews = false, isAchievement = false, alias }) => {
   const hover = useHoverCard();
 
   const props = {img, title, subtitle, preview, onlyImage, topicName, date};
