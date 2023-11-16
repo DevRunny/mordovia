@@ -1,7 +1,6 @@
 import React from "react";
 import { Titles } from "../Titles/Titles";
 import { CardComponent } from "../CardsComponens/CardComponent";
-import achieveCard from "../../images/Achieve-card.png";
 import { useHoverCard } from "../../hooks/useHoverCard";
 import { useWindowSize } from "usehooks-ts";
 import { Splide, SplideSlide } from "@splidejs/react-splide";

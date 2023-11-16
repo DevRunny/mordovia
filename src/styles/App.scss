@@ -1144,6 +1144,93 @@ footer {
   }
 }
 
+.faces-of-the-region-wrapper {
+  margin-top: 2.2916666666666665vw;
+  margin-bottom: 4.166666666666667vw;
+  padding-left: 1.25vw;
+
+  h1 {
+    font-size: 6.041666666666667vw;
+    line-height: 5.15625vw;
+    letter-spacing: -0.24166666666666664vw;
+  }
+}
+
+.faces-of-the-region-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 2.0833333333333335vw;
+  margin-top: 4.166666666666667vw;
+
+  .face-of-the-region {
+    @include flex-row;
+    gap: 0.625vw;
+
+    img {
+      width: 5.208333333333333vw;
+      height: 5.208333333333333vw;
+    }
+
+    span {
+      line-height: 1.4583333333333333vw;
+    }
+  }
+}
+
+.face-of-the-region-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4.166666666666667vw;
+}
+
+.face-of-the-region-info {
+  @include flex-column;
+  gap: 2.2916666666666665vw;
+  padding-right: 5vw;
+
+  h1 {
+    font-size: 4.166666666666667vw;
+    line-height: 4.375vw; /* 105% */
+    letter-spacing: -0.16666666666666666vw;
+  }
+
+  span {
+    font-size: 0.8333333333333334vw;
+    line-height: 1.0416666666666667vw; /* 125% */
+    letter-spacing: 0.2vw;
+    text-transform: uppercase;
+  }
+
+  .positions {
+    @include flex-column;
+    gap: 0.625vw;
+
+    p {
+      font-size: 1.0416666666666667vw;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.4583333333333333vw;
+    }
+  }
+}
+
+.face-of-the-region-description {
+  @include flex-column;
+  gap: 2.0833333333333335vw;
+
+  img {
+    width: 100%;
+  }
+
+  span {
+    font-size: 1.0416666666666667vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4583333333333333vw;
+    padding-right: 1vw;
+  }
+}
+
 .swiper .swiper-button-prev {
   position: absolute;
   top: 35%;

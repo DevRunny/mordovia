@@ -3,12 +3,14 @@ import Home from "../components/Home/Home";
 import DetailsPage from "../components/Pages/DetailsPage";
 import NotFoundPage from "../components/Pages/NotFoundPage";
 import { AchievementPage } from "../components/Pages/AchievementPage";
+import FacesOfTheRegionPage from "../components/Pages/FacesOfTheRegionPage";
 
 export const PATHS = {
   MAIN: "/",
   NEWS: "/news/*",
   EVENT: "/event/*",
   ACHIEVEMENT: "/achievement/*",
+  FACES_OF_THE_REGION: "/faces-of-the-region",
   NEWS_EMPTY: "/news",
   EVENT_EMPTY: "/event",
   ACHIEVEMENT_EMPTY: "/achievement",
@@ -23,6 +25,7 @@ export const router = () => {
       <Route path={ PATHS.NEWS } element={<DetailsPage />} />
       <Route path={ PATHS.EVENT } element={<DetailsPage />} />
       <Route path={ PATHS.ACHIEVEMENT } element={<AchievementPage />} />
+      <Route path={ PATHS.FACES_OF_THE_REGION } element={<FacesOfTheRegionPage />} />
       <Route path={ PATHS.NOTFOUND } element={<NotFoundPage />} />
       <Route path={ PATHS.NEWS_EMPTY} element={<NotFoundPage />} />
       <Route path={ PATHS.EVENT_EMPTY} element={<NotFoundPage />} />
