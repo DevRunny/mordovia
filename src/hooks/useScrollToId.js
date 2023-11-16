@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useWindowSize } from "usehooks-ts";
 
 export const useScrollToId = () => {
   const { hash } = window.location;

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import CalendarCardComponent from "./CalendarCardComponent";
+import MiniCardComponent from "../../CardsComponens/MiniCardComponent";
 import prev from "../../../images/Arrow-prev.svg";
 import next from "../../../images/Arrow-next.svg";
 import { useFilters } from "../../../queries/useFilters";
@@ -7,6 +7,7 @@ import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
 import { Link } from "react-router-dom";
 import CalendarFilterComponent from "./CalendarFilterComponent";
+import MiniCardsComponent from "../../CardsComponens/MiniCardsComponent";
 
 const CalendarSection = ({id}) => {
   const [activeMonth, setActiveMonth] = useState('');
@@ -352,28 +353,25 @@ const CalendarSection = ({id}) => {
 
       </div>
       </div>
-      <div className={'calendar-cards'}>
+      <MiniCardsComponent>
       {allEvents && isFetchedEvents
       	?
         allEvents.map((event) => {
           return (
-            <React.Fragment key={event.id}>
-            { event.hasDetailCard
+            event.hasDetailCard
               ?
               <Link key={event.id} to={ event.alias ? `event/${event.alias}` : "" } >
-                <CalendarCardComponent key={event.id} props={ event } />
+                <MiniCardComponent key={event.id} props={ event } />
               </Link>
               :
-              <CalendarCardComponent key={event.id} props={ event } />
-            }
-            </React.Fragment>
+              <MiniCardComponent key={event.id} props={ event } />
           )
         })
         :
         <></>
       }
 
-    </div>
+    </MiniCardsComponent>
         {!isLastPage && allEvents.length > 0 ?
           <button
             onClick={ () => fetchNextPage() }

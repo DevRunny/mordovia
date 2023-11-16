@@ -3,8 +3,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { useLocation, useParams } from "react-router-dom";
 import { useNewsItem } from "../../queries/useNewsItem";
 import { useEvent } from "../../queries/useEvent";
-import Details from "../Details";
-import ButtonBackToMain from "../Buttons/ButtonBackToMain";
+import DetailsPageComponent from "./PageComponents/DetailsPageComponent";
 import NotFoundPage from "../Pages/NotFoundPage";
 
 const DetailsPage = () => {
@@ -31,30 +30,24 @@ const DetailsPage = () => {
     <>
       { pathname === "news"
         ?
-        <>
-      	{ isFetched && newsItem
+      	isFetched && newsItem
           ?
-          <Details props={newsItem.data}/>
+          <DetailsPageComponent props={newsItem.data}/>
           :
           <NotFoundPage />
-		}
-        </>
-		:
-		<></>
+		    :
+		      <></>
       }
 
       { pathname === "event"
         ?
-        <>
-      	{ isFetchedEvent && event
+      	isFetchedEvent && event
           ?
-          <Details props={event.data}/>
+          <DetailsPageComponent props={event.data}/>
           :
           <NotFoundPage />
-        }
-        </>
-		:
-		<></>
+		    :
+		      <></>
       }
 
     </>

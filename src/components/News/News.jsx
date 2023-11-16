@@ -7,13 +7,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { MobileCardComponent } from "../CardsComponens/MobileCardComponent";
 import { useNews } from "../../queries/useNews";
 
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-
-import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
 
 const News = ({ id }) => {
   const hover = useHoverCard();

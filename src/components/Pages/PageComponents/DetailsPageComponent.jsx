@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useWindowSize } from "usehooks-ts";
-import { useLocation, useParams } from "react-router-dom";
-import ButtonBackToMain from "./Buttons/ButtonBackToMain";
+import { useLocation } from "react-router-dom";
+import ButtonBackToMain from "../../Buttons/ButtonBackToMain";
 
-import Fancybox from "./Fancybox";
+import Fancybox from "../../Fancybox";
 
-import videoPlay from "../images/Video-play.svg";
+import videoPlay from "../../../images/Video-play.svg";
 
-const Details = ({ props }) => {
+const DetailsPageComponent = ({ props }) => {
   const { width } = useWindowSize()
 
   const location = useLocation()
@@ -31,7 +31,7 @@ const Details = ({ props }) => {
   return (
     <div className={"event-details-page"}>
       <div className={"event"}>
-        <ButtonBackToMain toSection={pathname === "news" ? "/#news": "/#afisha"} />
+        <ButtonBackToMain toSection={pathname === "news" ? "/#news" : "/#afisha"} />
         <div className={"event__info"}>
           <span>{ props.topic }</span>
           <h1>{ props.title }</h1>
@@ -99,7 +99,7 @@ const Details = ({ props }) => {
                   return (
                   	<a key={index} data-fancybox="gallery" href={ img } style={{ display: index > 7 ? "none": "inline-block" }}>
                       <img key={ index } src={ img } alt={ `img-${ index }` } />
-                      { props.gallery.length > 8 && index == 7
+                      { props.gallery.length > 8 && index === 7
                         ?
                         <div className="galleryPlaceholder">Еще {props.gallery.length-8} {declOfNum(props.gallery.length-8, ["фотография", "фотографии", "фотографий"])}</div>
                         :
@@ -122,7 +122,7 @@ const Details = ({ props }) => {
                         <SplideSlide key={index}>
                           <a data-fancybox="gallery" href={ img }>
                             <img key={ index } src={ img } alt={ `img-${ index }` } />
-                            { props.gallery.length > 8 && index == 7
+                            { props.gallery.length > 8 && index === 7
                               ?
                               <div className="galleryPlaceholder">Еще {props.gallery.length-8} {declOfNum(props.gallery.length-8, ["фотография", "фотографии", "фотографий"])}</div>
                               :
@@ -169,4 +169,4 @@ const Details = ({ props }) => {
   );
 };
 
-export default Details;
+export default DetailsPageComponent;

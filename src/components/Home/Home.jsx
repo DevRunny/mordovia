@@ -12,7 +12,7 @@ import { KeyEventsSection } from "../EventsSections/KeyEventsSection";
 import CalendarSection from "../EventsSections/CalendarSection/CalendarSection";
 import InteractiveZonesSection from "../EventsSections/InteractiveZonesSection";
 import { useScrollToId } from "../../hooks/useScrollToId";
-// import Achievements from "../Achievements/Achievements"; TODO: подключить как будет готов бэкенд
+import Achievements from "../Achievements/Achievements";
 // import HowToGetThereSection from "../HowToGetThereSection/HowToGetThereSection"; TODO: подключить как будет готов бэкенд
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
         <CalendarSection id={"afisha"}/>
         <StickyTitle img={headline} notSticky={true} subtitle={isFetched ? titles.screen4.text1 : ""} />
         <InteractiveZonesSection id={"interactive"} />
-        {/*<Achievements id={"achievements}/> TODO: подключить как будет готов бэкенд*/}
+        <Achievements id={"achievements"}/>
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
         <FAQSection id={"questions"}/>
         <News id={"news"}/>

@@ -15,8 +15,6 @@ const NotFoundPage = () => {
     scroll.scrollToTop(options);
   };
 
-  let mounted = false;
-
   useEffect(() => {
     scrollToTop();
     setTimeout(() => {
@@ -25,8 +23,8 @@ const NotFoundPage = () => {
   }, [])
 
   return (
-    <div style={{opacity: timed ? 1 : 0}}>
-      <ButtonBackToMain toSection="" />
+    <div style={{opacity: timed}}>
+      <ButtonBackToMain toSection={""} />
       <div className={"error-404"}>
         <img src={notFound} alt={"404"} />
         <span>Страница не найдена</span>

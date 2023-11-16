@@ -663,12 +663,12 @@ main {
   }
 }
 
-.calendar-cards {
+.mini-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.calendar-card {
+.mini-card {
   @include flex-column;
   gap: 1.3541666666666667vw;
   padding: 1.25vw 1.25vw 1.25vw 1.25vw;
@@ -1105,6 +1105,39 @@ footer {
 
 .event__members .members_list {
   margin-top: -1vw;
+}
+
+.achievement-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4583333333333333vw;
+  margin-top: 2.2916666666666665vw;
+  margin-bottom: 4.166666666666667vw;
+  padding-left:  1.25vw;
+
+  h1 {
+    font-size: 6.041666666666667vw;
+    line-height: 5.15625vw;
+    letter-spacing: -0.24166666666666664vw;
+  }
+}
+
+.achievement-watch-video {
+  @include flex-row;
+  gap: 0.5208333333333334vw;
+  cursor: pointer;
+
+  svg {
+    width: 1.25vw;
+    height: 1.25vw;
+  }
+
+  span {
+    font-size: 0.625vw;
+    line-height: 1.0416666666666667vw; /* 166.667% */
+    letter-spacing: 0.15vw;
+    text-transform: uppercase;
+  }
 }
 
 .swiper .swiper-button-prev {
