@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import CardContent from "./CardContent";
 
 export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, type, alias }) => {
-  const hover = useHoverCard()
+  const hover = useHoverCard();
 
-  const props = { img, title, subtitle, preview, onlyImage, topicName, date, isNews }
+  const props = { img, title, subtitle, preview, onlyImage, topicName, date, isNews };
 
   const cardVariants = {
     offscreen: {
@@ -39,13 +39,9 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
 
     {url
       ?
-	  <>
 	    <Link to={url}><CardContent props={props} /></Link>
-	  </>
 	  :
-	  <>
 	    <CardContent props={props} />
-	  </>
 	}
 
     </motion.div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const CardContent = ({props}) => {
+const CardContentMobile = ({props}) => {
   return (
     <>
       {props.preview
@@ -12,13 +12,9 @@ const CardContent = ({props}) => {
             transition: {duration: 0.5}
           }}
           style={{
-            position: "absolute",
-            width: "100%",
-            zIndex: 2,
+            position: "absolute"
           } }
-          src={props.preview}
-          alt={"preview"}
-        />
+          src={props.preview} alt={"preview"} />
         :
         <></>
       }
@@ -26,7 +22,7 @@ const CardContent = ({props}) => {
 
       {!props.onlyImage
         ?
-        <div className={ `introducing-classic-cards__description ${props.isNews ? "introducing-classic-cards__news" : ""}` }>
+        <div className={ `introducing-cards-mobile__description ${props.isNews ? "introducing-cards-mobile__mobile" : ""}` }>
           {props.topicName
             ?
             <div style={{marginBottom: 18}} className={"mini-card__topic"}>
@@ -41,8 +37,7 @@ const CardContent = ({props}) => {
             <></>
           }
           <h3>{ props.title }</h3>
-          <p dangerouslySetInnerHTML={{__html: props.subtitle}}>
-          </p>
+          <p dangerouslySetInnerHTML={ { __html: props.subtitle } }/>
           {props.date
             ?
             <div className={"mini-card__date"}>
@@ -67,4 +62,4 @@ const CardContent = ({props}) => {
   );
 };
 
-export default CardContent;
+export default CardContentMobile;
