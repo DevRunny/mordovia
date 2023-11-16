@@ -310,6 +310,12 @@ main {
 	    }
     }
 
+    &.news-cards {
+      img {
+        height: 55%;
+      }
+	}
+
     .introducing-classic-cards__description {
       z-index: 2;
       position: absolute;
@@ -863,6 +869,11 @@ footer {
   margin-left: 1.25vw;
   font-size: 1.0416666666666667vw;
   line-height: 1.25vw;
+}
+
+.event .back-to-main {
+	margin-bottom: 2.4vw;
+	margin-left: 0;
 }
 
 .event-details-page {

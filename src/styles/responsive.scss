@@ -348,7 +348,12 @@
       }
 
       .splide__arrow--prev {
-        opacity: 0;
+      	transform: scaleX(-1) translateY(-50%);
+        background: url("../images/Cursor-mobile.svg");
+        background-size: cover;
+        svg {
+          opacity: 0;
+        }
       }
 
       .splide__arrow:disabled {
@@ -420,6 +425,10 @@
         }
       }
     }
+  }
+
+  .news .introducing-cards-mobile .introducing-cards-mobile__card .introducing-cards-mobile__description {
+    position: relative;
   }
 
   .introducing-cards-mobile__card.active {
@@ -714,6 +723,10 @@
       width: 1.25rem;
       height: 1.25rem;
     }
+  }
+
+  .event .back-to-main {
+    margin-left: 0.75rem;
   }
 
   .event-details-page {

@@ -6,32 +6,24 @@ import { Link } from "react-router-dom";
 export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyImage, topicName, date, isNews, alias }) => {
   const hover = useHoverCard()
 
-  return (
-    <div
-      style={ url ? {cursor: "pointer"} : {}}
-      onMouseEnter={ () => hover.setHovered(true)}
-      onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
-    >
+  url = alias ? ((isNews ? "news/" : "") + alias) : url;
 
-      <Link
-        to={alias ? `${isNews ? "news/" : ""}${alias}`  : ""}
-      >
-
-        {preview
-          ?
-          <motion.img
-            whileHover={{
-              opacity: 0,
-              transition: {duration: 0.5}
-            }}
-            style={{
-              position: "absolute"
-            } }
-            src={preview} alt={"preview"} />
-          :
-          <></>
-        }
+  var cardContent = (
+    <React.Fragment>
+      {preview
+        ?
+        <motion.img
+          whileHover={{
+            opacity: 0,
+            transition: {duration: 0.5}
+          }}
+          style={{
+            position: "absolute"
+          } }
+          src={preview} alt={"preview"} />
+        :
+        <></>
+      }
       <img src={ img } alt={ "cardImage" } />
 
       {!onlyImage
@@ -72,7 +64,28 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
         :
         <></>
       }
-      </Link>
+    </React.Fragment>
+  );
+
+  return (
+    <div
+      style={ url ? {cursor: "pointer"} : {}}
+      onMouseEnter={ () => hover.setHovered(true)}
+      onMouseLeave={ () => hover.setHovered(false)}
+      className={ `introducing-cards-mobile__card  ${hover.isHovered ? "active" : ""}` }
+    >
+
+    {url
+      ?
+	  <>
+	    <Link to={url}>{cardContent}</Link>
+	  </>
+	  :
+	  <>
+	    {cardContent}
+	  </>
+	}
+
     </div>
   )
 }

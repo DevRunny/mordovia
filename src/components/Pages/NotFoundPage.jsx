@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import notFound from "../../images/NotFound.svg";
 import { animateScroll as scroll } from "react-scroll";
 import ButtonBackToMain from "../Buttons/ButtonBackToMain";
 
 const NotFoundPage = () => {
+
+  const [timed, setTimed] = useState(0);
 
   const scrollToTop = () => {
     const options = {
@@ -13,19 +15,24 @@ const NotFoundPage = () => {
     scroll.scrollToTop(options);
   };
 
+  let mounted = false;
+
   useEffect(() => {
     scrollToTop();
+    setTimeout(() => {
+	  setTimed(1);
+    }, 1000);
   }, [])
 
   return (
-    <>
-      <ButtonBackToMain />
+    <div style={{opacity: timed ? 1 : 0}}>
+      <ButtonBackToMain toSection="" />
       <div className={"error-404"}>
         <img src={notFound} alt={"404"} />
         <span>Страница не найдена</span>
       </div>
       
-    </>
+    </div>
   );
 };
 

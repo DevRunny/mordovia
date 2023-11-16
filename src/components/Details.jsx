@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useWindowSize } from "usehooks-ts";
+import { useLocation, useParams } from "react-router-dom";
+import ButtonBackToMain from "./Buttons/ButtonBackToMain";
 
 import Fancybox from "./Fancybox";
 
@@ -9,11 +11,15 @@ import videoPlay from "../images/Video-play.svg";
 const Details = ({ props }) => {
   const { width } = useWindowSize()
 
+  const location = useLocation()
+  const pathname = location.pathname.split("/")[1]
+
   const [videoPlaying, setVideoPlaying] = useState(true)
 
   const handlePlayVideo = () => {
     setVideoPlaying(0);
     let video = document.getElementById("detail_video");
+    video.volume = 0.5;
     video.play();
     video.setAttribute("controls", "controls");
   }
@@ -25,6 +31,7 @@ const Details = ({ props }) => {
   return (
     <div className={"event-details-page"}>
       <div className={"event"}>
+        <ButtonBackToMain toSection={pathname === "news" ? "/#news": "/#afisha"} />
         <div className={"event__info"}>
           <span>{ props.topic }</span>
           <h1>{ props.title }</h1>
@@ -61,7 +68,7 @@ const Details = ({ props }) => {
           { props.video
             ?
             <div className="detail-video">
-              <video id="detail_video" playsinline>
+              <video id="detail_video" playsInline>
                 <source src={ props.video } type="video/mp4" />
               </video>
               { videoPlaying

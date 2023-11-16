@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/Logo.svg";
 import sound from "../../images/Sound.svg";
 import soundAnimated from "../../images/Sound-animated.svg";
@@ -15,9 +15,14 @@ export const NavBar = () => {
   const [clueVisible, setClueVisible] = useState(false)
   const [audioPlaying, setAudioPlaying] = useState(false)
 
-    const handleOpenBurgerMenu = () => {
+  const handleOpenBurgerMenu = () => {
     setIsOpenBurger(!isOpenBurger)
   }
+
+  useEffect(() => {
+    let audio = document.getElementById("main_audio");
+    audio.addEventListener("ended", (event) => { setAudioPlaying(0); });
+  }, [])
 
   const handlePlayAudio = () => {
 
@@ -113,8 +118,24 @@ export const NavBar = () => {
               Как добраться
             </Link>
           </li>
-          <li><a href={"#news"}>Новости</a></li>
           */}
+
+          <li>
+            <Link
+            activeClass="active"
+            to="news"
+            spy={true}
+            smooth={true}
+            offset={-130}
+            duration={500}
+            >
+              <HashLink
+                to={`${PATHS.MAIN + "#news"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
+              >Новости</HashLink>
+            </Link>
+          </li>
+
         </ul>
       </nav>
         <div className={"header-links"}>
@@ -223,7 +244,24 @@ export const NavBar = () => {
               {/*    Как добраться*/}
               {/*  </Link>*/}
               {/*</li>*/}
-              {/*<li><a href={"#news"}>Новости</a></li>*/}
+
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
+                  to="#news"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  <HashLink
+                    to={`${PATHS.MAIN + "#news"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -50) }}
+                  >Новости</HashLink>
+                </Link>
+              </li>
+
             </ul>
           </div>
 
