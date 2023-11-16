@@ -7,5 +7,6 @@ export const MORDOVIA_ENDPOINTS = {
   faq: 'getFaq',
   news: 'getNews',
   newsItem: "getNewsItem",
-  event: "getEvent"
+  event: "getEvent",
+  categoriesAchievements: "getCategoriesAchievements"
 }

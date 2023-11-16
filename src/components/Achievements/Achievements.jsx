@@ -11,8 +11,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useCategoriesAchievements } from "../../queries/useCategoriesAchievements";
 
 const Achievements = ({ id }) => {
+  const { categoriesAchievements, isFetched} = useCategoriesAchievements();
   const hover = useHoverCard();
   const { width } = useWindowSize();
 
@@ -28,33 +30,27 @@ const Achievements = ({ id }) => {
           >
             <Splide
             >
-              <SplideSlide>
-                <MobileCardComponent
-                  img={achieveCard}
-                  topic={true}
-                  topicName={"Люди"}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <MobileCardComponent
-                  img={achieveCard}
-                  topic={true}
-                  topicName={"Производство"}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <MobileCardComponent
-                  img={achieveCard}
-                  topic={true}
-                  topicName={"Искусство"}
-                  title={"Масторава – карнавал чудес"}
-                  subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                />
-              </SplideSlide>
+              {isFetched && categoriesAchievements
+                ?
+                categoriesAchievements.categoriesAchievements.map((cat, index) => {
+                  return(
+                    <SplideSlide key={cat.id}>
+                      <MobileCardComponent
+                        id={index}
+                        img={cat.img}
+                        topicName={cat.topic}
+                        title={cat.subtitle}
+                        subtitle={cat.descr}
+                        alias={cat.alias}
+                        isAchievement={true}
+                        type={"3"}
+                      />
+                    </SplideSlide>
+                  )
+                })
+                :
+                <></>
+              }
             </Splide>
           </div>
         </div>
@@ -75,55 +71,27 @@ const Achievements = ({ id }) => {
             onMouseLeave={ () => hover.setHovered(false) }
             className={ `introducing-classic-cards ${hover.isHovered ? "active" : ""}`}
           >
-            <SwiperSlide>
-          <CardComponent
-            id={0}
-            img={achieveCard}
-            topic={true}
-            topicName={"Люди"}
-            title={"Масторава – карнавал чудес"}
-            subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-            isAchievement={true}
-            alias={"testovoe"}
-            type="3"
-          />
-            </SwiperSlide>
-            <SwiperSlide>
-          <CardComponent
-            id={1}
-            img={achieveCard}
-            topic={true}
-            topicName={"Люди"}
-            title={"Масторава – карнавал чудес"}
-            subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-            isAchievement={true}
-            type="3"
-          />
-            </SwiperSlide>
-            <SwiperSlide>
-          <CardComponent
-            id={2}
-            img={achieveCard}
-            topic={true}
-            topicName={"Люди"}
-            title={"Масторава – карнавал чудес"}
-            subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-            isAchievement={true}
-            type="3"
-          />
-            </SwiperSlide>
-            <SwiperSlide>
-              <CardComponent
-                id={3}
-                img={achieveCard}
-                topic={true}
-                topicName={"Люди"}
-                title={"Масторава – карнавал чудес"}
-                subtitle={"Приходите и откройте для себя множество удивительных фактов о Мордовии, её народе и его творческом наследии."}
-                isAchievement={true}
-                type="3"
-              />
-            </SwiperSlide>
+            {isFetched && categoriesAchievements
+              ?
+              categoriesAchievements.categoriesAchievements.map((cat, index) => {
+                return(
+                  <SwiperSlide key={cat.id}>
+                    <CardComponent
+                    id={index}
+                    img={cat.img}
+                    topicName={cat.topic}
+                    title={cat.subtitle}
+                    subtitle={cat.descr}
+                    alias={cat.alias}
+                    isAchievement={true}
+                    type={"3"}
+                    />
+                  </SwiperSlide>
+                )
+              })
+              :
+              <></>
+            }
           </Swiper>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useWindowSize } from "usehooks-ts";
 import { useLocation } from "react-router-dom";
 import ButtonBackToMain from "../../Buttons/ButtonBackToMain";
 
-import Fancybox from "../../Fancybox";
+import Fancybox from "../../Fancybox/Fancybox";
 
 import videoPlay from "../../../images/Video-play.svg";
 
