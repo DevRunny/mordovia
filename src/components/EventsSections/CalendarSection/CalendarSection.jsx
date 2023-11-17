@@ -360,7 +360,7 @@ const CalendarSection = ({id}) => {
           return (
             event.hasDetailCard
               ?
-              <Link key={event.id} to={ event.alias ? `event/${event.alias}` : "" } >
+              <Link key={event.id} to={ event.alias ? `event/${event.alias}` : "/not-found" } >
                 <MiniCardComponent key={event.id} props={ event } />
               </Link>
               :

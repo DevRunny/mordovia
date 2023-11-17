@@ -1,5 +1,5 @@
 import React from "react";
-import bigFace from "../../../images/big-face.png"
+import bigFace from "../../../images/big-face.png";
 
 const FaceOfTheRegionDetailsComponent = () => {
   return (

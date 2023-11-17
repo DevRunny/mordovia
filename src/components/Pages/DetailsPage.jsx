@@ -3,6 +3,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { useLocation, useParams } from "react-router-dom";
 import { useNewsItem } from "../../queries/useNewsItem";
 import { useEvent } from "../../queries/useEvent";
+import { useAchievementsItem } from "../../queries/useAchievementsItem";
 import DetailsPageComponent from "./PageComponents/DetailsPageComponent";
 import NotFoundPage from "../Pages/NotFoundPage";
 
@@ -13,6 +14,7 @@ const DetailsPage = () => {
   const parseParams = Object.values(params)[0];
   const { newsItem, isFetched } = useNewsItem(parseParams, pathname === "news")
   const { event, isFetchedEvent } = useEvent(parseParams, pathname === "event")
+  const { achievementsItem, isFetchedAchievementsItem } = useAchievementsItem(parseParams, pathname === "achievement")
 
   const scrollToTop = () => {
     const options = {
@@ -48,6 +50,17 @@ const DetailsPage = () => {
           <NotFoundPage />
 		    :
 		      <></>
+      }
+
+      { pathname === "achievement"
+        ?
+          isFetchedAchievementsItem && achievementsItem
+            ?
+            <DetailsPageComponent props={achievementsItem.data} />
+            :
+            <NotFoundPage />
+        :
+        <></>
       }
 
     </>

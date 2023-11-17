@@ -9,7 +9,8 @@ export const PATHS = {
   MAIN: "/",
   NEWS: "/news/*",
   EVENT: "/event/*",
-  ACHIEVEMENT: "/achievement/*",
+  ACHIEVEMENT: "/achievement/:alias",
+  ACHIEVEMENT_DETAILS: "/achievement/:alias/:alias",
   FACES_OF_THE_REGION: "/faces-of-the-region",
   NEWS_EMPTY: "/news",
   EVENT_EMPTY: "/event",
@@ -25,6 +26,7 @@ export const router = () => {
       <Route path={ PATHS.NEWS } element={<DetailsPage />} />
       <Route path={ PATHS.EVENT } element={<DetailsPage />} />
       <Route path={ PATHS.ACHIEVEMENT } element={<AchievementPage />} />
+      <Route path={ PATHS.ACHIEVEMENT_DETAILS } element={<DetailsPage />} />
       <Route path={ PATHS.FACES_OF_THE_REGION } element={<FacesOfTheRegionPage />} />
       <Route path={ PATHS.NOTFOUND } element={<NotFoundPage />} />
       <Route path={ PATHS.NEWS_EMPTY} element={<NotFoundPage />} />

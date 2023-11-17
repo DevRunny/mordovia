@@ -8,7 +8,7 @@ export const MobileCardComponent = ({ img, url, title, subtitle, preview, onlyIm
 
   const props = {img, title, subtitle, preview, onlyImage, topicName, date};
 
-  url = alias ? ((isNews ? "news/" : "") + alias) : url;
+  url = alias ? isNews ? ((isNews ? "news/" : "") + alias) : isAchievement ? ((isAchievement ? "achievement/" : "") + alias) : url : url;
 
   return (
     <div

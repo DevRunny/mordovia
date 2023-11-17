@@ -13,6 +13,7 @@ const DetailsPageComponent = ({ props }) => {
 
   const location = useLocation()
   const pathname = location.pathname.split("/")[1]
+  const pathnameSecond = location.pathname.split("/")[2]
 
   const [videoPlaying, setVideoPlaying] = useState(true)
 
@@ -31,7 +32,15 @@ const DetailsPageComponent = ({ props }) => {
   return (
     <div className={"event-details-page"}>
       <div className={"event"}>
-        <ButtonBackToMain toSection={pathname === "news" ? "/#news" : "/#afisha"} />
+        <ButtonBackToMain
+          toSection={
+          pathname === "news" ? "/#news" : "/#afisha"
+            ?
+            pathname === "achievement" ? `/achievement/${pathnameSecond}` : "/#achievements"
+            :
+            "/"
+        }
+        />
         <div className={"event__info"}>
           <span>{ props.topic }</span>
           <h1>{ props.title }</h1>

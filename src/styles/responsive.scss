@@ -1020,6 +1020,10 @@
     margin-top: 0;
   }
 
+  .achievement-section {
+    margin-bottom: 1.25rem;
+  }
+
   .achievement-title {
     @include flex-column;
     gap: 1rem;
