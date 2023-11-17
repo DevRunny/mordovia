@@ -1056,6 +1056,7 @@
   }
 
   .faces-of-the-region-wrapper {
+    margin-top: 1.375rem;
     padding-left: 0;
 
     h1 {
@@ -1095,7 +1096,7 @@
 
   .face-of-the-region-wrapper {
     @include flex-column;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .face-of-the-region-info {
