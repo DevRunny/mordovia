@@ -8,7 +8,7 @@ const FacesOfTheRegionComponent = () => {
     <div>
       <ButtonBackToMain toSection={"/#achievements"} />
       <div className={"faces-of-the-region-wrapper"}>
-        <h1>Лица региона</h1>
+        <h1 className={"title"}>Лица региона</h1>
         <div className={"faces-of-the-region-list"}>
           <FaceOfTheRegionComponent />
           <FaceOfTheRegionComponent />

@@ -11,7 +11,7 @@ export const PATHS = {
   EVENT: "/event/*",
   ACHIEVEMENT: "/achievement/:alias",
   ACHIEVEMENT_DETAILS: "/achievement/:alias/:alias",
-  FACES_OF_THE_REGION: "/faces-of-the-region",
+  FACES_OF_THE_REGION: "achievement/people", //Роут для "Лица региона"
   NEWS_EMPTY: "/news",
   EVENT_EMPTY: "/event",
   ACHIEVEMENT_EMPTY: "/achievement",
