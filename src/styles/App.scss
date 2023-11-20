@@ -226,6 +226,12 @@ main {
       letter-spacing: 0.7916666666666666vw;
       text-transform: uppercase;
       color: $colorBlack;
+
+      &.promo-variant-1 {
+        text-align: center;
+        margin-top: -6vw;
+        margin-bottom: 0vw;
+      }
     }
   }
 }
@@ -898,7 +904,8 @@ footer {
     gap: 2.2916666666666665vw;
 
     h1 {
-      font-size: 4.166666666666667vw;
+      /*font-size: 4.166666666666667vw;*/
+      font-size: 3.86666666667vw;
       font-style: normal;
       font-weight: 800;
       line-height: 4.375vw; /* 105% */

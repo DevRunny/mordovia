@@ -247,6 +247,11 @@
         font-weight: 500;
         line-height: normal;
         letter-spacing: 0.5317545748116255vh;
+
+        &.promo-variant-1 {
+          margin-bottom: 4vw;
+          font-size: 1.55vh;
+        }
       }
     }
 
