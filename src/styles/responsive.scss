@@ -1138,6 +1138,15 @@
     }
   }
 
+  .achievement-section .videoPopup .detail-video {
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .achievement-section .videoPopup .detail-video .close-video {
+    right: 4vw;
+    top: -16vw;
+  }
 }
 
 @media (max-width: 370px) {
