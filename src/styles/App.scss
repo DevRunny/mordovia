@@ -226,6 +226,12 @@ main {
       letter-spacing: 0.7916666666666666vw;
       text-transform: uppercase;
       color: $colorBlack;
+
+      &.promo-variant-1 {
+        text-align: center;
+        margin-top: -6vw;
+        margin-bottom: 0vw;
+      }
     }
   }
 }
@@ -898,7 +904,8 @@ footer {
     gap: 2.2916666666666665vw;
 
     h1 {
-      font-size: 4.166666666666667vw;
+      /*font-size: 4.166666666666667vw;*/
+      font-size: 3.86666666667vw;
       font-style: normal;
       font-weight: 800;
       line-height: 4.375vw; /* 105% */
@@ -1274,6 +1281,45 @@ footer {
 
 .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
   display: none;
+}
+
+body.video-popup-opened {
+  overflow: hidden;
+}
+
+.achievement-section .videoPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement-section .videoPopup .detail-video {
+  width: 50vw;
+  height: 30vw;
+}
+
+.achievement-section .videoPopup .detail-video .close-video {
+  position: absolute;
+  right: -3vw;
+  top: 0;
+  cursor: pointer;
+}
+
+
+.achievement-section .videoPopup .detail-video .video-placeholder {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.achievement-section .videoPopup .detail-video video {
+  width: 100%;
+  height: 100%;
 }
 
 .error-404 {

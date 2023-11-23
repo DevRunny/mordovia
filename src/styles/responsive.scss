@@ -247,6 +247,11 @@
         font-weight: 500;
         line-height: normal;
         letter-spacing: 0.5317545748116255vh;
+
+        &.promo-variant-1 {
+          margin-bottom: 4vw;
+          font-size: 1.55vh;
+        }
       }
     }
 
@@ -1133,6 +1138,15 @@
     }
   }
 
+  .achievement-section .videoPopup .detail-video {
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .achievement-section .videoPopup .detail-video .close-video {
+    right: 4vw;
+    top: -16vw;
+  }
 }
 
 @media (max-width: 370px) {
