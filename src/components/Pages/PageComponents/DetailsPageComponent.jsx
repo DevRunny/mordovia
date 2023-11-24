@@ -48,7 +48,7 @@ const DetailsPageComponent = ({ props }) => {
             { pathname === "achievement"
               ?
               <>
-                <p>{ props.subtitle }</p>
+                <p class="achievement-subtitle" dangerouslySetInnerHTML={{__html: props.subtitle}}></p>
               </>
               :
               <>

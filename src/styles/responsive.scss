@@ -176,6 +176,7 @@
       .about {
         top: 20.548977395vh;
         padding: 0 1.2917115177610334vh 0 1.2917115177610334vh;
+        justify-content: space-around;
 
         span {
           position: relative;
@@ -185,13 +186,13 @@
           line-height: 1.25rem;
           text-align: center;
           white-space: nowrap;
-          &:nth-child(2) {
+          /*&:nth-child(2) {
             position: absolute;
             top: -13vh;
             left: 10.656620021528525vh;
             right: 10.656620021528525vh;
             white-space: pre-wrap;
-          }
+          }*/
           .about-mobile {
             display: block;
           }

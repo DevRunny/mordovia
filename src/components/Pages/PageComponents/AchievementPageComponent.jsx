@@ -18,6 +18,7 @@ export const AchievementPageComponent = (props) => {
     let video = document.getElementById("detail_video");
     if (video.paused) {
       video.play();
+      video.setAttribute("controls", "controls");
       return;
     }
   }

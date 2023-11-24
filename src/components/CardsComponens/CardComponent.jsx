@@ -34,7 +34,7 @@ export const CardComponent = ({id, img, url, title, subtitle, preview, onlyImage
       style={ url && url.length ? {cursor: "pointer"} : {}}
       onMouseEnter={ () => hover.setHovered(true)}
       onMouseLeave={ () => hover.setHovered(false)}
-      className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : ""} ${hover.isHovered ? "active" : ""}` }
+      className={ `introducing-classic-cards__card introducing-classic-cards__card-${type} ${isNews ? "news-cards" : (isAchievement ? "achievement-cards" : "")} ${hover.isHovered ? "active" : ""}` }
     >
 
     {url

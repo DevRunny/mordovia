@@ -326,6 +326,12 @@ main {
       }
 	}
 
+	&.achievement-cards {
+	  img {
+        height: 85%;
+      }
+	}
+
     .introducing-classic-cards__description {
       z-index: 2;
       position: absolute;
@@ -360,6 +366,10 @@ main {
     }
   }
   .news-cards {
+    width: 100%;
+  }
+
+  .achievement-cards {
     width: 100%;
   }
 }
@@ -945,6 +955,10 @@ footer {
           height: 1.25vw;
         }
       }
+
+      .achievement-subtitle {
+        line-height: 1.5;
+      }
     }
   }
 
@@ -1132,7 +1146,8 @@ footer {
 
   h1 {
     font-size: 6.041666666666667vw;
-    line-height: 5.15625vw;
+    /*line-height: 5.15625vw;*/
+    line-height: 4.95625vw;
     letter-spacing: -0.24166666666666664vw;
   }
 }
@@ -1310,6 +1325,8 @@ body.video-popup-opened {
   right: -3vw;
   top: 0;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
 }
 
 

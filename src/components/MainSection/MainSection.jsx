@@ -74,9 +74,9 @@ const MainSection = () => {
         {/* {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text1}} /> : <></>} */ }
         <span>12 апреля 2024</span>
       </div>
-      <div className={"present"}>
+      {/*<div className={"present"}>
         {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text2}} /> : <></>}
-      </div>
+      </div>*/}
       <div className={"main-content"}>
         <div className={"main-content__title"}>
           <h1>Мордовия</h1>
