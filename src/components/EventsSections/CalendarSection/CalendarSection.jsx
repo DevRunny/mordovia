@@ -6,10 +6,17 @@ import { useFilters } from "../../../queries/useFilters";
 import { useEvents } from "../../../queries/useEvents";
 import CalendarDayComponent from "./CalendarDayComponent";
 import { Link } from "react-router-dom";
+import { useWindowSize } from "usehooks-ts";
 import CalendarFilterComponent from "./CalendarFilterComponent";
 import MiniCardsComponent from "../../CardsComponens/MiniCardsComponent";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 const CalendarSection = ({id}) => {
+  const { width } = useWindowSize();
   const [activeMonth, setActiveMonth] = useState('');
   const [activeDate, setActiveDate] = useState()
   const [topicId, setTopicId] = useState();
@@ -219,9 +226,16 @@ const CalendarSection = ({id}) => {
   }, [activeMonth])
 
   useEffect(() => {
+    let hash = window.location.hash;
+    if (hash == '#/region-day')
+    	setTopicId(14);
+  }, [])
+
+  useEffect(() => {
     if (!filters) return;
     const monthId = filters ? filters.months.find((month) => month.title === activeMonth)?.id : [];
     setMonthId(monthId);
+
     setQueryParams(`${monthId ? 'monthId=' + monthId : ''}${topicId ? '&topicId=' + topicId : ''}`);
   }, [activeMonth])
 
@@ -314,42 +328,54 @@ const CalendarSection = ({id}) => {
           </div>
       </div>
 
-      <div className={"calendar-filters"}>
-        <CalendarFilterComponent
-          id={1}
-          title={"Завтра"}
-          disableFilter={handleResetFilterDate}
-          handleChangeFilterFunc={handleChangeFilterDate}
-          topicId={activeDate}
-          cnt={filters && isFetched ? filters.tomorrow.cnt : 0}
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={ width < 767 ? "8vw" : "14vw" }
+        slidesPerView={"auto"}
+	    navigation
+        className={"calendar-filters"}
+      >
+        <SwiperSlide>
+          <CalendarFilterComponent
+            id={1}
+            title={"Завтра"}
+            disableFilter={handleResetFilterDate}
+            handleChangeFilterFunc={handleChangeFilterDate}
+            topicId={activeDate}
+            cnt={filters && isFetched ? filters.tomorrow.cnt : 0}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CalendarFilterComponent
+            id={2}
+            title={"Выходные"}
+            disableFilter={handleResetFilterDate}
+            handleChangeFilterFunc={handleChangeFilterDate}
+            topicId={activeDate}
+            cnt={filters && isFetched ? filters.weekend.cnt : 0}
         />
-        <CalendarFilterComponent
-          id={2}
-          title={"Выходные"}
-          disableFilter={handleResetFilterDate}
-          handleChangeFilterFunc={handleChangeFilterDate}
-          topicId={activeDate}
-          cnt={filters && isFetched ? filters.weekend.cnt : 0}
-        />
+        </SwiperSlide>
         {filters && isFetched
           ?
           filters.topics.map((topic) => {
             return (
-              <CalendarFilterComponent
-                key={topic.id}
-                id={topic.id}
-                handleChangeFilterFunc={handleChangeFilter}
-                title={topic.title}
-                cnt={topic.cnt}
-                disableFilter={handleResetTopic}
-                topicId={topicId}
-              />
+              <SwiperSlide key={topic.id}>
+                <CalendarFilterComponent
+                  key={topic.id}
+                  id={topic.id}
+                  handleChangeFilterFunc={handleChangeFilter}
+                  title={topic.title}
+                  cnt={topic.cnt}
+                  disableFilter={handleResetTopic}
+                  topicId={topicId}
+                />
+              </SwiperSlide>
             )
           })
           :
           <></>
         }
-      </div>
+      </Swiper>
 
       </div>
       </div>

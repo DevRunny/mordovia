@@ -534,6 +534,7 @@
       gap: 0.25rem;
       border-radius: 3.6598493003229278vh;
       padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+      height: 9.29vw
 
       span {
         font-size: 0.85rem;
@@ -1147,6 +1148,10 @@
   .achievement-section .videoPopup .detail-video .close-video {
     right: 4vw;
     top: -16vw;
+  }
+
+  .calendar-filters .swiper-button-prev, .calendar-filters .swiper-button-next {
+    display: none;
   }
 }
 

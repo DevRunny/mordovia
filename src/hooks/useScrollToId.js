@@ -117,6 +117,21 @@ export const useScrollToId = () => {
         }, 1000)
         break;
 
+
+	  // temporary hardcode
+
+	  case "#/region-day":
+	  	setTimeout(() => {
+          const element = document.getElementById('afisha');
+          element.style.scrollMargin = "160px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000)
+	    break;
+
+	  // --- temporary hardcode
+
       default: break;
     }
   }
