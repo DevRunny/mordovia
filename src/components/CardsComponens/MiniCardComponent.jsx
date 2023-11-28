@@ -20,7 +20,7 @@ const MiniCardComponent = ({props}) => {
       whileHover={isMobile ? {} : {
         backgroundImage: `url(${isHovered ? props.img : ""})`,
         backgroundSize: "cover",
-        cursor: "pointer",
+        cursor: props.hasDetailCard ? "pointer" : "default",
         transition: {duration: duration}
       }}
       onMouseEnter={() => setHovered(true)}

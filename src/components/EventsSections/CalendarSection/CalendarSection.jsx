@@ -111,6 +111,7 @@ const CalendarSection = ({id}) => {
   }
 
   const handleChangeFilter = (filterId) => {
+
     setTopicId(filterId);
     if (firstDay && secondDay) {
       const range = formatDate(true)
@@ -229,6 +230,11 @@ const CalendarSection = ({id}) => {
     let hash = window.location.hash;
     if (hash == '#/region-day')
     	setTopicId(14);
+  }, [])
+
+  useEffect(() => {
+  	setTopicId(14);
+  	handleChangeFilter(14);
   }, [])
 
   useEffect(() => {

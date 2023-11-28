@@ -5,6 +5,7 @@ import soundAnimated from "../../images/Sound-animated.svg";
 import clue from "../../images/Clue.svg";
 import burgerMenu from "../../images/Burger.svg";
 import burgerMenuExit from "../../images/Burger-exit.svg";
+import iconDown from "../../images/Icon-down.svg";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
 import { PATHS } from "../../router";
@@ -44,6 +45,12 @@ export const NavBar = () => {
           <img src={logo} alt={"rpMordovia"} />
         </NavLink>
       </div>
+
+      <div className={"header-button"}>
+        <img src={iconDown} alt="" />
+        <a href="https://mordovia-russia.ru/files/information_mordovia.pdf" target="_blank">Программа Дня Региона</a>
+	  </div>
+
       <nav>
         <ul>
           <li>
@@ -93,7 +100,7 @@ export const NavBar = () => {
             </Link>
           </li>
 
-          <li>
+          {/*<li>
             <Link
             activeClass="active"
             to="achievements"
@@ -107,7 +114,7 @@ export const NavBar = () => {
                 scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
               >Достижения</HashLink>
             </Link>
-          </li>
+          </li>*/}
 
           {/*
           <li>
@@ -233,7 +240,7 @@ export const NavBar = () => {
                   >Вопросы-ответы</HashLink>
                 </Link>
               </li>
-              <li>
+              {/*<li>
                 <Link
                   onClick={() => {handleOpenBurgerMenu()}}
                   activeClass="active"
@@ -248,7 +255,7 @@ export const NavBar = () => {
                     scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
                   >Достижения</HashLink>
                 </Link>
-              </li>
+              </li>*/}
 
 
               {/*<li>*/}

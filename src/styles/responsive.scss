@@ -1153,6 +1153,40 @@
   .calendar-filters .swiper-button-prev, .calendar-filters .swiper-button-next {
     display: none;
   }
+
+  .header-button {
+    position: absolute;
+    top: 3.5rem;
+    height: 5vh;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $colorRed;
+  }
+
+  .header-button img {
+    display: block;
+    height: 4vh;
+    margin-right: 2vw;
+  }
+
+  .header-button a {
+  	text-align: center;
+    display: block;
+    width: auto;
+    height: 100%;
+    border-radius: 0;
+    font-size: 5vw;
+    line-height: 5vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header-button a:hover {
+    background: none;
+  }
 }
 
 @media (max-width: 370px) {

@@ -1300,10 +1300,10 @@ footer {
 
 .calendar-filters .swiper-button-prev, .calendar-filters .swiper-button-next {
   width: 3.5vw;
-  height: 2.7vw;
+  height: 3.2vw;
   background: linear-gradient(270deg, #FFFFFF 0%, #FFFFFF 60%, rgba(255, 255, 255, 0) 100%);
   right: 0;
-  margin-top: -0.95vw;
+  margin-top: -1.2vw;
   width: 5.5vw;
 }
 
@@ -1374,6 +1374,33 @@ body.video-popup-opened {
 }
 
 .swiper .swiper-button-prev {
+}
+
+.header-button {
+}
+
+.header-button img {
+  display: none;
+}
+
+.header-button a {
+  border-radius: 2.6041666667vw;
+  color: $colorWhite;
+  background: $colorRed;
+  font-size: 1.0079166667vw;
+  font-style: normal;
+  font-weight: 300;
+  height: 4.7916666667vw;
+  line-height: 1.875vw;
+  margin: auto;
+  padding: 1.4583333333vw 2.9270833333vw;
+  transition: .3s;
+  width: 25.4166666667vw;
+}
+
+.header-button a:hover {
+  background: #FFFFFF url("../images/Button-active.svg") no-repeat;
+  background-size: cover;
 }
 
 .error-404 {
