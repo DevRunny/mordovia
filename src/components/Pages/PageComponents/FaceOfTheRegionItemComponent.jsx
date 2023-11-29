@@ -19,7 +19,7 @@ const FaceOfTheRegion = ({data}) => {
     	onClick={() => {handleClickPeople(data.id)}}
     >
       <img src={data.img} alt={"miniFace"}/>
-      <span>{data.name}</span>
+      <span dangerouslySetInnerHTML={{__html: data.name}}></span>
     </div>
   );
 };
