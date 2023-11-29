@@ -1403,6 +1403,34 @@ body.video-popup-opened {
   background-size: cover;
 }
 
+.faces-of-the-region-list {
+}
+
+.faces-of-the-region-list .person-people-group {
+  width: 16.6666667vw;
+}
+
+.faces-of-the-region-list .face-of-the-region {
+  padding-right: 1vw;
+  cursor: pointer;
+}
+
+.faces-of-the-region-list .face-of-the-region:first-child {
+  margin-bottom: 2vw;
+}
+
+.faces-of-the-region-list .face-of-the-region img {
+  object-fit: cover;
+}
+
+.faces-of-the-region-list .face-of-the-region span {
+  width: 10vw;
+}
+
+.person-people-group {
+  
+}
+
 .error-404 {
   @include flex-column;
   align-items: center;

@@ -74,6 +74,23 @@
 }
 
 @media (max-width: 767px) {
+
+  .faces-of-the-region-list {
+    margin-bottom: 13vw;
+  }
+
+  .faces-of-the-region-list .person-people-group {
+    width: 50vw;
+  }
+
+  .faces-of-the-region-list .face-of-the-region {
+    gap: 2.625vw;
+  }
+
+  .faces-of-the-region-list .face-of-the-region:first-child {
+    margin-bottom: 3vw;
+  }
+
   header {
       padding: 1.2917115177610334vh;
       .header-logo {

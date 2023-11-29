@@ -10,5 +10,6 @@ export const MORDOVIA_ENDPOINTS = {
   event: "getEvent",
   categoriesAchievements: "getCategoriesAchievements",
   achievements: "getAchievements",
-  achievementsItem: "getAchievementsItem"
+  achievementsItem: "getAchievementsItem",
+  regionPersons: "getRegionPersons"
 }
