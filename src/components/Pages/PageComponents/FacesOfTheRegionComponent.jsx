@@ -45,7 +45,9 @@ const FacesOfTheRegionComponent = () => {
           <div>
             { persons.items.map((person, index) => {
               return (
-                <FaceOfTheRegionDetailsComponent />
+                <FaceOfTheRegionDetailsComponent 
+                  data={person}
+                />
               )
             })}
           </div>

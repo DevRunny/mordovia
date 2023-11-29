@@ -1214,6 +1214,11 @@ footer {
   gap: 2.2916666666666665vw;
   padding-right: 5vw;
 
+  width: 50%;
+  height: 100%;
+  position: sticky;
+  top: 6.5vw;
+
   h1 {
     font-size: 4.166666666666667vw;
     line-height: 4.375vw; /* 105% */
@@ -1231,6 +1236,11 @@ footer {
     @include flex-column;
     gap: 0.625vw;
 
+    font-size: 1.0416666666666667vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4583333333333333vw;
+
     p {
       font-size: 1.0416666666666667vw;
       font-style: normal;
@@ -1243,6 +1253,8 @@ footer {
 .face-of-the-region-description {
   @include flex-column;
   gap: 2.0833333333333335vw;
+
+  width: 50%;
 
   img {
     width: 100%;
