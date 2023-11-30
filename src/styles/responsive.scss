@@ -1216,6 +1216,23 @@
   .header-button a:hover {
     background: none;
   }
+
+  #moments .moments {
+  	font-size: 0;
+  }
+
+  #moments .achievement-watch-video {
+    padding-left: 1.2917115178vh;
+    margin-top: -3.8vh;
+    margin-bottom: 3vh;
+  }
+
+  .moments .moments-card {
+    width: 50vw;
+    height: 50vw;
+    display: inline-block;
+    margin: 0;
+  }
 }
 
 @media (max-width: 370px) {
