@@ -3,6 +3,7 @@ import MainSection from "../MainSection/MainSection";
 import FAQSection from "../FAQSection/FAQSection";
 import GiftShop from "../GiftShop/GitfShop";
 import News from "../News/News";
+import Moments from "../Moments/Moments";
 import { useTitles } from "../../queries/useTitles";
 import { Titles } from "../Titles/Titles";
 import headline from "../../images/Headline.svg";
@@ -36,6 +37,7 @@ const Home = () => {
         <Achievements id={"achievements"}/>
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
         <FAQSection id={"questions"}/>
+        <Moments id={"moments"}/>
         <News id={"news"}/>
         <GiftShop id={"gift-shop"} />
       </div>
