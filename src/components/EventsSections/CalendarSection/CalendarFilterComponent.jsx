@@ -6,7 +6,7 @@ const CalendarFilterComponent = ({id, title, cnt, topicId, disableFilter, handle
       <div key={ id }
            onClick={() => {handleChangeFilterFunc(id)}}
            className={`calendar-filters__filter ${topicId === id ? "filter_active" : ""}`}
-           style={id===2 ? {display: "none"} : {} }
+           /*style={id===2 ? {display: "none"} : {} }*/
            >
         <span>{ title }</span>
         { id !== 1 && id !== 2

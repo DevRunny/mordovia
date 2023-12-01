@@ -32,12 +32,12 @@ const Home = () => {
           <KeyEventsSection id={"events"}/>
         </div>
         <CalendarSection id={"afisha"}/>
+        <Moments id={"moments"}/>
         <StickyTitle img={headline} notSticky={true} subtitle={isFetched ? titles.screen4.text1 : ""} />
         <InteractiveZonesSection id={"interactive"} />
         <Achievements id={"achievements"}/>
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
         <FAQSection id={"questions"}/>
-        <Moments id={"moments"}/>
         <News id={"news"}/>
         <GiftShop id={"gift-shop"} />
       </div>

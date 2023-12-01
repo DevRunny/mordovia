@@ -71,7 +71,7 @@ const MainSection = () => {
       </video>
       <div className={"about"}>
         <span>4 ноября 2023</span>
-        {/* {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text1}} /> : <></>} */ }
+        {isFetched ? <span dangerouslySetInnerHTML={{__html: titles.screen1.text1}} /> : <></>}
         <span>12 апреля 2024</span>
       </div>
       {/*<div className={"present"}>
@@ -80,8 +80,8 @@ const MainSection = () => {
       <div className={"main-content"}>
         <div className={"main-content__title"}>
           <h1>Мордовия</h1>
-          {/*<h4>Экспозиция республики</h4>*/}
-          <h4 className="promo-variant-1">Приглашаем вас 30 ноября <br/>на День Региона Республики</h4>
+          <h4>Экспозиция республики</h4>
+          {/*<h4 className="promo-variant-1">Приглашаем вас 30 ноября <br/>на День Региона Республики</h4>*/}
         </div>
       </div>
 

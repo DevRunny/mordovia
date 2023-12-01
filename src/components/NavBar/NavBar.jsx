@@ -46,10 +46,10 @@ export const NavBar = () => {
         </NavLink>
       </div>
 
-      <div className={"header-button"}>
+      {/*<div className={"header-button"}>
         <img src={iconDown} alt="" />
         <a href="https://mordovia-russia.ru/files/information_mordovia.pdf" target="_blank">Программа Дня Региона</a>
-	  </div>
+	  </div>*/}
 
       <nav>
         <ul>

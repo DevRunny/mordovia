@@ -86,7 +86,7 @@ const Moments = ({ id }) => {
         ?
         <Swiper
           modules={[Autoplay]}
-	      spaceBetween={0}
+	      spaceBetween={15}
 	      slidesPerGroup={1}
 	      slidesPerView={"auto"}
 	      allowTouchMove={false}

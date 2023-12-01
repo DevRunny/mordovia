@@ -226,16 +226,18 @@ const CalendarSection = ({id}) => {
     setSecondDay(null);
   }, [activeMonth])
 
-  useEffect(() => {
+  /*useEffect(() => {
     let hash = window.location.hash;
-    if (hash == '#/region-day')
+    if (hash == '#/region-day') {
     	setTopicId(14);
+    	handleChangeFilter(14);
+    }
   }, [])
 
   useEffect(() => {
   	setTopicId(14);
   	handleChangeFilter(14);
-  }, [])
+  }, [])*/
 
   useEffect(() => {
     if (!filters) return;
