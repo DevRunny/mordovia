@@ -28,14 +28,14 @@ const Home = () => {
           <Titles img={headline} />
           <StickyTitle subtitle={isFetched ? titles.screen2.text1 : ""} />
           <AboutPeopleOfMordoviaSection id={"favorites"}/>
-          <StickyTitle subtitle={isFetched ? titles.screen3.text1 : ""} />
-          <KeyEventsSection id={"events"}/>
+          {/*<StickyTitle subtitle={isFetched ? titles.screen3.text1 : ""} />
+          <KeyEventsSection id={"events"}/>*/}
         </div>
         <CalendarSection id={"afisha"}/>
         <Moments id={"moments"}/>
         <StickyTitle img={headline} notSticky={true} subtitle={isFetched ? titles.screen4.text1 : ""} />
         <InteractiveZonesSection id={"interactive"} />
-        <Achievements id={"achievements"}/>
+        {/*<Achievements id={"achievements"}/>*/}
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
         <FAQSection id={"questions"}/>
         <News id={"news"}/>
