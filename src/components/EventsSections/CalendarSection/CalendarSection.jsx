@@ -135,12 +135,12 @@ const CalendarSection = ({id}) => {
 
     setActiveMonth(actualMonthTomorrow);
 
-    if (filterDate === 1) {
+    if (filterDate === -1) {
   	  setActiveDate(filterDate);
       setFirstDay(tomorrowDay);
       setSecondDay(null);
     }
-    if (filterDate === 2) {
+    if (filterDate === -2) {
       setActiveDate(filterDate);
       setFirstDay(weekendStart);
       setSecondDay(weekendEnd);
@@ -345,7 +345,7 @@ const CalendarSection = ({id}) => {
       >
         <SwiperSlide>
           <CalendarFilterComponent
-            id={1}
+            id={-1}
             title={"Завтра"}
             disableFilter={handleResetFilterDate}
             handleChangeFilterFunc={handleChangeFilterDate}
@@ -355,7 +355,7 @@ const CalendarSection = ({id}) => {
         </SwiperSlide>
         <SwiperSlide>
           <CalendarFilterComponent
-            id={2}
+            id={-2}
             title={"Выходные"}
             disableFilter={handleResetFilterDate}
             handleChangeFilterFunc={handleChangeFilterDate}

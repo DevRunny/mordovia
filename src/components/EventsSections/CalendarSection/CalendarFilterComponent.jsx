@@ -9,7 +9,7 @@ const CalendarFilterComponent = ({id, title, cnt, topicId, disableFilter, handle
            /*style={id===2 ? {display: "none"} : {} }*/
            >
         <span>{ title }</span>
-        { id !== 1 && id !== 2
+        { id !== -1 && id !== -2
         ?
         <span className={"filter_count"}>{ cnt }</span>
         :

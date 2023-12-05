@@ -21,7 +21,7 @@ export const Footer = () => {
           <div className={"footer__links-wrapper"}>
             <span>Экспозиция Республики Мордовия</span>
             <div className={"footer__links"}>
-              <a href="https://vk.com/public223252687" target="_blank" rel="noreferrer">VK</a>
+              <a href="https://vk.com/mordovia_russia" target="_blank" rel="noreferrer">VK</a>
               <a href="https://t.me/Mordovia_Russia" target="_blank" rel="noreferrer">TG</a>
               <a href="https://ok.ru/group/70000004289347" target="_blank" rel="noreferrer">OK</a>
             </div>
