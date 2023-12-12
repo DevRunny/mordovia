@@ -308,7 +308,7 @@ main {
     }
 
     &.introducing-classic-cards__card-3 {
-      width: 100%;
+      width: 100.11%;
     }
 
     &.introducing-classic-cards__card-2 {
@@ -1520,4 +1520,8 @@ body.video-popup-opened {
     line-height: 2.2916666666666665vw;
   }
 
+}
+
+.swiper-backface-hidden .swiper-slide {
+	transform: none !important;
 }

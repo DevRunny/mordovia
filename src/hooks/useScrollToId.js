@@ -38,7 +38,7 @@ export const useScrollToId = () => {
       case "#achievements":
         setTimeout(() => {
           const element = document.getElementById('achievements');
-          element.style.scrollMargin = "120px";
+          element.style.scrollMargin = "140px";
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
