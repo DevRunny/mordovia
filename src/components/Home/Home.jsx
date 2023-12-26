@@ -35,7 +35,7 @@ const Home = () => {
         <Moments id={"moments"}/>
         <StickyTitle img={headline} notSticky={true} subtitle={isFetched ? titles.screen4.text1 : ""} />
         <InteractiveZonesSection id={"interactive"} />
-        <Achievements id={"achievements"}/>
+        {/*<Achievements id={"achievements"}/>*/}
         {/*<HowToGetThereSection id={"how-to-get-there"}/> TODO: подключить как будет готов бэкенд*/}
         <FAQSection id={"questions"}/>
         <News id={"news"}/>

@@ -24,7 +24,12 @@ export const AboutPeopleOfMordoviaSection = ({id}) => {
         <Splide>
           {announces && isFetched
             ?
-            announces.screen1.map((card)=> {
+            announces.screen1.map((card, index)=> {
+
+            	if (index == 0) {
+            		card.img = 'https://mordovia-russia.ru/i/1.gif';
+            	}
+
               return (
                 <React.Fragment key={card.id}>
                   <SplideSlide>
@@ -57,6 +62,11 @@ export const AboutPeopleOfMordoviaSection = ({id}) => {
           {announces && isFetched
             ?
             announces.screen1.map((card, index)=> {
+
+            	if (index == 0) {
+            		card.img = 'https://mordovia-russia.ru/i/1.gif';
+            	}
+
                 return (
                   <CardComponent
                     id={index}
