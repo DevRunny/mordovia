@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useWindowSize } from "usehooks-ts";
 import { useLocation } from "react-router-dom";
@@ -17,6 +17,8 @@ const DetailsPageComponent = ({ props }) => {
 
   const [videoPlaying, setVideoPlaying] = useState(true)
 
+  const [pageOpacity, setPageOpacity] = useState(0)
+
   const handlePlayVideo = () => {
     setVideoPlaying(0);
     let video = document.getElementById("detail_video");
@@ -29,8 +31,14 @@ const DetailsPageComponent = ({ props }) => {
     return titles[(n % 10 === 1 && n % 100 !== 11) ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]
   }
 
+  useEffect(() => {
+  	setTimeout(() => {
+  		setPageOpacity(1);
+  	}, 100);
+  }, [])
+
   return (
-    <div className={"event-details-page"}>
+    <div className={"event-details-page"} style={ pageOpacity == 0 ? {opacity: 0} : {}}>
       <div className={"event"}>
         <ButtonBackToMain
           toSection={

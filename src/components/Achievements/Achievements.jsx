@@ -32,6 +32,7 @@ const Achievements = ({ id }) => {
               {isFetched && categoriesAchievements
                 ?
                 categoriesAchievements.categoriesAchievements.map((cat, index) => {
+                 if (cat.alias != 'people')
                   return(
                     <SplideSlide key={cat.id}>
                       <MobileCardComponent
@@ -73,6 +74,7 @@ const Achievements = ({ id }) => {
             {isFetched && categoriesAchievements
               ?
               categoriesAchievements.categoriesAchievements.map((cat, index) => {
+              	if (cat.alias != 'people')
                 return(
                   <SwiperSlide key={cat.id}>
                     <CardComponent

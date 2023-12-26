@@ -87,6 +87,21 @@ export const NavBar = () => {
           <li>
             <Link
             activeClass="active"
+            to="achievements"
+            spy={true}
+            smooth={true}
+            offset={-190}
+            duration={500}
+            >
+              <HashLink
+                to={`${PATHS.MAIN + "#achievements"}`}
+                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
+              >Достижения</HashLink>
+            </Link>
+          </li>
+          <li>
+            <Link
+            activeClass="active"
             to="questions"
             spy={true}
             smooth={true}
@@ -99,22 +114,6 @@ export const NavBar = () => {
               >Вопросы-ответы</HashLink>
             </Link>
           </li>
-
-          {/*<li>
-            <Link
-            activeClass="active"
-            to="achievements"
-            spy={true}
-            smooth={true}
-            offset={-190}
-            duration={500}
-            >
-              <HashLink
-                to={`${PATHS.MAIN + "#achievements"}`}
-                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -190) }}
-              >Достижения</HashLink>
-            </Link>
-          </li>*/}
 
           {/*
           <li>
@@ -228,6 +227,22 @@ export const NavBar = () => {
                 <Link
                   onClick={() => {handleOpenBurgerMenu()}}
                   activeClass="active"
+                  to="#achievements"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                >
+                  <HashLink
+                    to={`${PATHS.MAIN + "#achievements"}`}
+                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
+                  >Достижения</HashLink>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={() => {handleOpenBurgerMenu()}}
+                  activeClass="active"
                   to="#questions"
                   spy={true}
                   smooth={true}
@@ -240,22 +255,6 @@ export const NavBar = () => {
                   >Вопросы-ответы</HashLink>
                 </Link>
               </li>
-              {/*<li>
-                <Link
-                  onClick={() => {handleOpenBurgerMenu()}}
-                  activeClass="active"
-                  to="#achievements"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  <HashLink
-                    to={`${PATHS.MAIN + "#achievements"}`}
-                    scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -80) }}
-                  >Достижения</HashLink>
-                </Link>
-              </li>*/}
 
 
               {/*<li>*/}

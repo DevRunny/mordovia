@@ -760,7 +760,7 @@ main {
 }
 
 .FAQ {
-  margin-bottom: 16.666666666666668vw;
+  margin-bottom: 6.666666666666668vw;
 
   h4 {
     cursor: pointer;
@@ -988,6 +988,11 @@ footer {
       p {
       	margin: 0;
       	line-height: 1.3;
+
+      	a {
+      	  font-size: .9375vw;
+      	  line-height: 1.3;
+      	}
       }
     }
   }

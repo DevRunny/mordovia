@@ -765,11 +765,15 @@
     &__info {
       padding: 1rem 0.75rem 1.25rem;
       h1 {
-        font-size: 2rem;
+        /*font-size: 2rem;
+        line-height: 2.4rem;*/
+
         font-style: normal;
         font-weight: 800;
-        line-height: 2.4rem; /* 105.556% */
         letter-spacing: -0.0485rem;
+
+        font-size: 1.7rem;
+        line-height: 2.1rem;
       }
 
       span {
@@ -979,10 +983,12 @@
     top: auto;
     margin-bottom: 0;
     width: 100%;
+    padding-right: 0;
   }
 
   .event-details-content {
     width: 100%;
+    padding-right: 0;
   }
 
   .event__details .details_description {
@@ -1001,6 +1007,13 @@
     font-weight: 400;
     line-height: 1.25rem;
     margin: 0;
+  }
+
+  .event__details .details_description p a {
+  	font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
   }
 
   .detail-video {
