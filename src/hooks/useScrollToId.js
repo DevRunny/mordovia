@@ -4,6 +4,7 @@ export const useScrollToId = () => {
   const { hash } = window.location;
 
   const scrollToId = () => {
+  	//console.log(hash);
     switch (hash) {
       case "#events":
         setTimeout(() => {
@@ -23,6 +24,13 @@ export const useScrollToId = () => {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 1000)
+        setTimeout(() => {
+          const element = document.getElementById('afisha');
+          element.style.scrollMargin = "160px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 2000)
         break;
 
       case "#questions":
@@ -38,11 +46,18 @@ export const useScrollToId = () => {
       case "#achievements":
         setTimeout(() => {
           const element = document.getElementById('achievements');
-          element.style.scrollMargin = "140px";
+          element.style.scrollMargin = "130px";
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 1000)
+        setTimeout(() => {
+          const element = document.getElementById('achievements');
+          element.style.scrollMargin = "130px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 2000)
         break;
 
       case "#news":
@@ -53,6 +68,13 @@ export const useScrollToId = () => {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 1000)
+        setTimeout(() => {
+          const element = document.getElementById('news');
+          element.style.scrollMargin = "120px";
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 2000)
         break;
 
 	  case "#video":
@@ -82,16 +104,6 @@ export const useScrollToId = () => {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 1000)
-        break;
-
-	  case "#achievements":
-      setTimeout(() => {
-        const element = document.getElementById('achievements');
-        element.style.scrollMargin = "120px";
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 1000)
         break;
 
 	  case "#map":
